@@ -12,20 +12,20 @@ This introduction want to explore the magic behind PyTorch, with the strengths a
 
 **Table of Contents**:
 
-- Pytorch introduction
-- Tensor
-- Variables & Autograd
-- Defining new autograd functions
-- Static Vs Dynamic Computational Graph
-- Models Definition
-- Train model with CUDA
-- Weight Init
-- Excluding subGraph
-- Training Process
-- Logging
-- Data Handler
-- Final architecture overview
-- Summary
+- [Pytorch introduction](#pytorch-introduction)
+- [Tensor](#tensor)
+- [Variables & Autograd](#variables-and-autograd)
+- [Defining new autograd functions](#defining-new-autograd-functions)
+- [Static Vs Dynamic Computational Graph](#static-vs-dynamic-computational-graph)
+- [Models Definition](#models-definition)
+- [Train model with CUDA](#train-model-with-cuda)
+- [Weight Init](#weight-initialization)
+- [Excluding subgraphs from backward](#excluding-subgraphs-from-backward)
+- [Training Process](#training-process)
+- [Logging](#logging)
+- [Data Handling](#data-handling)
+- [Final architecture overview](#final-architecture-overview)
+- [Summary](#summary)
 
 *Note: During this introduction you will encounter ML/DL lingo and some training template with different model, even if you do not fully understand everything, don't worry, we will cover everything in a more concise way during the next episodes of this mini series.*
 
