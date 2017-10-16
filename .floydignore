@@ -1,0 +1,17 @@
+
+# Directories and files to ignore when uploading code to floyd
+
+FLOYD_README.md
+.git
+.eggs
+eggs
+lib
+lib64
+parts
+sdist
+core
+var
+*.pyc
+*.ckp
+*.swp
+.DS_Store
