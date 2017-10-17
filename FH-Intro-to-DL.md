@@ -113,6 +113,7 @@ System reccomandation, Spam filter etc...
 
 ## Narrow AI
 
+Current technology is capable to solve things without required a new way of interconnect knowledge like repetitive task, human task around 1-10s.
 
 
 ## General AI
