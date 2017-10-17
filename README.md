@@ -217,6 +217,52 @@ w.data -= 0.01 * w.grad.data
 w.grad.data.zero_() # Tensor of 5 x 1 of zeros
 ```
 
+```python
+# Var and Authograd example on a single hidden layer NN with SGD training for few steps
+# Remember: import torch.nn.functional as F
+
+# For reproducibility
+torch.manual_seed(1)
+
+# Load your tensors on GPU if available
+dtype = torch.cuda.FloatTensor if cuda else torch.FloatTensor
+
+# Define an dataset of 10 samples and 10 features
+x = Variable(torch.randn(10, 10).type(dtype), requires_grad=False)
+y = Variable(torch.randn(10, 1).type(dtype), requires_grad=False)
+# Define some weights
+w1 = Variable(torch.randn(10, 5).type(dtype), requires_grad=True)
+w2 = Variable(torch.randn(5, 1).type(dtype), requires_grad=True)
+
+# The lenght of the step we perform during GD
+learning_rate = 0.1
+# MSE(Mean Squared Error Loss)
+loss_fn = torch.nn.MSELoss()
+if cuda:
+    loss_fn.cuda()
+# Stocastic Gradient Descent Optimizer => w = w - lr * w.grads
+optimizer = torch.optim.SGD([w1, w2], lr=learning_rate)
+# Training Steps over full dataset
+for step in range(5):
+    # Hidden Layer
+    hidden = F.sigmoid(x @ w1)
+    # Model Output/ prediction
+    pred = hidden @ w2
+
+    # From Loss, Update the weight to improve prediction
+    loss = loss_fn(pred, y)
+    if cuda:
+        loss = loss.cpu()
+    l = np.asscalar(loss.data.numpy())
+    print ("Loss {l} at step {i}".format(l=l, i=step))
+    # Manually zero all previous gradients
+    optimizer.zero_grad()
+    # Calculate new gradients
+    loss.backward()
+    # Apply new gradients
+    optimizer.step()
+```
+
 With the last example we have updated the weights automatically following these steps: Define an Optimizer, Compute the feedforward step, Zeroed the gradients Compute the Loss and BackProp(Compute the gradients with respect to Loss and Update the weights). But the main point that you should get from the last snippet: **we still should manually zero gradients before calculating new ones**. This is one of the core concepts of the PyTorch. Sometimes it may be not very obvious why we should do this, but on the other hand, we have full control over our gradients, when and how we want to apply them.
 
 ### Defining new autograd functions
@@ -260,21 +306,22 @@ class MyReLU(torch.autograd.Function):
 # For reproducibility
 torch.manual_seed(1)
 
-# Define an dataset of 10 samples and 10 features
-x = Variable(torch.randn(10, 10), requires_grad=False)
-y = Variable(torch.randn(10, 1), requires_grad=False)
-# Define some weights
-w1 = Variable(torch.randn(10, 5), requires_grad=True)
-w2 = Variable(torch.randn(5, 1), requires_grad=True)
-
 # Load your tensors on GPU if available
-if cuda:
-    x, y, w1, w2 = x.cuda(), y.cuda(), w1.cuda(), w2.cuda()
+dtype = torch.cuda.FloatTensor if cuda else torch.FloatTensor
+
+# Define an dataset of 10 samples and 10 features
+x = Variable(torch.randn(10, 10).type(dtype), requires_grad=False)
+y = Variable(torch.randn(10, 1).type(dtype), requires_grad=False)
+# Define some weights
+w1 = Variable(torch.randn(10, 5).type(dtype), requires_grad=True)
+w2 = Variable(torch.randn(5, 1).type(dtype), requires_grad=True)
 
 # The lenght of the step we perform during GD
 learning_rate = 0.1
 # MSE(Mean Squared Error Loss)
 loss_fn = torch.nn.MSELoss()
+if cuda:
+    loss_fn.cuda()
 # Stocastic Gradient Descent Optimizer => w = w - lr * w.grads
 optimizer = torch.optim.SGD([w1, w2], lr=learning_rate)
 # Training Steps over full dataset
@@ -288,6 +335,8 @@ for step in range(5):
 
     # From Loss, Update the weight to improve prediction
     loss = loss_fn(pred, y)
+    if cuda:
+        loss = loss.cpu()
     l = np.asscalar(loss.data.numpy())
     print ("Loss {l} at step {i}".format(l=l, i=step))
     # Manually zero all previous gradients
@@ -406,6 +455,8 @@ learning_rate = 0.1
 # The nn package also contains definitions of popular loss functions; in this
 # case we will use Mean Squared Error (MSE) as our loss function.
 loss_fn = torch.nn.MSELoss()
+if cuda:
+    loss_fn.cuda()
 
 # Stocastic Gradient Descent Optimizer => w = w - lr * w.grads
 optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
@@ -416,11 +467,11 @@ for step in range(5):
     # doing so you pass a Variable of input data to the Module and it produces
     # a Variable of output data.
     y_pred = model(x)
-    if cuda:
-        y_pred = y_pred.cpu()
 
     # From Loss, Update the weight to improve prediction
     loss = loss_fn(y_pred, y)
+    if cuda:
+        loss = loss.cpu()
     l = np.asscalar(loss.data.numpy())
     print ("Loss {l} at step {i}".format(l=l, i=step))
     # Manually zero all previous gradients
@@ -455,12 +506,16 @@ model = torch.nn.Sequential(
 if cuda:
     model.cuda() <== CUDA model
 
+loss_fn = torch.nn.MSELoss()
+if cuda:
+    loss_fn.cuda() <= compute loss between cuda Tensor
+
 ...
 # Inside Training
 
-y_pred = model(x)
-    if cuda:
-        y_pred = y_pred.cpu() <= From CUDA to CPU Tensor
+if cuda:
+        loss = loss.cpu() <= From CUDA to CPU Tensor
+...
 ```
 
 ### Weight initialization
