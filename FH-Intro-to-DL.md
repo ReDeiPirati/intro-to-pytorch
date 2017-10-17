@@ -118,6 +118,13 @@ Current technology is capable to solve things without required a new way of inte
 
 ## General AI
 
+No one knows how can we reach it.
+The challenge:
+ - Catastrophic forgetting (A new task delete the previous knowledge, how can we overcome this?)
+ - Continuous Learning (in which way is organized the knowledge inside our brain),
+ - Safe AI (Are ML model, safe in term of cyber security(Adversarial example), but even not expected behavior? Example RL which exploit env.)
+ - Unbiased Dataset (Machine and model are neither sexist nor racist, but their data can be, how can we unbiased ds?)
+
 
 
 ## What's next?
