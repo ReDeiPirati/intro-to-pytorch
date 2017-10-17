@@ -4,11 +4,11 @@
 
 #### Abstract
 
-[PyTorch](http://pytorch.org/) is an amazing [framework](https://en.wikipedia.org/wiki/Software_framework) which allows data scientist and AI practitioners to create amazing stuff. [Karpathy tweeted that this is the framework of 2017](https://twitter.com/karpathy/status/829518533772054529), [AI researchers are embracing its](https://www.oreilly.com/ideas/why-ai-and-machine-learning-researchers-are-beginning-to-embrace-pytorch) thanks to the high level of flexibility that the framework provide, moreover it’s pythonic!
+[PyTorch](http://pytorch.org/) is an amazing [framework](https://en.wikipedia.org/wiki/Software_framework) which allows data scientists and AI practitioners to create amazing stuff. [Karpathy tweeted that this is the framework of 2017](https://twitter.com/karpathy/status/829518533772054529), [AI researchers are embracing it](https://www.oreilly.com/ideas/why-ai-and-machine-learning-researchers-are-beginning-to-embrace-pytorch) thanks to the high level of flexibility that the framework provide, moreover it’s pythonic!
 
 ## Introduction
 
-This introduction want to explore the magic behind PyTorch, with the strengths and weakness that the framework provide. Before we start, you should know that the Pytorch [documentation](http://pytorch.org/docs/master/) and [tutorials](http://pytorch.org/tutorials/) are stored separately. Also sometimes they may don’t meet each other, because of fast development and version changes. So fill free to investigate [source code](https://github.com/pytorch/pytorch). It’s very clear and straightforward. And it’s better to mention that there are exist awesome [PyTorch forums](https://discuss.pytorch.org/), where you may ask any appropriate question, and you will get an answer relatively fast. This place seems to be even more popular than StackOverflow for the PyTorch users.
+This introduction want to explore the magic behind PyTorch, with the strengths and weakness that the framework provide. Before we start, you should know that the Pytorch [documentation](http://pytorch.org/docs/master/) and [tutorials](http://pytorch.org/tutorials/) are stored separately. Also sometimes they may don’t meet each other, because of fast development and version changes. So feel free to investigate [source code](https://github.com/pytorch/pytorch). It’s very clear and straightforward. It’s good to mention that there are exist awesome [PyTorch forums](https://discuss.pytorch.org/), where you may ask any appropriate question, and you will get an answer relatively fast. This place seems to be even more popular than StackOverflow for the PyTorch users.
 
 **Table of Contents**:
 
@@ -27,7 +27,7 @@ This introduction want to explore the magic behind PyTorch, with the strengths a
 - [Final architecture overview](#final-architecture-overview)
 - [Summary](#summary)
 
-*Note: During this introduction you will encounter ML/DL lingo and some training template with different model, even if you do not fully understand everything, don't worry, we will cover everything in a more concise way during the next episodes of this mini series.*
+*Note: During this introduction you will encounter ML/DL lingo and some training template with different models, even if you do not fully understand everything, don't worry, we will cover everything in a more concise way during the next episodes of this mini series.*
 
 ### Pytorch introduction
 
@@ -57,45 +57,55 @@ Numpy is a great framework, but it cannot utilize GPUs to accelerate its numeric
 
 Here we introduce the most fundamental PyTorch concept: the Tensor. A PyTorch Tensor is conceptually identical to a numpy array: a Tensor is an n-dimensional array, and PyTorch provides many functions for operating on these Tensors. Like numpy arrays, PyTorch Tensors do not know anything about deep learning or computational graphs or gradients; they are a generic tool for scientific computing.
 
-Here some example with PyTorch Tensor and Operations:
+Here some example with PyTorch Tensor and some operations on them:
 
 ```python
 # Construct a 5x3 matrix, uninitialized:
+print("torch.Tensor(5, 3):")
 x = torch.Tensor(5, 3)
 print(x)
 
 # Construct a randomly initialized matrix
+print("torch.rand(5, 3):")
 x = torch.rand(5, 3)
 print(x)
 
 # Get its size
+print("Last Tensor Size:")
 print(x.size())
 
 # There are multiple syntaxes for operations. Let’s see addition as an example
 # Addition: syntax 1
 y = torch.rand(5, 3)
+print("Syntax 1: x + y =")
 print(x + y)
 
 # Addition: syntax 2
+print("Syntax 2: torch.add(x, y) =")
 print(torch.add(x, y))
 
 # Addition: giving an output tensor
 result = torch.Tensor(5, 3)
 torch.add(x, y, out=result)
+print("Syntax 3: torch.add(x, y, out=result) =")
 print(result)
 
 # Addition: in-place
 # adds x to y
+print("In-place Addition: y.add_(x) =")
 y.add_(x)
 print(y)
 
 # You can use standard numpy-like indexing with all bells and whistles!
+print ("Indexing x[:, 1] - Second column(index starts from zero) of every rows:")
 print(x[:, 1])
 ```
 
 However unlike numpy, PyTorch Tensors can utilize GPUs to accelerate their numeric computations. To run a PyTorch Tensor on GPU, you simply need to cast it to a new datatype, but also, it very simple to switch from GPU to CPU. Moreover it’s very easy to convert tensors from NumPy to PyTorch and vice versa.
 
 Here we use PyTorch to convert a Numpy array to a PyTorch tensor and vice versa, then we will load a Tensor to GPU and then back again on CPU using cast before mentioned.
+
+*Note: you can run the GPU to CPU example only if you are running a FloydHub GPU instance*
 
 ```python
 # Generate a sample matrix of 3 rows and 4 columns
@@ -147,7 +157,7 @@ When using autograd, the forward pass of your network will define a computationa
 
 PyTorch Variables have the same API as PyTorch Tensors: (almost) any operation that you can perform on a Tensor also works on Variables; the difference is that using Variables defines a computational graph, allowing you to automatically compute gradients.
 
-Here we use PyTorch Variables and autograd: first on simple operations, second on forward and backward step of a linear model for a Regression Task with manual Gradient Descent update, and finally, we perform a small training using 1 hidden layer Neural Network with optimizer to show how to automatically update the weight during training.
+Here we use PyTorch Variables and autograd: first on simple operations, second on forward and backward step for a linear model for a Regression Task with manual Gradient Descent update, and finally, we perform a some training steps using one hidden layer Neural Network with optimizer to show how to automatically update the weights during training.
 
 
 ```python
@@ -207,7 +217,7 @@ w.data -= 0.01 * w.grad.data
 w.grad.data.zero_() # Tensor of 5 x 1 of zeros
 ```
 
-With the last example we have updated the weight automatically following these steps: Define an Optimizer, Zeroed the grad at the beginning of the step, Compute the feedforward step, Compute the Loss and BackProp(Compute the gradient and Update the weights). But the main point that you should get from the last snippet: **we still should manually zero gradients before calculating new ones**. This is one of the core concepts of the PyTorch. Sometimes it may be not very obvious why we should do this, but on the other hand, we have full control over our gradients, when and how we want to apply them.
+With the last example we have updated the weights automatically following these steps: Define an Optimizer, Compute the feedforward step, Zeroed the gradients Compute the Loss and BackProp(Compute the gradients with respect to Loss and Update the weights). But the main point that you should get from the last snippet: **we still should manually zero gradients before calculating new ones**. This is one of the core concepts of the PyTorch. Sometimes it may be not very obvious why we should do this, but on the other hand, we have full control over our gradients, when and how we want to apply them.
 
 ### Defining new autograd functions
 
@@ -303,7 +313,7 @@ One aspect where static and dynamic graphs differ is control flow. For some mode
 
 Here's a comparison two definitions of the while loop statements - the first one in TensorFlow and the second one in PyTorch:
 
-*Note: We have already provisioning this machine with Tensorflow, declaring it in the `floyd_requirement.txt` file. So every time you need to use a package that is not available in the environment you will use, just remember to add that dependecy in the `floyd_requirement.txt` file. You can also run commands directly from Jupyter Notebook. For more infos about how to install extra dependecies, just take a look at our docs [here](https://docs.floydhub.com/guides/jobs/installing_dependencies/).*
+*Note: We have already provisioning this machine with Tensorflow, declaring this dependency in the `floyd_requirement.txt` file. So every time you need to use a package that is not available in the environment you will use, just remember to add that dependecy in the `floyd_requirement.txt` file. You can also run commands directly from Jupyter Notebook. For more infos about how to install extra dependecies, just take a look at our docs [here](https://docs.floydhub.com/guides/jobs/installing_dependencies/).*
 
 ```python
 # Tensorflow Loop example
@@ -364,7 +374,7 @@ In TensorFlow, packages like [Keras](https://github.com/fchollet/keras), [Tensor
 
 In PyTorch, the `nn` package serves this same purpose. The `nn` package defines a set of **Modules**, which are roughly equivalent to neural network layers. A Module receives input Variables and computes output Variables, but may also hold internal state such as Variables containing learnable parameters. The `nn` package also defines a set of useful loss functions that are commonly used when training neural networks.
 
-Do you remeber the one hidden NN the we used before? Now we will make the code `nn` compliant.
+Do you remeber the one hidden layer NN the we used before? Now we will make the code `nn` compliant.
 
 ```python
 # For reproducibility
@@ -426,7 +436,7 @@ for step in range(5):
 
 ### Train model with CUDA
 
-If was discussed earlier how we might pass one tensor to the CUDA. But if we want to pass the whole model, it’s ok to call .cuda() method from the model itself, and wrap each input variable to the .cuda() and it will be enough. After all computations, we should get results back with .cpu() method. (Just retake a look at the code above).
+If was discussed earlier how we might pass one tensor to [CUDA](https://en.wikipedia.org/wiki/CUDA). But if we want to pass the whole model, it’s ok to call `.cuda()` method from the model itself, and wrap each input variable to the `.cuda()` and it will be enough. After all computations, we should get results back with `.cpu()` method. (Just retake a look at the code above).
 
 ```python
 x = Variable(torch.randn(10, 10), requires_grad=False)
