@@ -39,6 +39,8 @@ Human specie is one of the most incredibly thing ever created in term of complex
 
 ### AI fields
 
+![images AI multi-disciplinary]
+
 AI is an extremely multi-disciplinary field, it covers: Planning, Robotics, Math, Neuroscience, Biology, Statistic, Natural Language Processing and Understanding, Knowledge Representation, Reasoning, and Machine Learning. Do not worry if you have not a solid understanding of these fields, during your journey, with us ;), you will learn a lot.
 
 With the last achievement in this field, you can try to improve all the existing technologies and maybe simplify the human-machine interaction building a future where human possibilities will be so wide that the only limit is our immagination.
@@ -49,7 +51,11 @@ Yes, even if we have not discussed the full history behind AI, it's good to know
 
 ### Knowledge Representation
 
+![Knowledge representation image, rule engine inference]
+
 The key component of reasoning, is to have someting to reasoning on! In the past, but even now, AI was/is reduced to hardcode structured informations in some computer representable format so that we can reason on it. With reason I mean: defining rules by which an algorithm can infer information from. Moreover we can explore the information represented using appropriate data structure such as graph or tree, and reduce the reasoning or planning task to a visit on this structures.
+
+![translate a task to a visit on graph or tree]
 
 It's easy to recognize that this is not the way we work in term of a possible knowledge pipeline. We acquire knowledge with experience: more the experiences we face more the knowledge we gain. In other terms: we learn knowledges, we have not any hardcoded knowledge. This bring us to the next building block.
 
@@ -63,13 +69,13 @@ Let me first introduce this subfield of AI with two popular definition:
 ### Trinity of Machine Learning
 
 #### Supervised Learning
-(student preparing for exam example)
+(student preparing for exam example: Train are assignments, Evaluation is exam)
 
 #### Unsupervised Learning
-the Yann LeCun cake: Twitter/Facebook post] [toddler in the world]
+the Yann LeCun cake: Twitter/Facebook post] [toddler in the world, he create useful representation of the world without any prior knownledge or label]
 
 #### Reinforcement Learning
-the Yann LeCun cake: Twitter/Facebook post] [toddler in the world]
+the Yann LeCun cake: Twitter/Facebook post] [toddler in the world, he learn interacting with the env.]
 
 ### ML workflow
 
@@ -96,16 +102,19 @@ Deep SL, Deep UL, DRL
 
 ### DL success
 
-#### Mainstream reason adoption
+#### Mainstream reasons of adoption
+![Andrew Ng NIPS tutorial 2016]
+
 Transfer Learning
 Representational Learning
 More Data, More Accuracy
-(Ruthder image)
+
+
 
 #### Real world applications
 
 Self-driving car
-precision medicine
+precision medicine(rethinopathy and skin cancer detection)
 Alpha Go
 Conversational Agent
 System reccomandation, Spam filter etc...
@@ -113,7 +122,7 @@ System reccomandation, Spam filter etc...
 
 ## Narrow AI
 
-Current technology is capable to solve things without required a new way of interconnect knowledge like repetitive task, human task around 1-10s.
+Current technology is capable to solve things without required a new way of interconnect knowledge like repetitive task and human task around 1-10s. Do one job at superhuman performance.
 
 
 ## General AI
@@ -121,17 +130,17 @@ Current technology is capable to solve things without required a new way of inte
 No one knows how can we reach it.
 The challenge:
  - Catastrophic forgetting (A new task delete the previous knowledge, how can we overcome this?)
- - Continuous Learning (in which way is organized the knowledge inside our brain),
+ - Continuous Learning (in which way is organized the knowledge inside our brain?),
  - Safe AI (Are ML model, safe in term of cyber security(Adversarial example), but even not expected behavior? Example RL which exploit env.)
  - Unbiased Dataset (Machine and model are neither sexist nor racist, but their data can be, how can we unbiased ds?)
 
-
+We need a Cognitive Toolkit to evaluate this model. (See Karpathy slide)
 
 ## What's next?
 
 As just said above, the road to achieve GAI is not defined, even if we have not a well defined path, here a list of the most interesting topics which are pushing researcher to find a way to achieve GAI and may be a another step in the direction of the Intelligence Algorithm which drive our evolutionary behavior.
 
-[Is Backpropagation the right algorithm to drive the learning process?](https://www.axios.com/ai-pioneer-advocates-starting-over-2485537027.html) This is a question of [Geoffry Hinton](https://en.wikipedia.org/wiki/Geoffrey_Hinton), one of the authors of backprop, who recently become suspicious about his famous algo. I do not know if backprop is the right way to drive learning, but it's really notable and admirable when one of the man who have driven the research in this discipline has the courage to questioning their own work and try with a new formulation.
+[Is Backpropagation the right algorithm to drive the learning process?](https://www.axios.com/ai-pioneer-advocates-starting-over-2485537027.html) This is a question of [Geoffry Hinton](https://en.wikipedia.org/wiki/Geoffrey_Hinton) who recently become suspicious about the famous algo behind our learning models. I do not know if backprop is the right way to drive learning, but it's really notable and admirable when one of the man who have driven the research in this discipline has the courage to questioning their own work and try with a new formulation.
 
 ![slide 26 LeCun NIPS 2016 Predictive Learning]
 
@@ -139,15 +148,18 @@ As just said above, the road to achieve GAI is not defined, even if we have not 
 
 [AI = RL + DL](http://icml.cc/2016/tutorials/deep_rl_tutorial.pdf). This is a quote from [David Silver](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Home.html), one of the main architech behind AlphaGo, Deep Reinforcement Learning is another very active research field where top AI companies are challeging each other(DeepMind, OpenAI etc...). Raising the bar in this field means having an Agent which is able to move into an enviroment and reaching is goals.
 
-![](https://cdn-images-1.medium.com/max/2000/1*AZ5-3WdNdYyC2U0Aq7RhIg.png)
+![Le Cun citation about GANs](https://cdn-images-1.medium.com/max/2000/1*AZ5-3WdNdYyC2U0Aq7RhIg.png)
 
-[Generative Adversarial Network is the most interesting idea in the last ten years in machine learning](). We have already discussed the amount of data needed to train our DL models. GANs is a really cool class of models whose purpose is to generate high quality data similar to the dataset distribution which they are learning. Since collecting dataset is extremely consuming in term of time and money resource, simulating/generating data is the only feasible solution. By instance: [Waymo is massively using simulation to train its automous systems](), [Apple is using it to refine syntethic images](), and other are pointing in the same direction. In order to train very deep model, you need a lot of high quality data.
+[Generative Adversarial Network]() is the most interesting idea in the last ten years in machine learning. We have already discussed the amount of data needed to train our DL models. GANs is a really cool class of models whose purpose is to generate high quality data similar to the dataset distribution which they are learning. Since collecting dataset is extremely consuming in term of time and money resource, simulating/generating data is the only feasible solution. By instance: [Waymo is massively using simulation to train its automous systems](https://www.theatlantic.com/technology/archive/2017/08/inside-waymos-secret-testing-and-simulation-facilities/537648/), [Apple is using it to refine syntethic images](https://machinelearning.apple.com/2017/07/07/GAN.html), and other are pointing in the same direction. In order to train very deep model, you need a lot of high quality data.
 
-[Prior Consciusness](). Y. Bengio proposal of consciusness with our current knowledge. This is a new framewrok proposal.
+[Prior Consciusness](https://arxiv.org/abs/1709.08568). Y. Bengio proposal of consciusness with our current knowledge and technolgy. [Follow this link for a great explanation.](https://www.quora.com/What-is-Yoshua-Bengios-new-Consciousness-Prior-paper-about)
 
-[Opening the black box of deep neural networks via information](https://youtu.be/bLqJHjXihK8). ...
+[Opening the black box of deep neural networks via information](https://arxiv.org/abs/1703.00810). Prof. Shwartz-Ziv and Naftali Tishby have tried to explain what's happening during training. This research underline the following things:
+- SGD involves 2 distinct phase: Memorization and Compression. Memorization phase: High Mean, Low Variance (few epochs), Compression phase: Low Mean, High Variance(a lot of epochs). This can be translate as: during the first step, the Information Plane of each Layer is adjust in a similar way to memorize the task, then each leayer begin to exclude all the irrelevant information(compression phase)
+- the number of hidden layer reduces the training time to reach optimal compression and generalization
+Follow this [link for a seminar on this work by Naftali Tishby](https://www.youtube.com/watch?v=FSfN2K3tnJU)
 
-* There is a **hidden** chapter just below, can you find it?*
+* There is a **hidden** chapter just below, can you find it?* (Gamification)
 
 (hidden html element)
 ### What about AI apocalypse
@@ -160,6 +172,4 @@ Siraj :)
 
 This was a high level introduction to the exciting field of Deep Learning (AI/ML/DL).
 Our hope is that this article have inspired you as much as it has pushed us to build FloydHub and allow AI-folks and You to take our present in the future you have dreamed of.
-
-
 
