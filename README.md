@@ -349,6 +349,8 @@ for step in range(5):
 
 ### Static vs Dynamic Computational Graph
 
+![dynamic graph](http://pytorch.org/static/img/dynamic_graph.gif)
+
 PyTorch autograd looks a lot like TensorFlow: in both frameworks we define a computational graph, and use automatic differentiation to compute gradients. The biggest difference between the two is that TensorFlow's computational graphs are **static** and PyTorch uses **dynamic** computational graphs.
 
 In TensorFlow, we define the [computational graph](https://www.tensorflow.org/programmers_guide/graphs) once and then execute the same graph over and over again, possibly feeding different input data to the graph. In PyTorch, each forward pass defines a new computational graph. In the beginning, the distinction between those approaches not so huge. But dynamic graphs became very handful when you want to debug your code or define some conditional statements. You can use your favorite debugger as it is!
