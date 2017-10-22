@@ -9,10 +9,10 @@ This Mini Series covers the basic of Deep Learning guiding the user in a learn b
 
 ## Beginner
 The beginner episode is split in 4 part:
-- [**FloydHub introducting to Deep Learning**](beginner/0.FH-intro-to-DL/) in which covers an high level overview what is DL, why it is become mainstream, what are the current challenges and in which direction researchers are looking for.
-- [**FH intro to DL: PyTorch**](beginner/1.PyTorch/) in which covers the PyTorch Deep Learning Framework.
-- [**FH intro to DL: Linear Regression**](beginner/2.Linear-Regression/) in which covers the ML workflow and the classical house prediction regression problem solved with a Linear Regression model.
-- [**FH intro to DL: Logistic Regression**](beginner/3.Logistic-Regression/) in which covers the MNIST dataset and the Logistic Regression model to classify it. This end the overview of the basic building blocks which allow us to go deeper.
+- [**FloydHub introducting to Deep Learning**](beginner/0.FH-intro-to-DL/)covers an high level overview what is DL, why it is become mainstream, what are the current challenges and in which direction researchers are looking for.
+- [**FH intro to DL: PyTorch**](beginner/1.PyTorch/) covers the PyTorch Deep Learning Framework.
+- [**FH intro to DL: Linear Regression**](beginner/2.Linear-Regression/) covers the ML workflow and the classical house prediction regression problem solved with a Linear Regression model.
+- [**FH intro to DL: Logistic Regression**](beginner/3.Logistic-Regression/) covers the MNIST dataset and the Logistic Regression model to classify it. This end the overview of the basic building blocks which allow us to go deeper.
 
 
 ## Intermediate
