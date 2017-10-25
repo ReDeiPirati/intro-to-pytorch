@@ -49,16 +49,6 @@ With the last achievement in this field, you can try to improve all the existing
 
 Pretty old. Even if we have not discussed the full history of AI, it's good to know that the name AI was created by John McCarthy who spent all his life on it. To read more about the history of Deep Learning in general, you can check out the article, [Coding the History of Deep Learning](https://blog.floydhub.com/coding-the-history-of-deep-learning/) by Emil Walner.
 
-### Knowledge Representation
-
-![Knowledge representation image, rule engine inference]
-
-The key component of reasoning, is to have someting to reasoning on! In the past, but even now, AI was/is reduced to hardcode structured informations in some computer representable format so that we can reason on it. With reason I mean: defining rules by which an algorithm can infer information from. Moreover we can explore the information represented using appropriate data structure such as graph or tree, and reduce the reasoning or planning task to a visit on this structures.
-
-![translate a task to a visit on graph or tree]
-
-It's easy to recognize that this is not the way we work in term of a possible knowledge pipeline. We acquire knowledge with experience: more the experiences we face more the knowledge we gain. In other terms: we learn knowledges, we have not any hardcoded knowledge. This bring us to the next building block.
-
 ## Machine Learning
 
 Put simply, when a machine, by virtue of an algorithm, harnesses the ability to learn from a given set of data points without having to explicitly program the rules of the domain, it falls under the ambit of machine learning.  
