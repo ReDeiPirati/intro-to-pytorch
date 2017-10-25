@@ -20,10 +20,10 @@ Table of Contents:
 Everyone likes to talk about the miraculous effectiveness of AI: AI can "see", AI can "understand" and AI can "whatsoever-a-people-can-do". Is this all true? Well if you are riding the the wave of hype created around the latest breakthroughs such as AlphaGo Zero or Google's self driving car, all of it may seem too abstruse, and at the same time make us overlook the humanly-fathomable yet elegant solutions built using AI by developers sitting their rooms all around the world. For instance,
 
 1. Microsoft's [Seeing AI](https://www.microsoft.com/en-us/seeing-ai/) for the visually impaired beautifully integrates [object recognition](http://image-net.org/challenges/LSVRC/2017/) & [image captioning](http://cs.stanford.edu/people/karpathy/deepimagesent/).
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=bqeQByqf_f8" target="blank"> <img src="http://img.youtube.com/vi/bqeQByqf_f8/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10"/></a>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=bqeQByqf_f8" target="blank"> <img style="float: center;" src="http://img.youtube.com/vi/bqeQByqf_f8/0.jpg" alt="Seeing AI" width="240" height="180" border="10"/></a>
 
-
-2.
+2. [AI Experiments](https://experiments.withgoogle.com/ai) by Google is a collection of simple machine learning experiments ranging in areas from Computer Vision to Music Composition.
+![AI_fields](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/ai_exp.png?raw=true)
 
 ### What is AI?
 
