@@ -10,9 +10,7 @@ Table of Contents:
 	- [AI](#artificial-intelligence)
 	- [ML](#machine-learning)
 	- [DL](#deep-learning)
-	- [Narrow AI](#narrow-ai)
-	- [General AI](#general-ai)
-	- [what's next?](#)
+	- [DL](#deep-learning)
 	- [Summary](#summary)
 
 ## Artificial Intelligence
