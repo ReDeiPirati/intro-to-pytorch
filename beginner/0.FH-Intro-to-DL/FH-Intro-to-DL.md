@@ -2,8 +2,9 @@
 
 ### Abstract
 
-[Professor A. Ng has said that this is the new electricity](https://youtu.be/21EiKfQYZXc), [Google is switched from mobile-first to AI-first](https://youtu.be/Y2VF8tmLFHw?t=6m50s), someone  has compared it to magic, VCs, startups and media companies are riding the wave of hype, some people agree that AI is eating the world and other people are really scared due to sci-fi literature(such as Terminator, Matrix etc ...), [Zuck vs Elon declarations](https://www.theguardian.com/technology/2017/jul/25/elon-musk-mark-zuckerberg-artificial-intelligence-facebook-tesla) and human job replacement(taxi with autonomous car, [radiologist with precision medicine](https://youtu.be/2HMPRXstSvQ) and so on).
-At FloydHub we firmly believe that this technology can change human-machine interaction providing additional value to our society, but if and only if this technology and their application will be widely understood and tested. One of the core value at FloydHub is to `#makeAIsimple` or `#spreadAIpower`. We want to build a new world providing to dreamers this technology in their toolbelt so that they can create, learn, and experiment *bringing what they have see in the future in our present*, `#bringFutureInPresent`. Shall we begin? ;)
+[(Prof) Andrew Ng, Coursera co-founder & Stanford Adjunct Professor, recently said that AI is the new electricity](https://youtu.be/21EiKfQYZXc), [even Google shifted its focus from mobile-first to AI-first](https://youtu.be/Y2VF8tmLFHw?t=6m50s), even the VCs with their startups are riding this wave of hype. Some even think of it as magic while others are really scared, primarily due to the premature sci-fi literature. But what is it really? With [Zuck vs Elon declarations](https://www.theguardian.com/technology/2017/jul/25/elon-musk-mark-zuckerberg-artificial-intelligence-facebook-tesla) on twitter and the narrative about human job replacement due to AI, we are often overwhelmed to an extent that we overlook the countless applications of AI that make ourselves so much more productive and motivates some of the brightest minds around the world to work in this area.
+
+At FloydHub we firmly believe that, if widely understood and tested, this technology has the potential to change human-machine interaction providing additional value to the society. One of our fundamental goal is to `#makeAIsimple`. We want to build a platform providing dreamers & developers a toolbox to create, learn, and experiment & see *what change can they bring about.*. Shall we begin? ;)
 
 Table of Contents:
 	- [AI](#artificial-intelligence)
@@ -172,4 +173,3 @@ Siraj :)
 
 This was a high level introduction to the exciting field of Deep Learning (AI/ML/DL).
 Our hope is that this article have inspired you as much as it has pushed us to build FloydHub and allow AI-folks and You to take our present in the future you have dreamed of.
-
