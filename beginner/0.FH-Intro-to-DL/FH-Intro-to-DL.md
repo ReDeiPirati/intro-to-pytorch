@@ -40,7 +40,7 @@ Human specie is one of the most incredibly thing ever created in term of complex
 
 ### AI fields
 
-![images AI multi-disciplinary]
+![AI_fields](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/AI.png?raw=true)
 
 AI is an extremely multi-disciplinary field, it covers: Planning, Robotics, Math, Neuroscience, Biology, Statistic, Natural Language Processing and Understanding, Knowledge Representation, Reasoning, and Machine Learning. Do not worry if you have not a solid understanding of these fields, during your journey, with us ;), you will learn a lot.
 
