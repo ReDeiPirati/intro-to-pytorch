@@ -27,22 +27,15 @@ Everyone likes to talk about the miraculous effectiveness of AI: AI can "see", A
 
 ### What is AI?
 
-According to Professor P. Norvig book: Artificial Intelligence a modern approach, we can define AI in 4 ways: Agent which thinks like a human, Agent which acts like a human, Agent which thinks rationally and Agent which acts rationally. Well, this can sound a bit weird but are we a rational species? It all depends from the definition of rational, but for simplicity we are assuming that rationality means: reasoning, even with emotions involved, about planning or taking decision so that the situation turns out to be good for the Agent.
-
-So now, we have defined what is a AI, but what about Artificial Consciusness? The answer is simple: we have not a clue about what is consciusness, moreover we have not a shared definition about what is consciuousness. Someone point in the direction of self-awarness and some researcher think that once we will have fully translate all the brain functionalities, then the outcome of a model with this technology can be this "human" artifact.
-
-What is raise from the previous definitions is that this field wants to create something that is similar to us but made from human hands.
-
+According to Professor P. Norvig book: Artificial Intelligence a modern approach, we can define AI in four ways: Agent which thinks like a human, Agent which acts like a human, Agent which thinks rationally and Agent which acts rationally. Well, this may sound a little weird but are we a rational species? It all depends on what we deem as rational, but for simplicity we are assuming that rationality means: reasoning, even with emotions involved, about planning or taking decisions so that the situation turns out to be "good" for the Agent.
 
 ### Why study AI?
-
 Have you ever asked: How my brain works? Why can I do these thing? What's the difference from me to other animals? If you have asked this questions, do not feel you alone, otherwise: blissful carefreeness!
 
-[Even if our behavior is the outcome of 1ms, 1s, 1h, 24h, 1 month, 1y, 100y, 1000y, 10...0y of evolution](https://youtu.be/NNnIGh9g6fA) what is the algorithm of intelligence behind us? If we replace the term human with agent: which is the algorithm that drive us in an environment where we can act and receive stimulus/observations to maximize future rewards according the goals defined by the algorithm? From the last question we can derive more questions: Are the goals hardcoded, continuosly changed or a mixed approach?
+[Even if our behaviour is the outcome of 1ms, 1s, 1h, 24h, 1 month, 1y, 100y, 1000y, 10...0y of evolution](https://youtu.be/NNnIGh9g6fA), what is the algorithm of intelligence behind it? If we replace the term human with agent: which is the algorithm that drives us in an environment where we can act and receive stimulus/observations to maximize future rewards according to the goals defined by the algorithm? And are these rules hard coded? Or changing?
+![Machine_Brain](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/ML_def.jpg)
 
-As in physic we have a lot of questions whose answers are unkwons, but as good scientists(you do not need a piece of paper to be certified as a scientist, is enough to have a lot of questions and a 'fire' which pushes us to never stop learning and find answers) driven by curiosity our duty is find answers: yes, even if from more answers come more questions; this is life mystery :).
-
-Human specie is one of the most incredibly thing ever created in term of complexity and this is the main reason behind this incredible field. Solving the Intelligence mystery means unboxing human complexity and finally know ourselves in our fullyness.
+Human species is one of the most incredibly things ever created in term of complexity and this is the fundamentally the reason behind the successes in this field. Solving the "intelligence mystery" means unboxing human complexity and finally know ourselves in our fullyness.
 
 ### Fields in AI
 
