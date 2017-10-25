@@ -20,7 +20,7 @@ Table of Contents:
 Everyone likes to talk about the miraculous effectiveness of AI: AI can "see", AI can "understand" and AI can "whatsoever-a-people-can-do". Is this all true? Well if you are riding the the wave of hype created around the latest breakthroughs such as AlphaGo Zero or Google's self driving car, all of it may seem too abstruse, and at the same time make us overlook the humanly-fathomable yet elegant solutions built using AI by developers sitting their rooms all around the world. For instance,
 
 1. Microsoft's [Seeing AI](https://www.microsoft.com/en-us/seeing-ai/) for the visually impaired beautifully integrates [object recognition](http://image-net.org/challenges/LSVRC/2017/) & [image captioning](http://cs.stanford.edu/people/karpathy/deepimagesent/).
-[![Seeing AI Demo](https://img.youtube.com/vi/bqeQByqf_f8/0.jpg)](https://www.youtube.com/watch?v=bqeQByqf_f8)
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=bqeQByqf_f8" target="blank"> <img src="http://img.youtube.com/vi/bqeQByqf_f8/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10"/></a>
 
 
 2.
