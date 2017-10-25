@@ -69,107 +69,31 @@ Put simply, when a machine, by virtue of an algorithm, harnesses the ability to 
 
 <img style="float: center;" src="https://image.slidesharecdn.com/nextgentalk022015-150211154330-conversion-gate02/95/an-introduction-to-supervised-machine-learning-and-pattern-classification-the-big-picture-8-638.jpg?cb=1423785060">
 
-#### Supervised Learning
-(student preparing for exam example: Train are assignments, Evaluation is exam)
-
-#### Unsupervised Learning
-the Yann LeCun cake: Twitter/Facebook post] [toddler in the world, he create useful representation of the world without any prior knownledge or label]
-
-#### Reinforcement Learning
-the Yann LeCun cake: Twitter/Facebook post] [toddler in the world, he learn interacting with the env.]
-
-### ML workflow
-
-#### Create a Dataset
-
-#### Choose your Model
-
-#### Train
-
-#### Evaluate
-
-### ML is an Optimization Problem
-
+To get a brief intro to Machine Learning & some basic concepts, you can refer to [this article](https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471) on Medium by Adam Geitgey.
 
 ## Deep Learning
+![DL_ML](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/ML_DL.png?raw=true)
 
-key concepts: NN rebranding, gpus(computational power) and representational learning
+Deep learning is a sub domain of Machine Learning that involves algorithms 'inspired' by the human brain, to tackle machine learning problems. So what is a Neural Network really? Imagine you're standing in front of a staircase. Every time you take a step up, you become a different person (some transformation in yourself takes place). By the time you get to the top, you've become a completely different person. Now think of these steps as layers, and every time we transition from one layer to another, a certain transformation in the input takes place. By the same analogy, a 'deep' neural network is the one with quite a number of these stairs. We'll cover the details on how a deep neural network trains in the upcoming articles.
 
-### What is a NN
+### Everything Goes Deeper
 
-### Everything goes deeper
+Now, of course there isn't a single type of neural network because if it were so, well, then what's the hype about.
 
-Deep SL, Deep UL, DRL
+![NN_Type](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/neuralnetworks.png?raw=true)
 
-### DL success
+Again, they key here is to not be overwhelmed, take it one step at a time, just like a Neural Network! Even though there are these numerous kinds of DNNs, much of the DL success can be attributed to some certain kinds of network architectures and their variants. For instance, most of the work done in the last decade or so in Computer Vision revolves around Convolutional Neural Networks, which we'll be covering in the next couple of articles among other things.
 
-#### Mainstream reasons of adoption
-![Andrew Ng NIPS tutorial 2016]
+## How does FloydHub help?
 
-Transfer Learning
-Representational Learning
-More Data, More Accuracy
+Deep learning and its practise faces some practical difficulties. Most notably,
+1. *Data is Primary, Learning is Secondary:* Datasets used to practise applications of DL like Computer Vision & NLP are huge. Take [this dataset](https://www.kaggle.com/c/yelp-restaurant-photo-classification/data) from Kaggle. That's nearly 6.54 Gigabytes of training data.
+2. *AI wants compute, AI wants to multitask:* Noticed how the AI bigwigs always talk about GPUs & Tensors? Well GPUs are great at running parallel tasks and training DL models requires a lot of that compute. So what's the problem? Well the state of the art GPUs required don't come in cheap and the entire system built on top of them costs very good money. Take a look at [Andrej Karpathy's gig](https://twitter.com/karpathy/status/648256662554341377) gig, one of the pioneers of DL.
 
-
-
-#### Real world applications
-
-Self-driving car
-precision medicine(rethinopathy and skin cancer detection)
-Alpha Go
-Conversational Agent
-System reccomandation, Spam filter etc...
-
-
-## Narrow AI
-
-Current technology is capable to solve things without required a new way of interconnect knowledge like repetitive task and human task around 1-10s. Do one job at superhuman performance.
-
-
-## General AI
-
-No one knows how can we reach it.
-The challenge:
- - Catastrophic forgetting (A new task delete the previous knowledge, how can we overcome this?)
- - Continuous Learning (in which way is organized the knowledge inside our brain?),
- - Safe AI (Are ML model, safe in term of cyber security(Adversarial example), but even not expected behavior? Example RL which exploit env.)
- - Unbiased Dataset (Machine and model are neither sexist nor racist, but their data can be, how can we unbiased ds?)
-
-We need a Cognitive Toolkit to evaluate this model. (See Karpathy slide)
-
-## What's next?
-
-As just said above, the road to achieve GAI is not defined, even if we have not a well defined path, here a list of the most interesting topics which are pushing researcher to find a way to achieve GAI and may be a another step in the direction of the Intelligence Algorithm which drive our evolutionary behavior.
-
-[Is Backpropagation the right algorithm to drive the learning process?](https://www.axios.com/ai-pioneer-advocates-starting-over-2485537027.html) This is a question of [Geoffry Hinton](https://en.wikipedia.org/wiki/Geoffrey_Hinton) who recently become suspicious about the famous algo behind our learning models. I do not know if backprop is the right way to drive learning, but it's really notable and admirable when one of the man who have driven the research in this discipline has the courage to questioning their own work and try with a new formulation.
-
-![slide 26 LeCun NIPS 2016 Predictive Learning]
-
-[Unsupervised Learning is the cake](https://www.facebook.com/yann.lecun/posts/10153426023477143). Humans and animals do not learn from labeled data, this is main reason because unsupervised learning is so hot on Academia: researcher think that Unsupervised Learning is the key to learn good representation of data on which supervised and reinforcement learning will compute.
-
-[AI = RL + DL](http://icml.cc/2016/tutorials/deep_rl_tutorial.pdf). This is a quote from [David Silver](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Home.html), one of the main architech behind AlphaGo, Deep Reinforcement Learning is another very active research field where top AI companies are challeging each other(DeepMind, OpenAI etc...). Raising the bar in this field means having an Agent which is able to move into an enviroment and reaching is goals.
-
-![Le Cun citation about GANs](https://cdn-images-1.medium.com/max/2000/1*AZ5-3WdNdYyC2U0Aq7RhIg.png)
-
-[Generative Adversarial Network]() is the most interesting idea in the last ten years in machine learning. We have already discussed the amount of data needed to train our DL models. GANs is a really cool class of models whose purpose is to generate high quality data similar to the dataset distribution which they are learning. Since collecting dataset is extremely consuming in term of time and money resource, simulating/generating data is the only feasible solution. By instance: [Waymo is massively using simulation to train its automous systems](https://www.theatlantic.com/technology/archive/2017/08/inside-waymos-secret-testing-and-simulation-facilities/537648/), [Apple is using it to refine syntethic images](https://machinelearning.apple.com/2017/07/07/GAN.html), and other are pointing in the same direction. In order to train very deep model, you need a lot of high quality data.
-
-[Prior Consciusness](https://arxiv.org/abs/1709.08568). Y. Bengio proposal of consciusness with our current knowledge and technolgy. [Follow this link for a great explanation.](https://www.quora.com/What-is-Yoshua-Bengios-new-Consciousness-Prior-paper-about)
-
-[Opening the black box of deep neural networks via information](https://arxiv.org/abs/1703.00810). Prof. Shwartz-Ziv and Naftali Tishby have tried to explain what's happening during training. This research underline the following things:
-- SGD involves 2 distinct phase: Memorization and Compression. Memorization phase: High Mean, Low Variance (few epochs), Compression phase: Low Mean, High Variance(a lot of epochs). This can be translate as: during the first step, the Information Plane of each Layer is adjust in a similar way to memorize the task, then each leayer begin to exclude all the irrelevant information(compression phase)
-- the number of hidden layer reduces the training time to reach optimal compression and generalization
-Follow this [link for a seminar on this work by Naftali Tishby](https://www.youtube.com/watch?v=FSfN2K3tnJU)
-
-* There is a **hidden** chapter just below, can you find it?* (Gamification)
-
-(hidden html element)
-### What about AI apocalypse
-Once we reach GAI it could be possible that can cause our extinctions?
-Report image about who is supporting and who is not supporting
-Elon vs Zuck
-Siraj :)
+FloydHub takes care of those things for you! It manages the data & gives you lots of compute with a minimalistic interface. To setup your own first project on FloydHub, refer to the [QuickStart Doc](https://docs.floydhub.com/getstarted/quick_start/) or head over to [this tutorial](https://blog.floydhub.com/getting-started-with-deep-learning-on-floydhub/).
 
 ## Summary
 
-This was a high level introduction to the exciting field of Deep Learning (AI/ML/DL).
-Our hope is that this article have inspired you as much as it has pushed us to build FloydHub and allow AI-folks and You to take our present in the future you have dreamed of.
+This was a high level introduction to the exciting field of Deep Learning (AI/ML/DL). Our hope is that this little introduction has inspired you to explore this domain of Deep Learning. In the upcoming series of articles, we'll take you through a journey from introducing PyTorch, a great DL framework built in Python to implementing CNNs & training them on the cloud, with large enough datasets and state of the art compute. What do you need? Well, a working internet connection & a zeal to explore. We'll take care of the rest.
+
+Next up in this seris: [Introduction to PyTorch](https://github.com/ReDeiPirati/intro-to-pytorch/blob/sw/beginner/1.PyTorch/PyTorch_intro.md)
