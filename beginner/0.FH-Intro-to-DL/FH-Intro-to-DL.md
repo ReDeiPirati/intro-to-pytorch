@@ -35,19 +35,19 @@ Have you ever asked: How my brain works? Why can I do these thing? What's the di
 [Even if our behaviour is the outcome of 1ms, 1s, 1h, 24h, 1 month, 1y, 100y, 1000y, 10...0y of evolution](https://youtu.be/NNnIGh9g6fA), what is the algorithm of intelligence behind it? If we replace the term human with agent: which is the algorithm that drives us in an environment where we can act and receive stimulus/observations to maximize future rewards according to the goals defined by the algorithm? And are these rules hard coded? Or changing?
 ![Machine_Brain](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/ML_def.jpg)
 
-Human species is one of the most incredibly things ever created in term of complexity and this is the fundamentally the reason behind the successes in this field. Solving the "intelligence mystery" means unboxing human complexity and finally know ourselves in our fullyness.
+Human species is one of the most incredibly things ever created in term of complexity and this is the fundamentally the reason behind the successes in this field. Solving the "intelligence mystery" means unboxing human complexity and finally understanding how we do, what we do!
 
 ### Fields in AI
 
 ![AI_fields](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/AI.png?raw=true)
 
-AI is an extremely multi-disciplinary field, it covers: Planning, Robotics, Math, Neuroscience, Biology, Statistic, Natural Language Processing and Understanding, Knowledge Representation, Reasoning, and Machine Learning. Do not worry if you have not a solid understanding of these fields, during your journey, with us ;), you will learn a lot.
+AI is an extremely multi-disciplinary field, it covers: Planning, Robotics, Math, Neuroscience, Computational Biology, Data Science, Natural Language Processing and Understanding, Knowledge Representation, Reasoning, and Machine Learning. Don't get overwhelmed already if you don't have a solid understanding of these. You'll learn a lot during this journey.
 
-With the last achievement in this field, you can try to improve all the existing technologies and maybe simplify the human-machine interaction building a future where human possibilities will be so wide that the only limit is our immagination.
+With the last achievement in this field, you can try to improve all the existing technologies and maybe simplify the human-machine interaction building a future where human possibilities will be so wide that the only limit is our imagination.
 
-### Is AI an old field
+### How old is AI?
 
-Yes, even if we have not discussed the full history behind AI, it's good to know that the name AI was created by John McCarthy who spent all his life on it. But again we are not here to spend words on AI-story, we are here to understand what's behind this field and the recent breakthough. Before introducing the next building block we have to underline a thing.
+Pretty old. Even if we have not discussed the full history of AI, it's good to know that the name AI was created by John McCarthy who spent all his life on it. To read more about the history of Deep Learning in general, you can check out the article, [Coding the History of Deep Learning](https://blog.floydhub.com/coding-the-history-of-deep-learning/) by Emil Walner.
 
 ### Knowledge Representation
 
