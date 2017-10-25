@@ -62,12 +62,13 @@ It's easy to recognize that this is not the way we work in term of a possible kn
 
 ## Machine Learning
 
-Let me first introduce this subfield of AI with two popular definition:
+Put simply, when a machine, by virtue of an algorithm, harnesses the ability to learn from a given set of data points without having to explicitly program the rules of the domain, it falls under the ambit of machine learning.  
 
-1. A Machine/Computer-Programm which can perform task without being not explicit programmed;
-2. A Machine/Computer-Programm is learning from Experience E, some class of Task T with Performance P, if its performance in T can be measure in P, improve with experience E.
+![AI-ML-DL](https://blogs.nvidia.com/wp-content/uploads/2016/07/Deep_Learning_Icons_R5_PNG.jpg.png)
 
 ### Trinity of Machine Learning
+
+<img style="float: center;" src="https://image.slidesharecdn.com/nextgentalk022015-150211154330-conversion-gate02/95/an-introduction-to-supervised-machine-learning-and-pattern-classification-the-big-picture-8-638.jpg?cb=1423785060">
 
 #### Supervised Learning
 (student preparing for exam example: Train are assignments, Evaluation is exam)
