@@ -17,7 +17,13 @@ Table of Contents:
 
 ## Artificial Intelligence
 
-Everyone are talking about the miracoulous effectivness of AI: AI can "see", AI can "understand" and AI can "whatsoever-a-people-can-do". Is this true? Well if you are riding the the wave of hype created around the last technology breakthrouts such as AlphaGo, you are feeding the hype beast if you use these words, but there are a lot of people who are extremly caurefull about the magic behind this technology. First of all we have to make sure to speak the same 'language' and to use the same semantic about the field we are discussing, so first question:
+Everyone likes to talk about the miraculous effectiveness of AI: AI can "see", AI can "understand" and AI can "whatsoever-a-people-can-do". Is this all true? Well if you are riding the the wave of hype created around the latest breakthroughs such as AlphaGo Zero or Google's self driving car, all of it may seem too abstruse, and at the same time make us overlook the humanly-fathomable yet elegant solutions built using AI by developers sitting their rooms all around the world. For instance,
+
+1. Microsoft's [Seeing AI](https://www.microsoft.com/en-us/seeing-ai/) for the visually impaired beautifully integrates [object recognition](http://image-net.org/challenges/LSVRC/2017/) & [image captioning](http://cs.stanford.edu/people/karpathy/deepimagesent/).
+[![Seeing AI Demo](https://img.youtube.com/vi/bqeQByqf_f8/0.jpg)](https://www.youtube.com/watch?v=bqeQByqf_f8)
+
+
+2.
 
 ### What is AI?
 
@@ -38,7 +44,7 @@ As in physic we have a lot of questions whose answers are unkwons, but as good s
 
 Human specie is one of the most incredibly thing ever created in term of complexity and this is the main reason behind this incredible field. Solving the Intelligence mystery means unboxing human complexity and finally know ourselves in our fullyness.
 
-### AI fields
+### Fields in AI
 
 ![AI_fields](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/AI.png?raw=true)
 
