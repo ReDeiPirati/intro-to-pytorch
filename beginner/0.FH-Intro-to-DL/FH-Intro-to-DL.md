@@ -86,4 +86,4 @@ FloydHub takes care of those two things for you! It manages the data & gives you
 
 This was a high level introduction to the exciting field of Deep Learning (AI/ML/DL). Our hope is that this little introduction has inspired you to explore this domain of Deep Learning. In the upcoming series of articles, we'll take you through a journey from introducing PyTorch, a great DL framework built in Python to implementing CNNs & training them on the cloud, with large enough datasets and state of the art compute. What do you need? Well, a working internet connection & a zeal to explore. We'll take care of the rest.
 
-Next up in this seris: [Introduction to PyTorch](https://github.com/ReDeiPirati/intro-to-pytorch/blob/sw/beginner/1.PyTorch/PyTorch_intro.md)
+Next up in this series: [Introduction to PyTorch](https://github.com/ReDeiPirati/intro-to-pytorch/blob/sw/beginner/1.PyTorch/PyTorch_intro.md)
