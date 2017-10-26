@@ -10,166 +10,84 @@ Table of Contents:
 	- [AI](#artificial-intelligence)
 	- [ML](#machine-learning)
 	- [DL](#deep-learning)
-	- [Narrow AI](#narrow-ai)
-	- [General AI](#general-ai)
-	- [what's next?](#)
+	- [DL](#deep-learning)
 	- [Summary](#summary)
 
 ## Artificial Intelligence
 
-Everyone are talking about the miracoulous effectivness of AI: AI can "see", AI can "understand" and AI can "whatsoever-a-people-can-do". Is this true? Well if you are riding the the wave of hype created around the last technology breakthrouts such as AlphaGo, you are feeding the hype beast if you use these words, but there are a lot of people who are extremly caurefull about the magic behind this technology. First of all we have to make sure to speak the same 'language' and to use the same semantic about the field we are discussing, so first question:
+Everyone likes to talk about the miraculous effectiveness of AI: AI can "see", AI can "understand" and AI can "whatsoever-a-people-can-do". Is this all true? Well if you are riding the the wave of hype created around the latest breakthroughs such as [AlphaGo Zero](https://deepmind.com/blog/alphago-zero-learning-scratch/) or [Google's self driving car](https://waymo.com/), all of it may seem too abstruse, and at the same time make us overlook the humanly-fathomable & elegant solutions built using AI by developers sitting in their rooms all around the world. For instance,
+
+1. Microsoft's [Seeing AI](https://www.microsoft.com/en-us/seeing-ai/) for the visually impaired beautifully integrates [object recognition](http://image-net.org/challenges/LSVRC/2017/) & [image captioning](http://cs.stanford.edu/people/karpathy/deepimagesent/).
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=bqeQByqf_f8" target="blank"> <img style="float: center;" src="http://img.youtube.com/vi/bqeQByqf_f8/0.jpg" alt="Seeing AI" width="240" height="180" border="10"/></a>
+
+2. [AI Experiments](https://experiments.withgoogle.com/ai) by Google is a collection of simple machine learning experiments ranging in areas from Computer Vision to Music Composition.
+![AI_fields](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/ai_exp.png?raw=true)
 
 ### What is AI?
 
-According to Professor P. Norvig book: Artificial Intelligence a modern approach, we can define AI in 4 ways: Agent which thinks like a human, Agent which acts like a human, Agent which thinks rationally and Agent which acts rationally. Well, this can sound a bit weird but are we a rational species? It all depends from the definition of rational, but for simplicity we are assuming that rationality means: reasoning, even with emotions involved, about planning or taking decision so that the situation turns out to be good for the Agent.
-
-So now, we have defined what is a AI, but what about Artificial Consciusness? The answer is simple: we have not a clue about what is consciusness, moreover we have not a shared definition about what is consciuousness. Someone point in the direction of self-awarness and some researcher think that once we will have fully translate all the brain functionalities, then the outcome of a model with this technology can be this "human" artifact.
-
-What is raise from the previous definitions is that this field wants to create something that is similar to us but made from human hands.
-
+According to Professor P. Norvig book: Artificial Intelligence a modern approach, we can define AI in four ways: Agent which thinks like a human, Agent which acts like a human, Agent which thinks rationally and Agent which acts rationally. Well, this may sound a little weird but are we a rational species? It all depends on what we deem as rational, but for simplicity we are assuming that rationality means: reasoning, even with emotions involved, about planning or taking decisions so that the situation turns out to be "good" for the Agent.
 
 ### Why study AI?
-
 Have you ever asked: How my brain works? Why can I do these thing? What's the difference from me to other animals? If you have asked this questions, do not feel you alone, otherwise: blissful carefreeness!
 
-[Even if our behavior is the outcome of 1ms, 1s, 1h, 24h, 1 month, 1y, 100y, 1000y, 10...0y of evolution](https://youtu.be/NNnIGh9g6fA) what is the algorithm of intelligence behind us? If we replace the term human with agent: which is the algorithm that drive us in an environment where we can act and receive stimulus/observations to maximize future rewards according the goals defined by the algorithm? From the last question we can derive more questions: Are the goals hardcoded, continuosly changed or a mixed approach?
+[Even if our behaviour is the outcome of 1ms, 1s, 1h, 24h, 1 month, 1y, 100y, 1000y, 10...0y of evolution](https://youtu.be/NNnIGh9g6fA), what is the algorithm of intelligence behind it? If we replace the term human with agent: which is the algorithm that drives us in an environment where we can act and receive stimulus/observations to maximize future rewards according to the goals defined by the algorithm? And are these rules hard coded? Or changing?
+![Machine_Brain](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/ML_def.jpg)
 
-As in physic we have a lot of questions whose answers are unkwons, but as good scientists(you do not need a piece of paper to be certified as a scientist, is enough to have a lot of questions and a 'fire' which pushes us to never stop learning and find answers) driven by curiosity our duty is find answers: yes, even if from more answers come more questions; this is life mystery :).
+Human species is one of the most incredibly things ever created in term of complexity and this is the fundamentally the reason behind the successes in this field. Solving the "intelligence mystery" means unboxing human complexity and finally understanding how we do, what we do!
 
-Human specie is one of the most incredibly thing ever created in term of complexity and this is the main reason behind this incredible field. Solving the Intelligence mystery means unboxing human complexity and finally know ourselves in our fullyness.
+### Fields in AI
 
-### AI fields
+![AI_fields](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/AI.png?raw=true)
 
-![images AI multi-disciplinary]
+AI is an extremely multi-disciplinary field, it covers: Planning, Robotics, Math, Neuroscience, Computational Biology, Data Science, Natural Language Processing and Understanding, Knowledge Representation, Reasoning, and Machine Learning. Don't get overwhelmed already if you don't have a solid understanding of these. You'll learn a lot during this journey.
 
-AI is an extremely multi-disciplinary field, it covers: Planning, Robotics, Math, Neuroscience, Biology, Statistic, Natural Language Processing and Understanding, Knowledge Representation, Reasoning, and Machine Learning. Do not worry if you have not a solid understanding of these fields, during your journey, with us ;), you will learn a lot.
+With the last achievement in this field, you can try to improve all the existing technologies and maybe simplify the human-machine interaction building a future where human possibilities will be so wide that the only limit is our imagination.
 
-With the last achievement in this field, you can try to improve all the existing technologies and maybe simplify the human-machine interaction building a future where human possibilities will be so wide that the only limit is our immagination.
+### How old is AI?
 
-### Is AI an old field
-
-Yes, even if we have not discussed the full history behind AI, it's good to know that the name AI was created by John McCarthy who spent all his life on it. But again we are not here to spend words on AI-story, we are here to understand what's behind this field and the recent breakthough. Before introducing the next building block we have to underline a thing.
-
-### Knowledge Representation
-
-![Knowledge representation image, rule engine inference]
-
-The key component of reasoning, is to have someting to reasoning on! In the past, but even now, AI was/is reduced to hardcode structured informations in some computer representable format so that we can reason on it. With reason I mean: defining rules by which an algorithm can infer information from. Moreover we can explore the information represented using appropriate data structure such as graph or tree, and reduce the reasoning or planning task to a visit on this structures.
-
-![translate a task to a visit on graph or tree]
-
-It's easy to recognize that this is not the way we work in term of a possible knowledge pipeline. We acquire knowledge with experience: more the experiences we face more the knowledge we gain. In other terms: we learn knowledges, we have not any hardcoded knowledge. This bring us to the next building block.
+Pretty old. Even if we have not discussed the full history of AI, it's good to know that the name AI was created by John McCarthy who spent all his life on it. To read more about the history of Deep Learning in general, you can check out the article, [Coding the History of Deep Learning](https://blog.floydhub.com/coding-the-history-of-deep-learning/) by Emil Walner.
 
 ## Machine Learning
 
-Let me first introduce this subfield of AI with two popular definition:
+Put simply, when a machine, by virtue of an algorithm, harnesses the ability to learn from a given set of data points without having to explicitly program the rules of the domain, it falls under the ambit of machine learning.  
 
-1. A Machine/Computer-Programm which can perform task without being not explicit programmed;
-2. A Machine/Computer-Programm is learning from Experience E, some class of Task T with Performance P, if its performance in T can be measure in P, improve with experience E.
+![AI-ML-DL](https://blogs.nvidia.com/wp-content/uploads/2016/07/Deep_Learning_Icons_R5_PNG.jpg.png)
 
 ### Trinity of Machine Learning
 
-#### Supervised Learning
-(student preparing for exam example: Train are assignments, Evaluation is exam)
+<img style="float: center;" src="https://image.slidesharecdn.com/nextgentalk022015-150211154330-conversion-gate02/95/an-introduction-to-supervised-machine-learning-and-pattern-classification-the-big-picture-8-638.jpg?cb=1423785060">
 
-#### Unsupervised Learning
-the Yann LeCun cake: Twitter/Facebook post] [toddler in the world, he create useful representation of the world without any prior knownledge or label]
+*Supervised Learning:* Say you get a bunch of photos with information on **what's on them** & you train a model to recognize new photos. Wanna see supervised learning in action? Head over to this example of [Teachable Machine](https://teachablemachine.withgoogle.com/) by Google.
 
-#### Reinforcement Learning
-the Yann LeCun cake: Twitter/Facebook post] [toddler in the world, he learn interacting with the env.]
+*Unsupervised Learning:* Now you have a lot of molecules, some of them are drug-molecules & some are not but you **do not know which are which** and you want algorithm to discover the drugs, that is, you wish to segregate these molecules into 'clusters' of drug & non-drug molecules. You can watch [this video](https://youtu.be/wvsE8jm1GzE) here about Visualizing High Dimensional Space to see unsupervised learning in action.
 
-### ML workflow
+*Reinforcement Learning:* Reinforcement helps map situations to actions with an end goal of maximizing the reward. Imagine a child trying to learn how to walk. The first thing he does, is observe how you walk. Grasping this concept, he/she tries to replicate you. But to walk, the child must first stand up! Staggering & slipping but still determined, clutching thin air to find support, the child finally manages to stand up & stay standing. Since there are so many things to keep in mind before actually walking, like balancing the body weight, deciding where to put your foot next etc. Now the child here is an agent trying to emulate walking by taking actions & he gets a reward (a satisfaction or a candy) when he completes a part of this task. This is a simplified analogy to any Reinforcement Learning problem. [DeepMind's AlphaGo Zero](https://deepmind.com/blog/alphago-zero-learning-scratch/) is one of the best examples of Deep Reinforcement Learning. 
 
-#### Create a Dataset
-
-#### Choose your Model
-
-#### Train
-
-#### Evaluate
-
-### ML is an Optimization Problem
-
+To get a brief intro to Machine Learning & some basic concepts, you can refer to [this article](https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471) on Medium by Adam Geitgey.
 
 ## Deep Learning
+![DL_ML](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/ML_DL.png?raw=true)
 
-key concepts: NN rebranding, gpus(computational power) and representational learning
+Deep learning is a sub domain of Machine Learning that involves algorithms 'inspired' by the human brain, to tackle machine learning problems. So what is a Neural Network really? Imagine if you were trying to solve a math equation to find the value of an unknown variable. Naturally, we simply cannot look at an equation & guess the answer! So what do we do? We try to solve parts of it, step by step. In each step, we try to simplify a part of this equation to work our way up to the solution. A neural network works in the same manner, where each step corresponds to a 'layer' in the network. Every layer is meant to solve a part of the problem. And much like math, if our answer doesn't match in the end, we trace back on those very steps to see what needs to be fixed! A deep neural network works in a similar manner, processing the input one step at a time. We'll dive into the details of 'training' a DNN in the upcoming articles.
 
-### What is a NN
+### Everything Goes Deeper
 
-### Everything goes deeper
+Now, much like algebraic equations in math, different problems in Deep Learning call for different kinds of steps taken in order to simplify them. That is, different kinds of network architectures.
 
-Deep SL, Deep UL, DRL
+![NN_Type](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/neuralnetworks.png?raw=true)
 
-### DL success
+Again, they key here is to not be overwhelmed, take it one step at a time, just like a Neural Network! Even though there are these numerous kinds of DNNs, much of the DL success can be attributed to some certain kinds of network architectures and their variants. For instance, most of the work done in the last decade or so in Computer Vision revolves around Convolutional Neural Networks, which we'll be covering in the next couple of articles among other things.
 
-#### Mainstream reasons of adoption
-![Andrew Ng NIPS tutorial 2016]
+## How does FloydHub help?
 
-Transfer Learning
-Representational Learning
-More Data, More Accuracy
+Deep learning and its practise faces some practical difficulties. Most notably,
+1. *Data is Primary, Learning is Secondary:* Datasets used to practise applications of DL like Computer Vision & NLP are huge. Take [this 'little' dataset](https://www.kaggle.com/c/yelp-restaurant-photo-classification/data) from Kaggle. That's nearly 6.54 Gigabytes of training data. But all you wanted, was to train a simple Neural Network in Python. So how do you deal with that?
+2. *AI wants compute, AI wants to multitask:* Noticed how the AI bigwigs always talk about GPUs & Tensors? Well GPUs are great at running parallel tasks and training DL models requires a lot of that compute. So what's the problem? Well the state of the art GPUs required for the purpose don't come in handy and the entire system built on top of them costs very good money. Take a look at [Andrej Karpathy's gig](https://twitter.com/karpathy/status/648256662554341377), one of the pioneers of DL. So, whether or not you should buy a GPU, is entirely up to you. If you do however need a perspective, you can refer to [this article](https://blog.floydhub.com/should-i-buy-my-own-gpus-for-deep-learning/).
 
-
-
-#### Real world applications
-
-Self-driving car
-precision medicine(rethinopathy and skin cancer detection)
-Alpha Go
-Conversational Agent
-System reccomandation, Spam filter etc...
-
-
-## Narrow AI
-
-Current technology is capable to solve things without required a new way of interconnect knowledge like repetitive task and human task around 1-10s. Do one job at superhuman performance.
-
-
-## General AI
-
-No one knows how can we reach it.
-The challenge:
- - Catastrophic forgetting (A new task delete the previous knowledge, how can we overcome this?)
- - Continuous Learning (in which way is organized the knowledge inside our brain?),
- - Safe AI (Are ML model, safe in term of cyber security(Adversarial example), but even not expected behavior? Example RL which exploit env.)
- - Unbiased Dataset (Machine and model are neither sexist nor racist, but their data can be, how can we unbiased ds?)
-
-We need a Cognitive Toolkit to evaluate this model. (See Karpathy slide)
-
-## What's next?
-
-As just said above, the road to achieve GAI is not defined, even if we have not a well defined path, here a list of the most interesting topics which are pushing researcher to find a way to achieve GAI and may be a another step in the direction of the Intelligence Algorithm which drive our evolutionary behavior.
-
-[Is Backpropagation the right algorithm to drive the learning process?](https://www.axios.com/ai-pioneer-advocates-starting-over-2485537027.html) This is a question of [Geoffry Hinton](https://en.wikipedia.org/wiki/Geoffrey_Hinton) who recently become suspicious about the famous algo behind our learning models. I do not know if backprop is the right way to drive learning, but it's really notable and admirable when one of the man who have driven the research in this discipline has the courage to questioning their own work and try with a new formulation.
-
-![slide 26 LeCun NIPS 2016 Predictive Learning]
-
-[Unsupervised Learning is the cake](https://www.facebook.com/yann.lecun/posts/10153426023477143). Humans and animals do not learn from labeled data, this is main reason because unsupervised learning is so hot on Academia: researcher think that Unsupervised Learning is the key to learn good representation of data on which supervised and reinforcement learning will compute.
-
-[AI = RL + DL](http://icml.cc/2016/tutorials/deep_rl_tutorial.pdf). This is a quote from [David Silver](http://www0.cs.ucl.ac.uk/staff/d.silver/web/Home.html), one of the main architech behind AlphaGo, Deep Reinforcement Learning is another very active research field where top AI companies are challeging each other(DeepMind, OpenAI etc...). Raising the bar in this field means having an Agent which is able to move into an enviroment and reaching is goals.
-
-![Le Cun citation about GANs](https://cdn-images-1.medium.com/max/2000/1*AZ5-3WdNdYyC2U0Aq7RhIg.png)
-
-[Generative Adversarial Network]() is the most interesting idea in the last ten years in machine learning. We have already discussed the amount of data needed to train our DL models. GANs is a really cool class of models whose purpose is to generate high quality data similar to the dataset distribution which they are learning. Since collecting dataset is extremely consuming in term of time and money resource, simulating/generating data is the only feasible solution. By instance: [Waymo is massively using simulation to train its automous systems](https://www.theatlantic.com/technology/archive/2017/08/inside-waymos-secret-testing-and-simulation-facilities/537648/), [Apple is using it to refine syntethic images](https://machinelearning.apple.com/2017/07/07/GAN.html), and other are pointing in the same direction. In order to train very deep model, you need a lot of high quality data.
-
-[Prior Consciusness](https://arxiv.org/abs/1709.08568). Y. Bengio proposal of consciusness with our current knowledge and technolgy. [Follow this link for a great explanation.](https://www.quora.com/What-is-Yoshua-Bengios-new-Consciousness-Prior-paper-about)
-
-[Opening the black box of deep neural networks via information](https://arxiv.org/abs/1703.00810). Prof. Shwartz-Ziv and Naftali Tishby have tried to explain what's happening during training. This research underline the following things:
-- SGD involves 2 distinct phase: Memorization and Compression. Memorization phase: High Mean, Low Variance (few epochs), Compression phase: Low Mean, High Variance(a lot of epochs). This can be translate as: during the first step, the Information Plane of each Layer is adjust in a similar way to memorize the task, then each leayer begin to exclude all the irrelevant information(compression phase)
-- the number of hidden layer reduces the training time to reach optimal compression and generalization
-Follow this [link for a seminar on this work by Naftali Tishby](https://www.youtube.com/watch?v=FSfN2K3tnJU)
-
-* There is a **hidden** chapter just below, can you find it?* (Gamification)
-
-(hidden html element)
-### What about AI apocalypse
-Once we reach GAI it could be possible that can cause our extinctions?
-Report image about who is supporting and who is not supporting
-Elon vs Zuck
-Siraj :)
+FloydHub takes care of those two things for you! It manages the data & gives you lots of compute with a minimalistic interface. To setup your own first project on FloydHub, refer to the [QuickStart Doc](https://docs.floydhub.com/getstarted/quick_start/) or head over to [this tutorial](https://blog.floydhub.com/getting-started-with-deep-learning-on-floydhub/).
 
 ## Summary
 
-This was a high level introduction to the exciting field of Deep Learning (AI/ML/DL).
-Our hope is that this article have inspired you as much as it has pushed us to build FloydHub and allow AI-folks and You to take our present in the future you have dreamed of.
+This was a high level introduction to the exciting field of Deep Learning (AI/ML/DL). Our hope is that this little introduction has inspired you to explore this domain of Deep Learning. In the upcoming series of articles, we'll take you through a journey from introducing PyTorch, a great DL framework built in Python to implementing CNNs & training them on the cloud, with large enough datasets and state of the art compute. What do you need? Well, a working internet connection & a zeal to explore. We'll take care of the rest.
+
+Next up in this series: [Introduction to PyTorch](https://github.com/ReDeiPirati/intro-to-pytorch/blob/sw/beginner/1.PyTorch/PyTorch_intro.md)
