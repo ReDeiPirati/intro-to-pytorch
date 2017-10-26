@@ -4,7 +4,7 @@
 
 #### Abstract
 
-[PyTorch](http://pytorch.org/) is one of the many [deep learning framework](https://www.kdnuggets.com/2017/02/python-deep-learning-frameworks-overview.html) which allows data scientists and AI practitioners to create amazing deep learning models. PyTorch has been gaining much [praise & popularity]((https://www.oreilly.com/ideas/why-ai-and-machine-learning-researchers-are-beginning-to-embrace-pytorch)) lately due to the high level of flexibility & its imperative programming flow.
+[PyTorch](http://pytorch.org/) is one among the numerous [deep learning frameworks](https://www.kdnuggets.com/2017/02/python-deep-learning-frameworks-overview.html) which allows data scientists and AI practitioners to create amazing deep learning models. PyTorch has been gaining much [praise & popularity]((https://www.oreilly.com/ideas/why-ai-and-machine-learning-researchers-are-beginning-to-embrace-pytorch)) lately due to the high level of flexibility & its imperative programming flow.
 
 ## Introduction
 
