@@ -423,7 +423,7 @@ print('\nTest set: Accuracy: {:.2f}%'.format(100. * correct / len(test_loader.da
 
 To see the complete results & some samples from the dataset, head over to `ipython notebook` attached with this article & try tinkering with some hyper-paramters yourselves. Do Tweet us [@FloydHub_](https://twitter.com/FloydHub_) if you get some interesting results yourself!
 
-### Summary
+## Summary
 
 PyTorch provides an amazing framework with an awesome community that can support us in our DL journey.
 We hope you enjoyed this Introduction to PyTorch. If you'd like to share your feedback (cheers, bug fix, typo and/or improvements), please leave a comment on our super active [forum](https://forum.floydhub.com/) or tweet us [@FloydHub_](https://twitter.com/FloydHub_).
