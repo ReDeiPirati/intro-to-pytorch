@@ -57,16 +57,22 @@ Put simply, when a machine, by virtue of an algorithm, harnesses the ability to 
 
 <img style="float: center;" src="https://image.slidesharecdn.com/nextgentalk022015-150211154330-conversion-gate02/95/an-introduction-to-supervised-machine-learning-and-pattern-classification-the-big-picture-8-638.jpg?cb=1423785060">
 
+*Supervised Learning:* Say you get a bunch of photos with information on **what's on them** & you train a model to recognize new photos. Wanna see supervised learning in action? Head over to this example of [Teachable Machine](https://teachablemachine.withgoogle.com/) by Google.
+
+*Unsupervised Learning:* Now you have a lot of molecules, some of them are drug-molecules & some are not but you **do not know which are which** and you want algorithm to discover the drugs, that is, you wish to segregate these molecules into 'clusters' of drug & non-drug molecules. You can watch [this video](https://youtu.be/wvsE8jm1GzE) here about Visualizing High Dimensional Space to see unsupervised learning in action.
+
+*Reinforcement Learning:* Reinforcement helps map situations to actions with an end goal of maximizing the reward. Imagine a child trying to learn how to walk. The first thing he does, is observe how you walk. Grasping this concept, he/she tries to replicate you. But to walk, the child must first stand up! Staggering & slipping but still determined, clutching thin air to find support, the child finally manages to stand up & stay standing. Since there are so many things to keep in mind before actually walking, like balancing the body weight, deciding where to put your foot next etc. Now the child here is an agent trying to emulate walking by taking actions & he gets a reward (a satisfaction or a candy) when he completes a part of this task. This is a simplified analogy to any Reinforcement Learning problem. [DeepMind's AlphaGo Zero](https://deepmind.com/blog/alphago-zero-learning-scratch/) is one of the best examples of Deep Reinforcement Learning. 
+
 To get a brief intro to Machine Learning & some basic concepts, you can refer to [this article](https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471) on Medium by Adam Geitgey.
 
 ## Deep Learning
 ![DL_ML](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/ML_DL.png?raw=true)
 
-Deep learning is a sub domain of Machine Learning that involves algorithms 'inspired' by the human brain, to tackle machine learning problems. So what is a Neural Network really? Imagine you're standing in front of a staircase. Every time you take a step up, you become a different person (some transformation in yourself takes place). By the time you get to the top, you've become a completely different person. Now think of these steps as layers, and every time we transition from one layer to another, a certain transformation in the input takes place. By the same analogy, a 'deep' neural network is the one with quite a number of these stairs. We'll cover the details on how a deep neural network trains in the upcoming articles.
+Deep learning is a sub domain of Machine Learning that involves algorithms 'inspired' by the human brain, to tackle machine learning problems. So what is a Neural Network really? Imagine if you were trying to solve a math equation to find the value of an unknown variable. Naturally, we simply cannot look at an equation & guess the answer! So what do we do? We try to solve parts of it, step by step. In each step, we try to simplify a part of this equation to work our way up to the solution. A neural network works in the same manner, where each step corresponds to a 'layer' in the network. Every layer is meant to solve a part of the problem. And much like math, if our answer doesn't match in the end, we trace back on those very steps to see what needs to be fixed! A deep neural network works in a similar manner, processing the input one step at a time. We'll dive into the details of 'training' a DNN in the upcoming articles.
 
 ### Everything Goes Deeper
 
-Now, of course there isn't a single type of neural network because if it were so, well, then what's the hype about.
+Now, much like algebraic equations in math, different problems in Deep Learning call for different kinds of steps taken in order to simplify them. That is, different kinds of network architectures.
 
 ![NN_Type](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/neuralnetworks.png?raw=true)
 
@@ -76,7 +82,7 @@ Again, they key here is to not be overwhelmed, take it one step at a time, just 
 
 Deep learning and its practise faces some practical difficulties. Most notably,
 1. *Data is Primary, Learning is Secondary:* Datasets used to practise applications of DL like Computer Vision & NLP are huge. Take [this 'little' dataset](https://www.kaggle.com/c/yelp-restaurant-photo-classification/data) from Kaggle. That's nearly 6.54 Gigabytes of training data. But all you wanted, was to train a simple Neural Network in Python. So how do you deal with that?
-2. *AI wants compute, AI wants to multitask:* Noticed how the AI bigwigs always talk about GPUs & Tensors? Well GPUs are great at running parallel tasks and training DL models requires a lot of that compute. So what's the problem? Well the state of the art GPUs required for the purpose don't come in handy and the entire system built on top of them costs very good money. Take a look at [Andrej Karpathy's gig](https://twitter.com/karpathy/status/648256662554341377), one of the pioneers of DL.
+2. *AI wants compute, AI wants to multitask:* Noticed how the AI bigwigs always talk about GPUs & Tensors? Well GPUs are great at running parallel tasks and training DL models requires a lot of that compute. So what's the problem? Well the state of the art GPUs required for the purpose don't come in handy and the entire system built on top of them costs very good money. Take a look at [Andrej Karpathy's gig](https://twitter.com/karpathy/status/648256662554341377), one of the pioneers of DL. So, whether or not you should buy a GPU, is entirely up to you. If you do however need a perspective, you can refer to [this article](https://blog.floydhub.com/should-i-buy-my-own-gpus-for-deep-learning/).
 
 FloydHub takes care of those two things for you! It manages the data & gives you lots of compute with a minimalistic interface. To setup your own first project on FloydHub, refer to the [QuickStart Doc](https://docs.floydhub.com/getstarted/quick_start/) or head over to [this tutorial](https://blog.floydhub.com/getting-started-with-deep-learning-on-floydhub/).
 
