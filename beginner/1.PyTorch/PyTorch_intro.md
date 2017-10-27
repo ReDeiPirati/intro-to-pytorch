@@ -179,8 +179,8 @@ To create your own custom data loader, inherit `torch.utils.data.Dataset` and am
 | path             | class_        |
 | ---------------- |:-------------:|
 | img/sample1.png  | 1             |
-| img/sample2.png  | 2             |   
-| img/sample3.png  | 3             |   
+| img/sample2.png  | 0             |   
+| img/sample3.png  | 1             |   
 
 ```python
 class ImagesDataset(torch.utils.data.Dataset):
@@ -219,7 +219,7 @@ train_dataset = ImagesDataset(
 )
 ```
 
-Now, to iterate over the dataset while executing each epoch, 
+Now, to iterate over the dataset while executing each epoch,
 
 ```python
 # initialize data loader with the required params
