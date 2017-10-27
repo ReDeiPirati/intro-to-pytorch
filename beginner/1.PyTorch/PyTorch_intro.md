@@ -119,285 +119,89 @@ machinet. different computation differently for each data point; for example a r
 
 We are now moving on to a classical problem in Computer Vision: Handwritten digit recognition with Logistic Regression. Until now we've seen how to use Tensors (n-dimensional arrays) in PyTorch & compute their gradients with Autograd. The handwritten digit recognition is an example of a **classification** problem; given an image of a digit we can to classify it as either 0, 1, 2, 3...9. Each digit to be classified is known as a class.
 
-## Logistic Regression vs Linear Regression
+So in simple terms: we'll be given a greyscale image (28 x 28) of some handwritten digit. We'll process this image to get a 28 x 28 matrix of real valued numbers, which we call **features** of this image. Our objective would be to **map a relationship between these features & the probability of a particular outcome**. If you are not familiar with this kind of a task, or wish to seek a quick intro to Logistic Regression, give [this article](https://medium.com/data-science-group-iitr/logistic-regression-simplified-9b4efe801389) a quick 5 minute read & you're good to go.
 
-![LinR vs LogR](https://cdn-images-1.medium.com/max/1280/1*Oy6O6OdzTXbp_Czi_k4mRg.png)
-
-*Differences*:
-
-- **Outcome (y)**: For linear regression, this is a scalar value, e.g., $50K, $23.98K, etc. For logistic regression, this is an integer that refers to a class for e.g., 0, 1, 2, .. 9. Specifically, it is called regression because the output of each class is in range [0,1], but we have a classification task so in the end we have an output which represent one of this class.
-
-- **Features (x)**: For linear regression, each feature is represented as an element in a column vector. For logistic regression involving a grayscale 2-D image, this is a 2-dimensional vector, with each element representing a pixel of the image; each pixel has a value of 0–255 representing a grayscale where 0 = black, and 255 = white, and other values some shade of grey.
-
-- **Cost function (cost)**: For linear regression, this is some function calculating the aggregated difference between each prediction and its expected outcome. For logistic regression, this is some function calculating the aggregation of whether each prediction is right or wrong.
-
-*Similarity*:
-
-- **Training**: The training goals of both linear and logistic regression are to learn the weights (W) and biases (b) values.
-- **Outcome**: The intention of both linear and logistic regression is to predict/classify the outcome (y) with the learned W, and b.
-
-## Dataset
+### Dataset
 
 For this task we will use the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. We've already uploaded the entire [dataset on FloydHub](https://www.floydhub.com/redeipirati/datasets/mnist). You can access the data via the `input` path. Head over to the `ipython notebook` if you haven't already to check this one out.
 
 To learn how datasets are managed, you can checkout the [dataset documentation](https://docs.floydhub.com/guides/create_and_upload_dataset/) or checkout this quick [tutorial](https://blog.floydhub.com/getting-started-with-deep-learning-on-floydhub/).
 
-The packages we'll be using are:
+### Data Handling in PyTorch
 
-- `torch`, our DL framework
-- `torchvision`, package to handle pytorch Dataset for computer vision task
-- `torch.nn`, package we need to create our Models
-- `numpy` package to handle vector representation
-- `matplotlib` to plot graphs
-
-The `torchvision` package consists of popular datasets, model architectures, and common image transformations for computer vision. `torchvision.datasets` provide a great API to handle the MNIST dataset. The snippet of code below, will create the MNIST dataset, then we will dive into to take a look about MNIST samples.
-
-```python
-# MNIST Dataset (Images and Labels)
-# If you have not mounted the dataset, you can download it
-# just adding download=True as parameter
-train_dataset = dsets.MNIST(root='/input',
-                            train=True,
-                            transform=transforms.ToTensor())
-x_train_mnist, y_train_mnist = train_dataset.train_data.type(torch.FloatTensor), train_dataset.train_labels
-test_dataset = dsets.MNIST(root='/input',
-                           train=False,
-                           transform=transforms.ToTensor())
-x_test_mnist, y_test_mnist = test_dataset.test_data.type(torch.FloatTensor), test_dataset.test_labels
-
-print('Training Data Size: ' ,x_train_mnist.size(), '-', y_train_mnist.size())
-print('Testing Data Size: ' ,x_test_mnist.size(), '-', y_test_mnist.size())
-
-```
+![Tf data loaders pipeline](https://cdn-images-1.medium.com/max/1280/1*S00VU2HiEjNZ35zlj2kqfw.gif)
+*Credit: [TF reading data docs](https://www.tensorflow.org/api_guides/python/reading_data)*
 
 `torch.utils.data.DataLoader` combines a dataset and a sampler, and provides single or multi-process iterators over the dataset.
 
 ```python
-# Hyperparameter
-batch_size = 8
-
 # Training Dataset Loader (Input Pipline)
 train_loader = torch.utils.data.DataLoader(dataset=train_dataset,
                                            batch_size=batch_size,
                                            shuffle=True)
-# Testing Dataset Loader (Input Pipline)
-test_loader = torch.utils.data.DataLoader(dataset=test_dataset,
-                                          batch_size=batch_size,
-                                          shuffle=False)
 ```
 
-## From Linear to Logistic Regression
-
-To make logistic regression work with `y = W.x + b`, we need to make some changes to reconcile the differences stated above.
-
-### Feature transformation, x
-
-We can convert the 2-dimensional image features in our logistic regression example (assuming it has X rows, Y columns) into a 1-dimensional vector (as required in linear regression) by appending each row of pixels one after another to the end of the first row of pixels as shown below.
-
-![Feature transformation](https://cdn-images-1.medium.com/max/1280/1*Vo8PMHppg_lWxFAZHZzNGQ.png)
-
-### Predicted Outcome Transformation, y
-
-For logistic regression, we cannot leave 'y' (predicted outcome) as a scalar since the prediction may end up being 2.3, or 11, which is NOT in the required set of classes [0, 1, …, 9].
-
-To overcome this, the prediction 'y' should be transformed into a single column vector (shown below as row vector to preserve space) where each element represents the score of what the logistic regression model thinks is likely to be a particular class. In the example below, class ‘1’ is the prediction since it has the highest score.
-
-![Predicted Outcome Transformation](https://cdn-images-1.medium.com/max/1280/1*Ld1fM5euVXm16mTf-4ifZA.png)
-
-To derive this vector of scores, for a given image, each pixel on it will contribute a set of scores (one for each class) indicating the likelihood it thinks the image is in a particular class, based **ONLY** on its own greyscale value. The sum of all the scores from every pixel for each class becomes the prediction vector.
-
-![Predicted Outcome Transformation 2](https://cdn-images-1.medium.com/max/1280/1*aOP0s2i587kDJW2Td7GNqQ.png)
-
-### Cost Function Transformation
-
-The cost function we are going to use is the cross entropy loss (H):
-
-1. Convert actual image class vector (y’) into a one-hot vector, which is a probability distribution
-2. Convert prediction class vector (y) into a probability distribution
-3. Use cross entropy function to calculate cost, which is the difference between 2 probability distribution function
-
-#### *Step 1. One-hot Vectors*
-
-Since we have already transformed prediction (y) into a vector of scores, we should also transform the actual image class (y’) into a vector; each element in the column vector represents a class with every element being ‘0’ except the element corresponding to the actual class being ‘1’. This is known as a one-hot vector. Below we show the one-hot vector for each class from 0 to 9.
-
-![one-hot-vector](https://cdn-images-1.medium.com/max/1280/1*YFh3GZ41PgQWAnB_LfmJVw.png)
-
-Assuming the actual (y’) image being 1, thus having a one-hot vector of [0, 1, 0, 0, 0, 0, 0, 0, 0, 0], and the prediction vector (y) of [1.3, 33, 2, 1.2, 3.2, 0.5, 3, 9.2, 1], plotting them for comparison becomes:
-
-![one-hot vs prob](https://cdn-images-1.medium.com/max/1280/1*HtZU15da9Tip9kF83YY7Ag.png)
-
-#### *Step 2. Probability Distribution with Softmax*
-
-To mathematically compare similarity of two ‘graphs’, cross-entropy is a great way (and here is a fantastic albeit long explanation for those with a stomach for details).
-
-To utilize cross entropy however, we need to convert both the actual outcome vector (y’) and the prediction outcome vector (y) values into a ‘probability distribution’, and by ‘probability distribution’ we mean:
-
-- The probability/score of each class has to be between 0 to 1
-- The sum of all the probabilities/score for all classes has to be 1
-
-The actual outcome vector (y’) being one-hot vectors already satisfy these constraints.
-
-For prediction outcome vector (y), we can transform it into a probability distribution using the Softmax function:
-
-![softmax](https://cdn-images-1.medium.com/max/1280/1*gmOykUVXXUYK7LPDVZHMBg.png)
-
-This is simply a 2-step process (see S1, S2 below), where each element in the prediction score vector (y), is exp’ed, and divided by the sum of the exp’ed total.
-
-![how softmax works](https://cdn-images-1.medium.com/max/1280/1*yHfAuzJud7Za0BGOT-mwAg.png)
-
-Note that Softmax(y) graph is similar in shape to the prediction (y) graph but merely with larger max and smaller min values.
-
-![softmax vs pred](https://cdn-images-1.medium.com/max/1280/1*0BW3r-W89s9-8HUz_EhauA.png)
-
-#### *Step 3. Cross Entropy*
-
-We can now apply cross-entropy (H) between the predicted vector score probability distribution (y’) and the actual vector score probability distribution (y).
-
-![CE](https://cdn-images-1.medium.com/max/1280/1*eNII64IH9v4JLJo-jfOBug.png)
-
-To quickly understand this complex function, we break it down into 3 parts (see below). Note that, as notation in this article, we use y_i to represent “y with i subscript” in the formula H:
-
-![splitting CE](https://cdn-images-1.medium.com/max/1280/1*MlJX2kL8vRPQU5xcgvS8bQ.png)
-
-- Blue: Actual outcome vector, y_i’
-- Red: -log of the probability distribution of prediction class vector, (Softmax(y_i)), explained previously
-- Green: Sum of multiplication of blue and red components for each image class i, where i = 0, 1, 2, …, 9
-
-The illustrations below should simplify your understanding further.
-
-The blue plot is just the one-hot vector of actual image class (y’), see **One-hot Vector** section:
-
-![one hot vect](https://cdn-images-1.medium.com/max/1280/1*-vPuYJvh8l7uSBKTl9Vm4w.png)
-
-The red plot is derived from transformations of each prediction vector element, y, to Softmax(y), to -log(softmax(y):
-
-![from pred to ce](https://cdn-images-1.medium.com/max/1280/1*AI9hbnU5SM8gLhGVhLASnQ.png)
-
-The cross entropy (H), the green part (see below) is the multiplication of blue and red values for each class, and then summing them up as illustrated:
-
-![CE explained](https://cdn-images-1.medium.com/max/1280/1*1wMxL3RsjfdSHhcbPd3R3g.png)
-
-Since the blue plot is a one-hot vector, it only contains a single element of 1, which is for the correct image class, all other multiplications in the cross entropy (H) are 0, and H simplifies to:
-```
-Cross Entropy (H) = -log(softmax(y_i))
-Where:
-- y_i: Predicted score/probability for correct image class
-```
-
-## Building & Training
-
-We have learned, in great detail, on how to transform a Linear Model to a Logistic one. In the next few snippets, we'll translate everything to PyTorch code. Follow along on the iPython Notebook.
+To create your own custom data loader, inherit `torch.utils.data.Dataset` and amend some methods. For instance,
 
 ```python
-# Hyperparameters
-input_size = 784 # 28 * 28
-num_classes = 10
-learning_rate = 1e-3
+class ImagesDataset(torch.utils.data.Dataset):
+    def __init__(self, df, transform=None,
+                 loader=tv.datasets.folder.default_loader):
+        self.df = df
+        self.transform = transform
+        self.loader = loader
 
-#### Model ####
-# Logistic Regression Model
-class LogisticRegression(nn.Module):
-    def __init__(self, input_size, num_classes):
-        super(LogisticRegression, self).__init__()
-        self.linear = nn.Linear(input_size, num_classes)
+    def __getitem__(self, index):
+        row = self.df.iloc[index]
 
-    def forward(self, x):
-        out = self.linear(x)
-        return out
+        target = row['class_']
+        path = row['path']
+        img = self.loader(path)
+        if self.transform is not None:
+            img = self.transform(img)
 
-model = LogisticRegression(input_size, num_classes)
+        return img, target
 
-# If you are running a GPU instance, load the model on GPU
-if cuda:
-    model.cuda()
+    def __len__(self):
+        n, _ = self.df.shape
+        return n
 
+# what transformations should be done with our images
+data_transforms = tv.transforms.Compose([
+    tv.transforms.RandomCrop((64, 64), padding=4),
+    tv.transforms.RandomHorizontalFlip(),
+    tv.transforms.ToTensor(),
+])
 
-#### Loss and Optimizer ####
-# Softmax is internally computed.
-loss_fn = nn.CrossEntropyLoss()
-# If you are running a GPU instance, compute the loss on GPU
-if cuda:
-    loss_fn.cuda()
+train_df = pd.read_csv('path/to/some.csv')
+train_dataset = ImagesDataset(
+    df=train_df,
+    transform=data_transforms
+)
 
-# Set parameters to be updated.
-optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
+# initialize data loader with the required params
+train_loader = torch.utils.data.DataLoader(train_dataset,
+                                           batch_size=10,
+                                           shuffle=True,
+                                           num_workers=16)
+
+# fetch the batch(call to `__getitem__` method)
+for img, target in train_loader:
+    pass
 ```
+During the course of this mini series we'll play a lot with Dataset and DataLoader!
 
-Let's train the model for 5 epochs.
+There is something however, that you should know. Image dimensions processed by PyTorch are different from TensorFlow. They are [batch_size x channels x height x width]. Applying `torchvision.transforms.ToTensor()` makes this transformation. Some other useful utils can be found in the [transforms package](http://pytorch.org/docs/master/torchvision/transforms.html).
 
-```python
-# Hyperparameters
-num_epochs = 5
-print_every = 100
-
-# Metrics
-train_loss = []
-train_accu = []
-
-# Model train mode
-model.train()
-# Training the Model
-for epoch in range(num_epochs):
-    for i, (images, labels) in enumerate(train_loader):
-        # image unrolling
-        images = Variable(images.view(-1, 28*28))
-        labels = Variable(labels)
-
-        if cuda:
-            images, labels = images.cuda(), labels.cuda()
-
-        # Forward + Backward + Optimize
-        optimizer.zero_grad()
-        outputs = model(images)
-        loss = loss_fn(outputs, labels)
-
-        # Load loss on CPU
-        if cuda:
-            loss.cpu()
-        loss.backward()
-        optimizer.step()
-
-        ### Keep track of metric every batch
-        # Loss Metric
-        train_loss.append(loss.data[0])
-        # Accuracy Metric
-        prediction = outputs.data.max(1)[1]   # first column has actual prob.
-        accuracy = prediction.eq(labels.data).sum()/batch_size*100
-        train_accu.append(accuracy)
-
-        # Log
-        if (i+1) % print_every == 0:
-            print ('Epoch: [%d/%d], Step: [%d/%d], Loss: %.4f, Accuracy: %.4f'
-                   % (epoch+1, num_epochs, i+1, len(train_dataset)//batch_size, loss.data[0], accuracy))
-```
-
-And to evaluate on the Test Set,
-
-```python
-model.eval()
-correct = 0
-for data, target in test_loader:
-    data, target = Variable(data.view(-1, 28*28), volatile=True), Variable(target)
-    if cuda:
-        data, target = data.cuda(), target.cuda()
-    output = model(data)
-    # Load output on CPU
-    if cuda:
-        output.cpu()
-    prediction = output.data.max(1)[1]
-    correct += prediction.eq(target.data).sum()
-
-print('\nTest set: Accuracy: {:.2f}%'.format(100. * correct / len(test_loader.dataset)))
-```
-
-To see the complete results & some samples from the dataset, head over to `ipython notebook` attached with this article & try tinkering with some hyper-paramters yourselves. Do Tweet us [@FloydHub_](https://twitter.com/FloydHub_) if you get some interesting results yourself!
+And that's all for now. You're ready to head over to the `ipython notebook` attached with this article & try tinkering with some hyper-paramters yourselves. Do Tweet us [@FloydHub_](https://twitter.com/FloydHub_) if you get some interesting results yourself!
 
 ## Summary
 
-PyTorch provides an amazing framework with an awesome community that can support us in our DL journey.
-We hope you enjoyed this Introduction to PyTorch. If you'd like to share your feedback (cheers, bug fix, typo and/or improvements), please leave a comment on our super active [forum](https://forum.floydhub.com/) or tweet us [@FloydHub_](https://twitter.com/FloydHub_).
+PyTorch provides an amazing framework with an awesome community that can support us in our DL journey. We introduce introduce PyTorch with Logistic Regression & in the next article you'll some more traditional use cases of PyTorch; We'll be implementing a single layer Neural Network from scratch as well as creating some 'strange' networks to give you a good idea how Dynamic Compute graphs make PyTorch so powerful.
 
-## Thanks and Resources
+We hope you enjoyed this Introduction to PyTorch. If you'd like to share your feedback (cheers, bug fix, typo and/or improvements), please leave us a comment on our super active [forum](https://forum.floydhub.com/) or tweet us [@FloydHub_](https://twitter.com/FloydHub_).
+
+## Resources
 
 **Big thanks** to:
  - [Illarion Khlestov](https://medium.com/@illarionkhlestov) for the code snippets, image and article,
