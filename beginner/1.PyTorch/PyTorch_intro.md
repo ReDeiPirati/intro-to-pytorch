@@ -90,11 +90,13 @@ out.backward()
 print("After backprop, x", x.grad)
 ```
 >Output
+
+```python
 Variable containing:
  4.5000  4.5000
  4.5000  4.5000
 [torch.FloatTensor of size 2x2]
-
+```
 ## Logistic Regression
 
 We are now moving on to a classical problem in Computer Vision: Handwritten digit recognition with Logistic Regression. Until now we've seen how to use Tensors (n-dimensional arrays) in PyTorch & compute their gradients with Autograd. The handwritten digit recognition is an example of a **classification** problem; given an image of a digit we can to classify it as either 0, 1, 2, 3...9. Each digit to be classified is known as a class.
