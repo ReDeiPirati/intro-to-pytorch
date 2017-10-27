@@ -117,6 +117,8 @@ machinet. different computation differently for each data point; for example a r
 
 We are now moving on to a classical problem in Computer Vision: Handwritten digit recognition with Logistic Regression. Until now we've seen how to use Tensors (n-dimensional arrays) in PyTorch & compute their gradients with Autograd. The handwritten digit recognition is an example of a **classification** problem; given an image of a digit we can to classify it as either 0, 1, 2, 3...9. Each digit to be classified is known as a class.
 
+![logreg](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/mnist_logreg.jpeg?raw=true)
+
 So in simple terms: we'll be given a greyscale image (28 x 28) of some handwritten digit. We'll process this image to get a 28 x 28 matrix of real valued numbers, which we call **features** of this image. Our objective would be to **map a relationship between these features & the probability of a particular outcome**. If you are not familiar with this kind of a task, or wish to seek a quick intro to Logistic Regression, give [this article](https://medium.com/data-science-group-iitr/logistic-regression-simplified-9b4efe801389) a quick 5 minute read & you're good to go.
 
 ### Dataset
