@@ -17,7 +17,6 @@ The terms "AI", "Deep Learning" & "Machine Learning" get thrown around so casual
 - Anyone curious to know how machine learn & think!
 
 **Table of Contents:**
-
 	- [Why AI matters?](#Why-Artificial-Intelligence-matters?)
 	- [What is AI?](#What-is-Artificial-Intelligence)
 	- [ML](#deep-learning)
@@ -26,9 +25,9 @@ The terms "AI", "Deep Learning" & "Machine Learning" get thrown around so casual
 	- [How does FloydHub help?](#How-does-FloydHub-help?)
 	- [Summary](#summary)
 
-## Why Artificial Intelligence matters?
+## Artificial Intelligence & how does it matter?
 
-A few of the phenomenal success stories like [DeepMind's AlphaGo](https://deepmind.com/blog/alphago-zero-learning-scratch/) & [Google's self driving car](https://waymo.com/) sparked the community's interest in this field & it has been uphill ever since. However, we don't see much of self driving cars around, do we? Or ever tried your hand at [Go](https://en.wikipedia.org/wiki/Go_(game))? Probably not. These landmark breakthroughs, however interesting they may seem at first, there is no denying that they're also a bit too abstruse to conceptually understand, and at the same time may make us overlook the humanly-fathomable & elegant solutions built using AI by developers sitting in their cubes all around the world. For instance,
+AI is nothing but an attempt to emulate human intelligence. Since its early days, research in AI  has been solely focussed on trying to replicate human intelligence for **specifc** tasks -- driving a car, playing chess etc. A few of the phenomenal success stories like [DeepMind's AlphaGo](https://deepmind.com/blog/alphago-zero-learning-scratch/) & [Google's self driving car](https://waymo.com/) sparked the community's interest in this field & it has been uphill ever since. However, we don't see much of self driving cars around, do we? Or have you ever tried a hand at [Go](https://en.wikipedia.org/wiki/Go_(game))? Probably not. These landmark breakthroughs, however interesting they may seem at first, there is no denying that they're also a bit too abstruse to conceptually understand, and at the same time may make us overlook the humanly-fathomable & elegant solutions built using these very methods by developers sitting in their cubes all around the world. For instance,
 
 1. Microsoft's [Seeing AI](https://www.microsoft.com/en-us/seeing-ai/) for the visually impaired beautifully integrates [object recognition](http://image-net.org/challenges/LSVRC/2017/) & [image captioning](http://cs.stanford.edu/people/karpathy/deepimagesent/).
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=bqeQByqf_f8" target="blank"> <img style="float: center;" src="http://img.youtube.com/vi/bqeQByqf_f8/0.jpg" alt="Seeing AI" width="240" height="180" border="10"/></a>
@@ -36,15 +35,7 @@ A few of the phenomenal success stories like [DeepMind's AlphaGo](https://deepmi
 2. [AI Experiments](https://experiments.withgoogle.com/ai) by Google is a collection of simple machine learning experiments ranging in areas from Computer Vision to Music Composition.
 ![AI_fields](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/ai_exp.png?raw=true)
 
-### What is Artificial Intelligence?
-
-AI is nothing but an attempt to emulate human intelligence. Since its early days, research in AI  has been solely focussed on trying to replicate human intelligence for **specifc** tasks -- driving a car, playing chess etc.
-
-![Machine_Brain](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/ML_def.jpg)
-
-### Is all this new?
-
-To be honest, not really. We won't dive into the full history of AI, but it's good to know that the name AI was created by John McCarthy dedicated his life to the subject. To read more about the history of Deep Learning in general, you can check out the article, [Coding the History of Deep Learning](https://blog.floydhub.com/coding-the-history-of-deep-learning/) by Emil Walner.
+*Quick Trivia*: We won't dive into the full history of AI, but it's good to know that the name AI was created by John McCarthy dedicated his life to the subject. To read more about the history of Deep Learning in general, you can check out the article, [Coding the History of Deep Learning](https://blog.floydhub.com/coding-the-history-of-deep-learning/) by Emil Walner.
 
 ## Machine Learning
 
