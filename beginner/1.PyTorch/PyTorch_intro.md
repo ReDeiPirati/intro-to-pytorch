@@ -74,8 +74,6 @@ Variables are wrappers above Tensors. With them, we can build our [computational
 
 When using `autograd`, the forward pass over your network will define a computational graph; nodes in the graph will be Tensors, and edges will be functions that produce the output Tensors. Backpropagating through this graph then allows you to easily compute gradients.
 
-PyTorch Variables have the same API as PyTorch Tensors: (almost) any operation that you can perform on a Tensor also works on Variables; the difference is that while using Variables, PyTorch defines a computational graph, allowing you to automatically compute gradients.
-
 Here's a quick snippet on how we go about using Autograd & Variables:
 
 ```python
@@ -97,6 +95,26 @@ Variable containing:
  4.5000  4.5000
 [torch.FloatTensor of size 2x2]
 ```
+
+### Quick Trivia: Static vs Dynamic Compute Graphs
+
+You may skip this section & will still do fine, but it's interesting to know how exactly TensorFlow & PyTorch differ & how is PyTorch so popular among Python developers.  
+
+![dynamic graph](http://pytorch.org/static/img/dynamic_graph.gif)
+
+PyTorch's `autograd` looks a lot like TensorFlow: we define a computational graph, and use automatic differentiation to compute gradients. The difference between the two is that TensorFlow's compute graphs are **static** and PyTorch uses **dynamic** computational graphs.
+
+In TensorFlow, we define the [computate graph](https://www.tensorflow.org/programmers_guide/graphs) once and then execute the same graph over and over again, like a loop. In PyTorch, each forward pass defines a new computational graph.
+
+```
+Static graphs are nice because you can optimize the graph up front; framework might decide to fuse some graph operations for efficiency, or to come up with a strategy for distributing the graph across many GPUs or many machines. If you are reusing the same graph over and over, then this potentially costly up-front optimization can be amortized as the same graph is rerun over and over.
+```
+
+![TF data flow](https://www.tensorflow.org/images/tensors_flowing.gif)
+*Credit: [TF Graph docs](https://www.tensorflow.org/programmers_guide/graphs)*
+
+One aspect where static and dynamic graphs differ is control flow. For some models we may wish to perform different computation for each data point; for example a recurrent network might be unrolled for different numbers of time steps for each data point; this unrolling can be implemented as a loop. With a static graph the loop construct needs to be a part of the graph; for this reason TensorFlow provides operators such as tf.scan for embedding loops into the graph. With dynamic graphs the situation is simpler: since we build graphs on-the-fly for each example, we can use normal imperative flow control to perform computation that differs for each input.
+
 ## Logistic Regression
 
 We are now moving on to a classical problem in Computer Vision: Handwritten digit recognition with Logistic Regression. Until now we've seen how to use Tensors (n-dimensional arrays) in PyTorch & compute their gradients with Autograd. The handwritten digit recognition is an example of a **classification** problem; given an image of a digit we can to classify it as either 0, 1, 2, 3...9. Each digit to be classified is known as a class.
