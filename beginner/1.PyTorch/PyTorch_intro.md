@@ -8,7 +8,7 @@
 
 ## Introduction
 
-The motivation behind this article is to give you a hands on experience with machine learning workflow with an example of logistic regression & introduce PyTorch, with its strengths and weakness that the framework provides. Before we begin, you should know that the PyTorch's [documentation](http://pytorch.org/docs/master/) and [tutorials](http://pytorch.org/tutorials/) are stored separately. And sometimes they may not converge due to the rapid speed of development and version changes. So feel free to investigate the [source code](https://github.com/pytorch/pytorch), if you feel so. [PyTorch Forums](https://discuss.pytorch.org/) are another great place to get your doubts cleared up. If you do however have any doubts/queries regarding our examples or in general, do let us know on the [FloydHub Forum](https://forum.floydhub.com/), we'll be happy to help.
+The motivation behind this article is to give you a hands on experience with machine learning workflow with an example of logistic regression & introduce PyTorch, with its strengths and weaknesses that the framework provides. Before we begin, you should know that the PyTorch's [documentation](http://pytorch.org/docs/master/) and [tutorials](http://pytorch.org/tutorials/) are stored separately. And sometimes they may not converge due to the rapid speed of development and version changes. So feel free to investigate the [source code](https://github.com/pytorch/pytorch), if you feel so. [PyTorch Forums](https://discuss.pytorch.org/) are another great place to get your doubts cleared up. If you do however have any doubts/queries regarding our examples or in general, do let us know on the [FloydHub Forum](https://forum.floydhub.com/), we'll be happy to help.
 
 **Table of Contents**:
 
