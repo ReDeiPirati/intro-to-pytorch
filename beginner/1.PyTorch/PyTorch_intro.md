@@ -59,7 +59,7 @@ print(torch.add(x, y))
 You can find more of these in the `iPython Notebooks` that come along with this article. If you do feel comfortable in NumPy, this shouldn't be anything new.
 However, unlike NumPy, PyTorch Tensors can utilize GPUs to accelerate their numeric computations & PyTorch makes it ridiculously easy to switch from GPU to CPU & vice versa.
 
-*Note: It is interesting to know that PyTorch can serve as a full fledged replacement for NumPy as Tensors & ndarrays can be used interchangeably.*
+*Note: It is interesting to know that PyTorch can serve as a full fledged replacement for NumPy, as Tensors & ndarrays can be used interchangeably.*
 
 ### Variables and AutoGrad
 
