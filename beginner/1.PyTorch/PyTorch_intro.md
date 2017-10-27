@@ -144,11 +144,11 @@ print (model)
 ```
 >Output
 
-'''
+```python
 LogisticRegression (
   (linear): Linear (784 -> 10)
 )
-'''
+```
 
 The model structure tells us how the computation 'transforms' the image feature vector of dim 784 to a vector of 10 real valued outputs representing probabilities.
 
