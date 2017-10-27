@@ -110,7 +110,16 @@ In TensorFlow, we define the [computate graph](https://www.tensorflow.org/progra
 *Credit: [TF Graph docs](https://www.tensorflow.org/programmers_guide/graphs)*
 
 ```
-Static graphs are nice because you can optimize the graph up front; framework might decide to fuse some graph operations for efficiency, or to come up with a strategy for distributing the graph across many GPUs or many machines. If you are reusing the same graph over and over, then this potentially costly up-front optimization can be amortized as the same graph is rerun over and over. However, for some models we may wish to perform different computation differently for each data point; for example a recurrent network might be unrolled for different numbers of time steps for each data point; this unrolling can be implemented as a loop. With a static graph the loop construct needs to be a part of the graph; for this reason TensorFlow provides operators such as tf.scan for embedding loops into the graph. With dynamic graphs the situation is simpler: since we build graphs on-the-fly for each example, we can use normal imperative flow control to perform computation that differs for each input.
+Static graphs are nice because you can optimize the graph up front; framework might decide to fuse some graph
+ operations for efficiency, or to come up with a strategy for distributing the graph across many GPUs or many
+  machines. If you are reusing the same graph over and over, then this potentially costly up-front optimization can be amortized as the same graph is rerun over and over. However, for some models we may wish to perform
+  machinet.
+   different computation differently for each data point; for example a recurrent network might be unrolled for
+    different numbers of time steps for each data point; this unrolling can be implemented as a loop. With a
+     static graph the loop construct needs to be a part of the graph; for this reason TensorFlow provides
+      operators such as tf.scan for embedding loops into the graph. With dynamic graphs the situation is simpler:
+       since we build graphs on-the-fly for each example, we can use normal imperative flow control to perform
+        computation that differs for each input.
 ```
 
 ## Logistic Regression
