@@ -29,18 +29,12 @@ PyTorch is a Python based scientific computing package targeted at two sets of a
 
 *This introduction assume that you have a basic familiarity of NumPy, if it's not the case follow this [QuickStarter](https://cs231n.github.io/python-numpy-tutorial/#numpy) by Justin Johnson to get you up to speed.*
 
-```python
-# Import the package we need to run the tutorial
-import torch
-import numpy as np
-from torch.autograd import Variable
-import torch.nn.functional as F
-from collections import OrderedDict
-import torchvision as tv
+Here's a list of modules we need in order to run this tutorial:
 
-# Is cuda available on this instance?
-cuda = torch.cuda.is_available()
-```
+1. [torch.autograd](http://pytorch.org/docs/master/autograd.html) Provides classes and functions implementing automatic differentiation of arbitrary scalar valued functions.
+2. [torch.nn](http://pytorch.org/docs/master/nn.html) Package provides an easy and modular way to build and train simple or complex neural networks.
+3. [torchvision](http://pytorch.org/docs/master/torchvision/index.html) consists of popular datasets, model architectures & common image transformations.
+4. [NumPy](http://www.numpy.org/) is the fundamental package for scientific computing with Python.
 
 ### Tensor
 
@@ -63,50 +57,11 @@ print(x)
 # Addition
 print("Syntax 2: torch.add(x, y) =")
 print(torch.add(x, y))
-
-# Addition: giving an output tensor
-result = torch.Tensor(5, 3)
-torch.add(x, y, out=result)
-print("Syntax 3: torch.add(x, y, out=result) =")
-print(result)
-
 ```
-You can find more of these in the `iPython Notebooks` that come along with this article. If you do feel comfortable in NumPy, this shouldn't be new.
+You can find more of these in the `iPython Notebooks` that come along with this article. If you do feel comfortable in NumPy, this shouldn't be anything new.
 However, unlike NumPy, PyTorch Tensors can utilize GPUs to accelerate their numeric computations & PyTorch makes it ridiculously easy to switch from GPU to CPU & vice versa.
 
-Here we use PyTorch to convert a NumPy array to a PyTorch tensor and vice versa, then we will load a Tensor to GPU and then back again on CPU using cast before mentioned.
-
-*Note: you can run the GPU to CPU example only if you are running a FloydHub GPU instance*
-
-```python
-# Generate a sample matrix of 3 rows and 4 columns
-# from a Normal Distribution with Mean 0 and Var 1
-numpy_tensor = np.random.randn(3, 4)
-print ("Numpy tensor: ", numpy_tensor, "\n")
-
-# Convert numpy array to pytorch array
-pytorch_tensor = torch.Tensor(numpy_tensor)
-print ("Numpy to PyTorch tensor: ", pytorch_tensor, "\n")
-
-# If cuda is available, run GPU-to-CPU and vice versa example
-if cuda:
-    # If we want to use tensor on GPU provide another type
-    dtype = torch.cuda.FloatTensor
-    gpu_tensor = torch.randn(10, 20).type(dtype)
-    # Or just call `cuda()` method
-    gpu_tensor = pytorch_tensor.cuda()
-    print ("PyTorch cuda gpu_tensor ", gpu_tensor, "\n")
-    # Call back to the CPU
-    cpu_tensor = gpu_tensor.cpu()
-    print ("PyTorch cuda tensor to cpu_tensor, gpu_tensor.cpu() ", cpu_tensor, "\n")
-# Define pytorch tensors
-x = torch.randn(10, 20)
-y = torch.ones(20, 5)
-# `@` mean matrix multiplication from python3.5, PEP-0465
-res = x @ y # Same as torch.matmul(x, y)
-# Get the shape
-res.shape  # torch.Size([10, 5])
-```
+*Note: It is interesting to know that PyTorch can serve as a full fledged replacement for NumPy as Tensors & ndarrays can be used interchangeably.*
 
 ### Variables and AutoGrad
 
@@ -126,25 +81,19 @@ Here's a quick snippet on how we go about using Autograd & Variables:
 ```python
 # Create a Variable
 x = Variable(torch.ones(2, 2), requires_grad=True)
-print("x", x)
-
 # Do some operation
 y = x + 2
-print("x + 2 = y,", y, "\n")
-
-# y was created as a result of an operation, so it has a grad_fn telling the history of its computation
-print("y was created as a result of an operation, so we have ", y.grad_fn, "\n")
-
-# More op
 z = y * y * 3
 out = z.mean()
-
-print("y * y * * 3 = z", z, "\n", "mean(z), ", out)
-
 # Let’s compute the gradient now
 out.backward()
 print("After backprop, x", x.grad)
 ```
+>Output
+Variable containing:
+ 4.5000  4.5000
+ 4.5000  4.5000
+[torch.FloatTensor of size 2x2]
 
 ## Logistic Regression
 
