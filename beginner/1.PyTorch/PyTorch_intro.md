@@ -217,7 +217,11 @@ train_dataset = ImagesDataset(
     df=train_df,
     transform=data_transforms
 )
+```
 
+Now, to iterate over the dataset while executing each epoch, 
+
+```python
 # initialize data loader with the required params
 train_loader = torch.utils.data.DataLoader(train_dataset,
                                            batch_size=10,
