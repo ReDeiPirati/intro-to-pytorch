@@ -23,7 +23,7 @@ Table of Contents:
 	- [How does FloydHub help?](#How-does-FloydHub-help?)
 	- [Summary](#summary)
 
-## Artificial Intelligence & how does it matter?
+## Artificial Intelligence: How does it matter?
 
 AI is nothing but an attempt to emulate human intelligence. Since its early days, research in AI  has been solely focussed on trying to replicate human intelligence for **specifc** tasks -- driving a car, playing chess etc. A few of the phenomenal success stories like [DeepMind's AlphaGo](https://deepmind.com/blog/alphago-zero-learning-scratch/) & [Google's self driving car](https://waymo.com/) sparked the community's interest in this field & it has been uphill ever since. However, we don't see much of self driving cars around, do we? Or have you ever tried a hand at [Go](https://en.wikipedia.org/wiki/Go_(game))? Probably not. These landmark breakthroughs, however interesting they may seem at first, there is no denying that they're also a bit too abstruse to conceptually understand, and at the same time may make us overlook the humanly-fathomable & elegant solutions built using these very methods by developers sitting in their cubes all around the world. For instance,
 
