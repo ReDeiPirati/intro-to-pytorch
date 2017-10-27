@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Hi! Welcome to this mini-series on Deep Learning. Unless you're under complete isolation, you must have heard people talking about machine learning, deep learning & the infamous neural networks. Or some of you might have tried reading about Deep Learning, maybe going through some snippets, got frustrated with the overwhelming amount of technical jargon & wished someone would just give you a high-level explanation before you deep dived into the intricate details.
+Hi! Welcome to this mini-series on Deep Learning. Unless you're under complete isolation, you must have heard people talking about Machine Learning, Deep Learning & the infamous Neural Networks. Or some of you might have tried reading about Deep Learning, maybe going through some snippets, got frustrated with the overwhelming amount of technical jargon & wished someone would just give you a high-level explanation before you deep dived into the intricate details.
 
 ![AI-ML-DL](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/AI-ML-DL.png?raw=true)
 
@@ -16,16 +16,16 @@ The terms "AI", "Deep Learning" & "Machine Learning" get thrown around so casual
 - Non-technical folks who want a primer on Deep Learning and are willing to engage with technical concepts.
 - Anyone curious to know how machine learn & think!
 
-##
-
 Table of Contents:
-	- [Why AI matters?](#artificial-intelligence)
-	- [ML](#machine-learning)
+	- [Why AI matters?](#Why-Artificial-Intelligence-matters?)
+	- [What is AI?](#What-is-Artificial-Intelligence)
+	- [ML](#deep-learning)
 	- [DL](#deep-learning)
-	- [DL](#deep-learning)
+	- [ML to DL](#Machine-Learning-to-Deep-Learning)
+	- [How does FloydHub help?](#How-does-FloydHub-help?)
 	- [Summary](#summary)
 
-## Why AI matters?
+## Why Artificial Intelligence matters?
 
 A few phenomenal success stories like [DeepMind's AlphaGo](https://deepmind.com/blog/alphago-zero-learning-scratch/) & [Google's self driving car](https://waymo.com/) sparked the community's interest in this field & it has been uphill ever since. However, we don't see much of self driving cars around, do we? Or ever tried your hand at [Go](https://en.wikipedia.org/wiki/Go_(game))? Probably not. These landmark breakthroughs, however interesting they may seem at first, there is no denying that they're also a bit too abstruse to conceptually understand, and at the same time may make us overlook the humanly-fathomable & elegant solutions built using AI by developers sitting in their cubes all around the world. For instance,
 
