@@ -121,6 +121,37 @@ We are now moving on to a classical problem in Computer Vision: Handwritten digi
 
 So in simple terms: we'll be given a greyscale image (28 x 28) of some handwritten digit. We'll process this image to get a 28 x 28 matrix of real valued numbers, which we call **features** of this image. Our objective would be to **map a relationship between these features & the probability of a particular outcome**. If you are not familiar with this kind of a task, or wish to seek a quick intro to Logistic Regression, give [this article](https://medium.com/data-science-group-iitr/logistic-regression-simplified-9b4efe801389) a quick 5 minute read & you're good to go.
 
+We can define a Logistic Regression model for our given problem in PyTorch with the following snippet,
+
+```python
+# Hyperparameters
+input_size = 784 # 28 * 28
+num_classes = 10
+learning_rate = 1e-3
+
+# Logistic Regression Model
+class LogisticRegression(nn.Module):
+    def __init__(self, input_size, num_classes):
+        super(LogisticRegression, self).__init__()
+        self.linear = nn.Linear(input_size, num_classes)
+
+    def forward(self, x):
+        out = self.linear(x)
+        return out
+
+model = LogisticRegression(input_size, num_classes)
+print (model)
+```
+>Output
+
+'''
+LogisticRegression (
+  (linear): Linear (784 -> 10)
+)
+'''
+
+The model structure tells us how the computation 'transforms' the image feature vector of dim 784 to a vector of 10 real valued outputs representing probabilities.
+
 ### Dataset
 
 For this task we will use the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. We've already uploaded the entire [dataset on FloydHub](https://www.floydhub.com/redeipirati/datasets/mnist). You can access the data via the `input` path. Head over to the `ipython notebook` if you haven't already to check this one out.
