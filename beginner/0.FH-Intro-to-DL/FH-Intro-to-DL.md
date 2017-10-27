@@ -14,7 +14,7 @@ We start off by introducing some terminology, particularly the terms, "AI", "Dee
 
 - Developers who want to get up to speed on Deep Learning quickly.
 - Non-technical folks who want a primer on Deep Learning and are willing to engage with technical concepts.
-- Anyone curious to know how machine learn & think!
+- Anyone curious to know how machines learn & think!
 
 Table of Contents:
 	- [Why AI matters?](#Why-Artificial-Intelligence-matters?)
