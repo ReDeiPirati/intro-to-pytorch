@@ -8,7 +8,7 @@ Hi! Welcome to this mini-series on Deep Learning. Unless you're under total isol
 
 This guide is for anyone who is curious about deep learning but has no idea where to start. Or someone who wishes to kickstart the their journey from low level introductory concepts to building high level state of the art deep learning models. The goal is to be accessible to anyone — which means that there are a lot of presumptions here as well. But who cares? If this gets you more interested in DL, then mission accomplished. Oh! And also, no advanced math required.
 
-The terms "AI", "Deep Learning" & "Machine Learning" get thrown around so casually by developers, even the executives wish to implement AI in their services, but quite often, there isn't much clarity. Once you're through with this article you will be able to grasp the differences between important terms.
+We start off by introducing some terminology, particularly the terms, "AI", "Deep Learning" & "Machine Learning", that get thrown around so casually by developers, with even the executives wishing to implement them in their services, but quite often, there isn't much clarity. Once you're through with this piece you will be able to grasp the differences between important terms.
 
 ## Who should follow along?
 
