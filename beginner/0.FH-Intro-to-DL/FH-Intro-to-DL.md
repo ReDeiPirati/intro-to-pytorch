@@ -4,9 +4,9 @@
 
 Hi! Welcome to this mini-series on Deep Learning. Unless you're under complete isolation, you must have heard people talking about machine learning, deep learning & the infamous neural networks. Or some of you might have tried reading about Deep Learning, maybe going through some snippets, got frustrated with the overwhelming amount of technical jargon & wished someone would just give you a high-level explanation before you deep dived into the intricate details.
 
-This guide is for anyone who is curious about deep learning but has no idea where to start. Or someone who wishes to kickstart the their journey from low level introductory concepts to building high level state of the art deep learning models. The goal is to be accessible to anyone — which means that there are a lot of presumptions here as well. But who cares? If this gets you more interested in DL, then mission accomplished. Oh! And also, no advanced math required.
-
 ![AI-ML-DL](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/AI-ML-DL.png?raw=true)
+
+This guide is for anyone who is curious about deep learning but has no idea where to start. Or someone who wishes to kickstart the their journey from low level introductory concepts to building high level state of the art deep learning models. The goal is to be accessible to anyone — which means that there are a lot of presumptions here as well. But who cares? If this gets you more interested in DL, then mission accomplished. Oh! And also, no advanced math required.
 
 The terms "AI", "Deep Learning" & "Machine Learning" get thrown around so casually by developers, even the executives wish to implement AI in their services, but quite often, there isn't much clarity. Once you're through with this article you will be able to grasp the differences between important terms.
 
