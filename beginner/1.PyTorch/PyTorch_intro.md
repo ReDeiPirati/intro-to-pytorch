@@ -158,7 +158,7 @@ For this task we will use the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset
 
 To learn how datasets are managed, you can checkout the [dataset documentation](https://docs.floydhub.com/guides/create_and_upload_dataset/) or checkout this quick [tutorial](https://blog.floydhub.com/getting-started-with-deep-learning-on-floydhub/).
 
-### Data Handling in PyTorch
+#### Data Handling in PyTorch
 
 ![Tf data loaders pipeline](https://cdn-images-1.medium.com/max/1280/1*S00VU2HiEjNZ35zlj2kqfw.gif)
 *Credit: [TF reading data docs](https://www.tensorflow.org/api_guides/python/reading_data)*
