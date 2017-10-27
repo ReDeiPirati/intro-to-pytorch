@@ -33,7 +33,7 @@ AI is nothing but an attempt to emulate human intelligence. Since its early days
 2. [AI Experiments](https://experiments.withgoogle.com/ai) by Google is a collection of simple machine learning experiments ranging in areas from Computer Vision to Music Composition.
 ![AI_fields](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/ai_exp.png?raw=true)
 
-*Quick Trivia*: We won't dive into the full history of AI, but it's good to know that the name AI was created by John McCarthy dedicated his life to the subject. To read more about the history of Deep Learning in general, you can check out the article, [Coding the History of Deep Learning](https://blog.floydhub.com/coding-the-history-of-deep-learning/) by Emil Walner.
+*Quick Trivia: We won't dive into the full history of AI, but it's good to know that the name AI was created by John McCarthy dedicated his life to the subject. To read more about the history of Deep Learning in general, you can check out the article, [Coding the History of Deep Learning](https://blog.floydhub.com/coding-the-history-of-deep-learning/) by Emil Walner.*
 
 ## Machine Learning
 
