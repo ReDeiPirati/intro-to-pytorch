@@ -174,6 +174,14 @@ train_loader = torch.utils.data.DataLoader(dataset=train_dataset,
 
 To create your own custom data loader, inherit `torch.utils.data.Dataset` and amend some methods. For instance,
 
+>some.csv
+
+| path             | class_        |
+| ---------------- |:-------------:|
+| img/sample1.png  | 1             |
+| img/sample2.png  | 2             |   
+| img/sample3.png  | 3             |   
+
 ```python
 class ImagesDataset(torch.utils.data.Dataset):
     def __init__(self, df, transform=None,
