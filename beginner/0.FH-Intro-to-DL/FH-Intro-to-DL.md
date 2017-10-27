@@ -18,9 +18,7 @@ The terms "AI", "Deep Learning" & "Machine Learning" get thrown around so casual
 
 Table of Contents:
 	- [Why AI matters?](#Why-Artificial-Intelligence-matters?)
-	- [What is AI?](#What-is-Artificial-Intelligence)
-	- [ML](#deep-learning)
-	- [DL](#deep-learning)
+	- [ML](#Machine-Learning)
 	- [ML to DL](#Machine-Learning-to-Deep-Learning)
 	- [How does FloydHub help?](#How-does-FloydHub-help?)
 	- [Summary](#summary)
