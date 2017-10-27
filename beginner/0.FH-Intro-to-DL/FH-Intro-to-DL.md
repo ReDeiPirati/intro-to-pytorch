@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Hi! Welcome to this mini-series on Deep Learning. Unless you're under complete isolation, you must have heard people talking about [Machine Learning](https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471), [Deep Learning](https://medium.com/towards-data-science/intro-to-deep-learning-d5caceedcf85) & the popular [Neural Networks](https://medium.com/technologymadeeasy/for-dummies-the-introduction-to-neural-networks-we-all-need-c50f6012d5eb). Or some of you might have tried reading something on Deep Learning, maybe going through some snippets yourself, got frustrated with the overwhelming amount of technical jargon & wished someone would just give you a high-level explanation before you deep dived into the intricate details.
+Hi! Welcome to this mini-series on Deep Learning. Unless you're under total isolation, you must have heard people talking about [Machine Learning](https://medium.com/@ageitgey/machine-learning-is-fun-80ea3ec3c471), [Deep Learning](https://medium.com/towards-data-science/intro-to-deep-learning-d5caceedcf85) & the popular [Neural Networks](https://medium.com/technologymadeeasy/for-dummies-the-introduction-to-neural-networks-we-all-need-c50f6012d5eb). Or some of you might have tried reading something on Deep Learning, maybe going through some snippets yourself, got frustrated with the overwhelming amount of technical jargon & wished someone would just give you a high-level explanation before you deep dived into the intricate details.
 
 ![AI-ML-DL](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/AI-ML-DL.png?raw=true)
 
