@@ -16,7 +16,7 @@ The terms "AI", "Deep Learning" & "Machine Learning" get thrown around so casual
 - Non-technical folks who want a primer on Deep Learning and are willing to engage with technical concepts.
 - Anyone curious to know how machine learn & think!
 
-**Table of Contents:**
+Table of Contents:
 	- [Why AI matters?](#Why-Artificial-Intelligence-matters?)
 	- [What is AI?](#What-is-Artificial-Intelligence)
 	- [ML](#deep-learning)
