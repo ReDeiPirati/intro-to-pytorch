@@ -18,8 +18,6 @@ The motivation behind this article is to give you a hands on experience with mac
 - [Logistic Regression](#logistic-regression)
 - [Summary](#summary)
 
-*Note: It is advised to follow along with the iPython Notebook while going through the entire article*
-
 ### PyTorch Introduction
 
 PyTorch is a Python based scientific computing package targeted at two sets of audiences:
