@@ -160,7 +160,7 @@ We'll even use advanced optimizers like ADAGRAD & ADAM as well when we get to Ne
 We are now introducing a classical problem in Computer Vision: Handwritten Digit Recognition with Logistic Regression. Until now we've seen how to use Tensors (n-dimensional arrays) in PyTorch & compute their gradients with Autograd. The handwritten digit recognition is an example of a **classification** problem; given an image of a digit we can to classify it as either 0, 1, 2, 3...9. Each digit to be classified is known as a class.
 
 <p align="center">
-  <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/mnist_logeeg.jpeg?raw=true"/>
+  <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/mnist_logreg.jpeg?raw=true"/>
 </p>
 
 In simple terms: we'll be given a greyscale image (28 x 28) of some handwritten digit. We'll process this image to get a 28 x 28 matrix of real valued numbers, called **features** of this image. Our objective would be to **map a relationship between these features & the probability of a particular outcome**. Before moving on to the next article, if you are not familiar with this kind of a task, or wish to seek a quick intro to Logistic Regression, give [this article](https://medium.com/data-science-group-iitr/logistic-regression-simplified-9b4efe801389) a quick 5 minute read & you're good to go.
