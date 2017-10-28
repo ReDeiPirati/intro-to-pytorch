@@ -155,11 +155,11 @@ We'll even use advanced optimizers like Adagrad & Adam when we get to Neural Net
 
 ### Quick Trivia: Why are we doing this in PyTorch? Why not TensorFlow?
 
-You may skip this section & will still do fine, but it's interesting to know how exactly TensorFlow & PyTorch differ & how is PyTorch became so popular among Python developers.
+You may skip this section & will still do fine, but it's interesting to know how exactly TensorFlow & PyTorch differ and how PyTorch is gaining so much popularity.
 
-PyTorch & Tensorflow being the two most comprehensive & popular frameworks, it didn't take much time to boil down our options to these two. Even though TensorFlow is more popular, we chose to go ahead with PyTorch for two primary reasons.
+With PyTorch & Tensorflow, being the two most comprehensive & popular frameworks, it didn't take much time to boil down our options to these two. Even though TensorFlow is more popular, we chose to go ahead with PyTorch for two primary reasons.
 
-**Graph Creation**: Creating & running graphs is where the two frameworks differ the most. Graphs in PyTorch are created dynamically, i.e at runtime. Whereas TensorFlow compiles the graph first, then executes it repeatedly. As a simple example, consider this:
+1. **Graph Creation**: Creating & running graphs is where the two frameworks differ the most. Graphs in PyTorch are created dynamically, i.e at runtime. Whereas TensorFlow compiles the graph first, then executes it repeatedly. As a simple example, consider this:
 
 ```python
 for _ in range(T):
@@ -180,7 +180,7 @@ operations for efficiency, or to come up with a strategy for distributing the gr
 machines. If you are reusing the same graph over and over, then this potentially costly up-front optimization can be amortized as the same graph is rerun over and over. However, for some models we may wish to perform
 different computations differently for each data point; for example a recurrent network might be unrolled for different numbers of time steps for each data point; this unrolling can be implemented as a loop. With a static graph the loop construct needs to be a part of the graph; for this reason TensorFlow provides operators such as tf.scan for embedding loops into the graph. With dynamic graphs the situation is simpler: since we build graphs on-the-fly for each example, we can use normal imperative flow control to perform computation that differs for each input.
 
-**Data Loaders**: With its well designed APIs, sampler & data loader, parallelizing data-flow operations is incredibly simple. TensorFlow provides us with some of its data loading tools (readers, queues, etc) but PyTorch is clearly miles ahead. 
+2. **Data Loaders**: With its well designed APIs, sampler & data loader, parallelizing data-flow operations is incredibly simple. TensorFlow provides us with some of its data loading tools (readers, queues, etc) but PyTorch is clearly miles ahead.
 
 *So why is TensorFlow so popular then?* While we may feel that learning about DL makes PyTorch a better candidate than TF, it may also be noted that there are certain fronts where TensorFlow does extremely well. Primarily in **Deployment**, **Device Management** & **Serialization**.
 
