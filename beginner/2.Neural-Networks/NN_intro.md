@@ -158,6 +158,6 @@ for epoch in range(num_epochs):
 ### Results: Logistic Regression
 
 <p float="center">
-  <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/loss_logreg.png?raw=true" width="100" />
-  <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/accuracy_logreg.png?raw=true" width="100" /> 
+  <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/loss_logreg.png?raw=true"/>
+  <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/accuracy_logreg.png?raw=true"/>
 </p>
