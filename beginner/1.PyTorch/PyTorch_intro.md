@@ -129,7 +129,7 @@ A quick recap of what we've learned so far:
     <img src="https://alykhantejani.github.io/images/gradient_descent_line_graph.gif"/>
 </p>
 
-The reason we wish to retain a computational graph of variables is so we can & update the variables to optimize equations. This may not make much sense now, but hang on for a while. We'll get there. Say we have two Variables `y_` & `y`. `y_` is what our model predicts & `y` is what it **should** predict (remember supervised learning?).
+The reason we wish to retain a computational graph of variables is so we can differentiate & update the variables to optimize mathematical equations. This may not make much sense now, but hang on for a while. We'll get there. Say we have two Variables `y_` & `y`. `y_` is what our model predicts & `y` is what it **should** predict (remember supervised learning?).
 
 So how do we teach a machine that it's not doing it's job right of predicting `y` & needs to do better? You see, the basis of learning, be it biological beings like us or artificial machines, has always been repetition of a task i.e. a **learning algorithm**. To achieve this, we optimize!
 
