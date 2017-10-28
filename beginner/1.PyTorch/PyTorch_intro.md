@@ -184,9 +184,10 @@ different computations differently for each data point; for example a recurrent 
 
 *So why is TensorFlow so popular then?* While we may feel that learning about DL makes PyTorch a better candidate than TF, it may also be noted that there are certain fronts where TensorFlow does extremely well. Primarily in **Deployment**, **Device Management** & **Serialization**.
 
+
 ## Next Up: Handwritten Digit Classification
 
-We are now introducing a classical problem in Computer Vision: Handwritten Digit Recognition with Logistic Regression. Until now we've seen how to use Tensors (n-dimensional arrays) in PyTorch & compute their gradients with Autograd. The handwritten digit recognition is an example of a **classification** problem; given an image of a digit we can to classify it as either 0, 1, 2, 3...9. Each digit to be classified is known as a class.
+So that's all for now. For the next article in this series, we are introducing a classical problem in Computer Vision: Handwritten Digit Recognition. Until now we've seen how to use Tensors (n-dimensional arrays) in PyTorch & compute their gradients with Autograd. The handwritten digit recognition is an example of a **classification** problem; given an image of a digit we can to classify it as either 0, 1, 2, 3...9. Each digit to be classified is known as a class.
 
 <p align="center">
   <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/mnist_logreg.jpeg?raw=true"/>
