@@ -149,7 +149,7 @@ print (y)  # Evaluates to 3.0 -- optimization successful
 
 The above snippet creates an optimizer called Stochastic Gradient Descent, passing it a list of parameters to optimize & a [learning rate](https://medium.com/@balamuralim.1993/importance-of-learning-rate-in-machine-learning-920a323fcbfb). We try to minimize the difference between `y_` & `y`, slowly. And after 100 steps, they become equal.
 
-We'll even use advanced optimizers like ADAGRAD & ADAM as well when we get to Neural Nets. They're usually slower & more explanatory but less likely to **overshoot** & thus, are used a lot. `torch.optim` module contains a number of these.
+We'll even use advanced optimizers like Adagrad & Adam when we get to Neural Nets. They're usually slower & more explanatory but are less likely to **overshoot** & thus, are used a lot. `torch.optim` module contains a number of these optimizers.
 
 <p align="center">
     <img src="https://2.bp.blogspot.com/-eW63YjSyuwY/V1QP3b9ZSmI/AAAAAAAAFeY/VcLfkmRvGaQbRjKhetlKjIl59kgkGV6hQCKgB/s1600/opt1.gif"/>
