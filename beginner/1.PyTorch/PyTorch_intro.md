@@ -2,13 +2,11 @@
 
 <img style="float: center;" src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/PyTorch.jpg?raw=true">
 
-#### Abstract
-
-[PyTorch](http://pytorch.org/) is one among the numerous [deep learning frameworks](https://www.kdnuggets.com/2017/02/python-deep-learning-frameworks-overview.html) which allows us to optimize mathematical equations using Gradient Descent. PyTorch has been gaining much [praise & popularity]((https://www.oreilly.com/ideas/why-ai-and-machine-learning-researchers-are-beginning-to-embrace-pytorch)) lately due to the high level of flexibility & its imperative programming flow.
-
 ## Introduction
 
-The motivation behind this article is to give you a hands on experience with machine learning workflow with an example of logistic regression & introduce PyTorch, with its strengths and weaknesses that the framework provides. Before we begin, you should know that the PyTorch's [documentation](http://pytorch.org/docs/master/) and [tutorials](http://pytorch.org/tutorials/) are stored separately. And sometimes they may not converge due to the rapid speed of development and version changes. So feel free to investigate the [source code](https://github.com/pytorch/pytorch), if you feel so. [PyTorch Forums](https://discuss.pytorch.org/) are another great place to get your doubts cleared up. If you do however have any doubts/queries regarding our examples or in general, do let us know on the [FloydHub Forum](https://forum.floydhub.com/), we'll be happy to help.
+[PyTorch](http://pytorch.org/) is one among the numerous [deep learning frameworks](https://www.kdnuggets.com/2017/02/python-deep-learning-frameworks-overview.html) which allows us to optimize mathematical equations using Gradient Descent. The objective of this article is to give you a hands on experience with PyTorch & some basic mathematical operations that follow in the machine learning workflow. We also introduce the problem of handwritten digit recognition a.k.a the hello world of Deep Learning.
+
+*Follow the installation procedure from [here](http://pytorch.org/).*
 
 **Table of Contents**:
 
@@ -23,9 +21,9 @@ The motivation behind this article is to give you a hands on experience with mac
 PyTorch is a Python based scientific computing package targeted at two sets of audiences:
 
 - A replacement for NumPy to harness GPU compute capability.
-- A Deep Learning research platform that provides maximum flexibility and speed.
+- A Deep Learning research platform that provides maximum flexibility and speed through Dynamic Compute graphs & Imperative Programming control flow.
 
-*This introduction assume that you have a basic familiarity of NumPy, if it's not the case follow this [QuickStarter](https://cs231n.github.io/python-numpy-tutorial/#numpy) by Justin Johnson to get you up to speed.*
+*This introduction assume that you have a basic familiarity with NumPy, if it's not the case follow this [QuickStarter](https://cs231n.github.io/python-numpy-tutorial/#numpy) by Justin Johnson and you're good to go.*
 
 Here's a list of modules we need in order to run this tutorial:
 
@@ -241,6 +239,8 @@ And that's all for now. You're ready to head over to the `ipython notebook` atta
 ## Summary
 
 PyTorch provides an amazing framework with an awesome community that can support us in our DL journey. We introduce introduce PyTorch with Logistic Regression & in the next article you'll some more traditional use cases of PyTorch; We'll be implementing a single layer Neural Network from scratch as well as creating some 'strange' networks to give you a good idea how Dynamic Compute graphs make PyTorch so powerful.
+
+Before we begin, you should know that the PyTorch's [documentation](http://pytorch.org/docs/master/) and [tutorials](http://pytorch.org/tutorials/) are stored separately. And sometimes they may not converge due to the rapid speed of development and version changes. So feel free to investigate the [source code](https://github.com/pytorch/pytorch), if you feel so. [PyTorch Forums](https://discuss.pytorch.org/) are another great place to get your doubts cleared up. If you do however have any doubts/queries regarding our examples or in general, do let us know on the [FloydHub Forum](https://forum.floydhub.com/), we'll be happy to help.
 
 We hope you enjoyed this Introduction to PyTorch. If you'd like to share your feedback (cheers, bug fix, typo and/or improvements), please leave us a comment on our super active [forum](https://forum.floydhub.com/) or tweet us [@FloydHub_](https://twitter.com/FloydHub_).
 
