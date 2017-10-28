@@ -98,14 +98,19 @@ When we wrap our Tensors with Variables, the arithmetic operations still remain 
 
 You may skip this section & will still do fine, but it's interesting to know how exactly TensorFlow & PyTorch differ & how is PyTorch so popular among Python developers.
 
-![dynamic graph](http://pytorch.org/static/img/dynamic_graph.gif)
+<p align="center">
+  <img src="http://pytorch.org/static/img/dynamic_graph.gif"/>
+</p>
 
 PyTorch's `autograd` looks a lot like TensorFlow: we define a computational graph, and use automatic differentiation to compute gradients. The difference between the two is that TensorFlow's compute graphs are **static** and PyTorch uses **dynamic** computational graphs.
 
 In TensorFlow, we define the [computate graph](https://www.tensorflow.org/programmers_guide/graphs) once and then execute the same graph over and over again, like a loop. In PyTorch, each forward pass defines a new computational graph.
 
-![TF data flow](https://www.tensorflow.org/images/tensors_flowing.gif)
-*Credit: [TF Graph docs](https://www.tensorflow.org/programmers_guide/graphs)*
+<p align="center">
+  <img src="https://www.tensorflow.org/images/tensors_flowing.gif"/>
+</p>
+
+>Credit: [TF Graph docs](https://www.tensorflow.org/programmers_guide/graphs)
 
 >Static graphs are nice because you can optimize the graph up front; framework might decide to fuse some graph
 operations for efficiency, or to come up with a strategy for distributing the graph across many GPUs or many
@@ -120,7 +125,9 @@ A quick recap of what we've learned so far:
   - What's a Variable & how to Tensors correspond to Variables.
   - How do we compute gradients & a brief intro into what exactly is a computational graph.
 
-![GD](https://alykhantejani.github.io/images/gradient_descent_line_graph.gif)
+<p align="center">
+    <img src="https://alykhantejani.github.io/images/gradient_descent_line_graph.gif"/>
+</p>
 
 The reason we wish to retain a computational graph of variables is so we can & update the variables to optimize equations. This may not make much sense now, but hang on for a while. We'll get there. Say we have two Variables `y_` & `y`. `y_` is what our model predicts & `y` is what it **should** predict (remember supervised learning?).
 
@@ -144,13 +151,17 @@ The above snippet creates an optimizer called Stochastic Gradient Descent, passi
 
 We'll even use advanced optimizers like ADAGRAD & ADAM as well when we get to Neural Nets. They're usually slower & more explanatory but less likely to **overshoot** & thus, are used a lot. `torch.optim` module contains a number of these.
 
-![optim](https://2.bp.blogspot.com/-eW63YjSyuwY/V1QP3b9ZSmI/AAAAAAAAFeY/VcLfkmRvGaQbRjKhetlKjIl59kgkGV6hQCKgB/s1600/opt1.gif)
+<p align="center">
+    <img src="https://2.bp.blogspot.com/-eW63YjSyuwY/V1QP3b9ZSmI/AAAAAAAAFeY/VcLfkmRvGaQbRjKhetlKjIl59kgkGV6hQCKgB/s1600/opt1.gif"/>
+</p>
 
 ## Next Up: Handwritten Digit Classification
 
 We are now introducing a classical problem in Computer Vision: Handwritten Digit Recognition with Logistic Regression. Until now we've seen how to use Tensors (n-dimensional arrays) in PyTorch & compute their gradients with Autograd. The handwritten digit recognition is an example of a **classification** problem; given an image of a digit we can to classify it as either 0, 1, 2, 3...9. Each digit to be classified is known as a class.
 
-<img style="float: center;" src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/mnist_logreg.jpeg?raw=true">
+<p align="center">
+  <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/mnist_logeeg.jpeg?raw=true"/>
+</p>
 
 In simple terms: we'll be given a greyscale image (28 x 28) of some handwritten digit. We'll process this image to get a 28 x 28 matrix of real valued numbers, called **features** of this image. Our objective would be to **map a relationship between these features & the probability of a particular outcome**. Before moving on to the next article, if you are not familiar with this kind of a task, or wish to seek a quick intro to Logistic Regression, give [this article](https://medium.com/data-science-group-iitr/logistic-regression-simplified-9b4efe801389) a quick 5 minute read & you're good to go.
 
