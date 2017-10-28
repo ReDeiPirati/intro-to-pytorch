@@ -137,7 +137,7 @@ So how do we teach a machine that it's not doing a very good job of predicting `
 y = Variable(torch.FloatTensor([3.0]), requires_grad=True)
 y_ = Variable(torch.FloatTensor([5.0]), requires_grad=True)
 
-optimizer = torch.optim.SGD([x, y], lr=0.1)
+optimizer = torch.optim.SGD([y, y_], lr=0.1)
 for i in range(100):
     error = (y_-y).abs()   # Minimizes absolute difference
     error.backward()      # Computes derivatives automatically
