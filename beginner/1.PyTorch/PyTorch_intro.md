@@ -184,9 +184,9 @@ We hope you enjoyed this Introduction to PyTorch. If you'd like to share your fe
 ## Resources
 
 **Big thanks** to:
- - [Illarion Khlestov](https://medium.com/@illarionkhlestov) for the code snippets, image and article,
- - [PyTorch](http://pytorch.org/tutorials/) for the docs, code snippet, image and the amazing framework
- - [Justin Johnson](http://cs.stanford.edu/people/jcjohns/) for the pytorch examples and snippet of code
+ - [Illarion Khlestov](https://medium.com/@illarionkhlestov) for the code snippets & images.
+ - [PyTorch](http://pytorch.org/tutorials/) for the docs, code snippets, images and the amazing framework.
+ - [Justin Johnson](http://cs.stanford.edu/people/jcjohns/) for the pytorch examples and snippets of code.
 
 Link References:
  - Pytorch [docs](http://pytorch.org/docs/master/) and [tutorial](http://pytorch.org/tutorials/)
