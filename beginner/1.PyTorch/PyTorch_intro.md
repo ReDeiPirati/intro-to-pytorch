@@ -153,6 +153,7 @@ We'll even use advanced optimizers like Adagrad & Adam when we get to Neural Net
     <img src="https://2.bp.blogspot.com/-eW63YjSyuwY/V1QP3b9ZSmI/AAAAAAAAFeY/VcLfkmRvGaQbRjKhetlKjIl59kgkGV6hQCKgB/s1600/opt1.gif"/>
 </p>
 
+
 ### Quick Trivia: Why are we doing this in PyTorch? Why not TensorFlow?
 
 You may skip this section & will still do fine, but it's interesting to know how exactly TensorFlow & PyTorch differ and how PyTorch is gaining so much popularity.
