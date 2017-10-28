@@ -161,3 +161,5 @@ for epoch in range(num_epochs):
   <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/loss_logreg.png?raw=true"/>
   <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/accuracy_logreg.png?raw=true"/>
 </p>
+
+You can see here, how the decrease in the error/loss value leads to an increase in accuracy. This behaviour portrays the increasing confidence of the model as we feed in more & more data while iterating through the dataset. 
