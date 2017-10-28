@@ -66,8 +66,8 @@ Unlike NumPy `ndarrays`, PyTorch Tensors can utilize GPUs to accelerate their nu
 
 <p align="center">
   <img src="http://pytorch.org/tutorials/_images/Variable.png"/>
-  <center>Credits: PyTorch Variable Docs</center>
 </p>
+>Credits: PyTorch Variable Docs
 
 Variables are **wrappers** over Tensors that can be differentiated & modified. [Automatic Differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation) or `autograd` is a tool within PyTorch that helps us do just that. Every variable instance has two attributes: `.data` that contains the initial tensor itself and `.grad` that contains gradients for the corresponding tensor. Here's a quick snippet on how we go about using Autograd & Variables:
 
