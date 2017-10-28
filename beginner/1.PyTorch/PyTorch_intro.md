@@ -105,7 +105,7 @@ z = y * y * 3
 out = z.mean()
 # Let’s compute the gradient now
 out.backward()
-print("After backprop, x", x.grad)
+print(x.grad)
 ```
 >Output
 
@@ -116,7 +116,7 @@ Variable containing:
 [torch.FloatTensor of size 2x2]
 ```
 
-When we wrap our Tensors with Variables, the arithmetic operations still remain the same, but Variables also remember their history of computation. Thus, `z` is not only a regular `2 x 2` Tensor but expression, involving `y` & `x`. This is what helps us define a **computational graph**. Nodes in this graph are Tensors & edges will be Functions operated on these nodes. **Backpropagating** through this graph then allows you to easily compute gradients.
+*Note*: When we wrap our Tensors with Variables, the arithmetic operations still remain the same, but Variables also remember their history of computation. Thus, `z` is not only a regular `2 x 2` Tensor but expression, involving `y` & `x`. This is what helps us define a **computational graph**. Nodes in this graph are Tensors & edges will be Functions operated on these nodes. **Backpropagating** through this graph then allows you to easily compute gradients.
 
 ## Optimization
 
