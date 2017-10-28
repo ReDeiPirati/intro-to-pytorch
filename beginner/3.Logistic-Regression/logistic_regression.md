@@ -462,3 +462,82 @@ Resources:
 - [another MNIST example](https://github.com/rickiepark/pytorch-examples/blob/master/mnist.ipynb)
 - [PyTorch Dataset Example](https://github.com/ncullen93/torchsample/blob/master/examples/Transforms%20with%20Pytorch%20and%20Torchsample.ipynb)
 
+
+
+#### Data Handling in PyTorch
+
+![Tf data loaders pipeline](https://cdn-images-1.medium.com/max/1280/1*S00VU2HiEjNZ35zlj2kqfw.gif)
+*Credit: [TF reading data docs](https://www.tensorflow.org/api_guides/python/reading_data)*
+
+`torch.utils.data.DataLoader` combines a dataset and a sampler, and provides single or multi-process iterators over the dataset.
+
+```python
+# Training Dataset Loader (Input Pipline)
+train_loader = torch.utils.data.DataLoader(dataset=train_dataset,
+                                           batch_size=batch_size,
+                                           shuffle=True)
+```
+
+To create your own custom data loader, inherit `torch.utils.data.Dataset` and amend some methods. For instance,
+
+>some.csv
+
+| path             | class_        |
+| ---------------- |:-------------:|
+| img/sample1.png  | 1             |
+| img/sample2.png  | 0             |   
+| img/sample3.png  | 1             |   
+
+```python
+class ImagesDataset(torch.utils.data.Dataset):
+    def __init__(self, df, transform=None,
+                 loader=tv.datasets.folder.default_loader):
+        self.df = df
+        self.transform = transform
+        self.loader = loader
+
+    def __getitem__(self, index):
+        row = self.df.iloc[index]
+
+        target = row['class_']
+        path = row['path']
+        img = self.loader(path)
+        if self.transform is not None:
+            img = self.transform(img)
+
+        return img, target
+
+    def __len__(self):
+        n, _ = self.df.shape
+        return n
+
+# what transformations should be done with our images
+data_transforms = tv.transforms.Compose([
+    tv.transforms.RandomCrop((64, 64), padding=4),
+    tv.transforms.RandomHorizontalFlip(),
+    tv.transforms.ToTensor(),
+])
+
+train_df = pd.read_csv('path/to/some.csv')
+train_dataset = ImagesDataset(
+    df=train_df,
+    transform=data_transforms
+)
+```
+
+Now, to iterate over the dataset while executing each epoch,
+
+```python
+# initialize data loader with the required params
+train_loader = torch.utils.data.DataLoader(train_dataset,
+                                           batch_size=10,
+                                           shuffle=True,
+                                           num_workers=16)
+
+# fetch the batch(call to `__getitem__` method)
+for img, target in train_loader:
+    pass
+```
+During the course of this mini series we'll play a lot with Dataset and DataLoader!
+
+There is something however, that you should know. Image dimensions processed by PyTorch are different from TensorFlow. They are [batch_size x channels x height x width]. Applying `torchvision.transforms.ToTensor()` makes this transformation. Some other useful utils can be found in the [transforms package](http://pytorch.org/docs/master/torchvision/transforms.html).
