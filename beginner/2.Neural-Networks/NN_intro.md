@@ -6,7 +6,7 @@
 
 ## Introduction
 
-Welcome to the second part in this series. In this article, we'll introduce you to the `hello world` of deep learning-- The Handwritten Digit Recognition task. We'll (*try*) to building a simple & minimal Neural Network (from scratch) in PyTorch. We will also deal with some lingo revolving around Neural Networks such as a neuron, weights, biases etc. Without any delay, let's get started!
+Welcome to Part 2! Here, we'll introduce you to the `hello world` of deep learning-- The Handwritten Digit Recognition task. This article is essentially split into two sections, in the first one we pick up where we left off, by implementing a simple logistic regression model on the MNIST data & defining a standard classification workflow. Then we'll (*try*) to build a simple & minimal Neural Network (from scratch) in PyTorch to see how these non-linear architectures improve the classification performance. If you do however feel that the first section is `too simple`, feel free to hop on to the next. So let's get started!
 
 #### Quick Recap
 
@@ -16,11 +16,13 @@ Before we move ahead with our first task of implementing `Logistic Regression` f
   2. A brief explanation about Autograd & Optimizers.
   3. Introduced the task of Handwritten Digit Recognition on the MNIST dataset.
 
+We hope you're following along with the `iPython`
+
 ## Logistic Regression
 
-At the end of last lesson, we introduced the famous MNIST task. It is when we're given a `[28 x 28]` grayscale image of a handwritten digit, we wish to identify which one is it from `[0-9]`. The outputs here (digits) are referred to as classes, 10 of them in this case. This type of problem is known as **Multinomial Logistic Regression**-- when a response can have 3 or more values (10 in this case).
+At the end of last lesson, we introduced the famous MNIST task. It is when we're given a `[28 x 28]` grayscale image of a handwritten digit and we wish to identify the digit `[0-9]`. The outputs here (digits) are referred to as `classes`, 10 of them in this case. This type of problem is particularly known as a **Multi-Class Classification**-- where a response `(y)` can have 3 or more values (10 in this case).
 
-We'll now begin to understand the workflow of a classification problem. In the next few sections you'll see how an image dataset is processed, instantiation of a Logistic model in PyTorch & what more can we do!
+We'll start off by understanding the workflow of a classification problem. In the next few sections you'll see how an image dataset is processed as well as the instantiation of a Logistic model in PyTorch.
 
 For the sake of notation, let's denote the input image matrix `[28 x 28]` by `X` or `features` & the digit associated with that image as `Y` or `class label`.
 
@@ -47,14 +49,14 @@ If you remember, in the last article, we had defined our error/loss as `error = 
 The most commonly used cost function in multi-class classification problem is the [cross entropy](https://en.wikipedia.org/wiki/Cross_entropy) loss. It works in 3 steps,
 
   1. Convert actual image class vector `(y)` into a [one-hot vector](https://machinelearningmastery.com/why-one-hot-encode-data-in-machine-learning/), which is a probability distribution.
-  2. Convert prediction class vector `(y')` into a probability distribution using [sigmoid](https://www.quora.com/What-is-the-sigmoid-function-and-what-is-its-use-in-machine-learnings-neural-networks-How-about-the-sigmoid-derivative-function).
+  2. Convert prediction class vector `(y')` into a probability distribution using [Softmax](https://www.quora.com/What-is-the-sigmoid-function-and-what-is-its-use-in-machine-learnings-neural-networks-How-about-the-sigmoid-derivative-function).
   3. Calculate the difference between 2 probability distribution functions.
 
 To know more about the intricate functioning of Logistic Regression, read all about it in [this article](https://medium.com/all-of-us-are-belong-to-machines/gentlest-intro-to-tensorflow-4-logistic-regression-2afd0cabc54) by Soon Hin Khor.
 
 ### Handling the Data
 
-The `torchvision` package consists of popular datasets, model architectures, and common image transformations for computer vision. `torchvision.datasets` provide a great API to handle the MNIST dataset. The snippet of code below, will create the MNIST dataset, then we will dive into to take a look about MNIST samples.
+The `torchvision` package in PyTorch consists of popular datasets, model architectures, and common image transformations for computer vision. `torchvision.datasets` provide a great API to handle the MNIST dataset. The snippet of code below, will create the MNIST dataset, then we will dive into to take a look about MNIST samples.
 
 ```python
 # MNIST Dataset (Images and Labels)
@@ -155,6 +157,8 @@ for epoch in range(num_epochs):
         train_accu.append(accuracy)
 ```
 
+We encourage you to head over to the `ipython notebook` & try tinkering with the hyperparamters to retrain the whole thing yourself and see what improvements you might get. You may as well want to try out different optimizers!
+
 ### Results: Logistic Regression
 
 <p float="center">
@@ -162,4 +166,6 @@ for epoch in range(num_epochs):
   <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/accuracy_logreg.png?raw=true"/>
 </p>
 
-You can see here, how the decrease in the error/loss value leads to an increase in accuracy. This behaviour portrays the increasing confidence of the model as we feed in more & more data while iterating through the dataset. 
+You can see here, how the decrease in the error/loss value leads to an increase in accuracy. This behaviour portrays the increasing confidence of the model as we feed in more & more data while iterating through the dataset. Upon evaluating, we can an accuracy of about 80-85%. So naturally, the next question is, **can we do better?**.
+
+## Artificial Neural networks

@@ -4,9 +4,7 @@
 
 ## Introduction
 
-[PyTorch](http://pytorch.org/) is one among the numerous [deep learning frameworks](https://www.kdnuggets.com/2017/02/python-deep-learning-frameworks-overview.html) which allows us to optimize mathematical equations using [Gradient Descent](https://medium.com/ai-society/hello-gradient-descent-ef74434bdfa5). The objective of this article is to give you a hands on experience with PyTorch & some basic mathematical operations that follow in the machine learning workflow. We also introduce the classic problem of [Handwritten Digit Recognition](http://yann.lecun.com/exdb/mnist/) a.k.a the hello world of Deep Learning.
-
-*Follow the installation procedure from [here](http://pytorch.org/).*
+[PyTorch](http://pytorch.org/) is one among the numerous [deep learning frameworks](https://www.kdnuggets.com/2017/02/python-deep-learning-frameworks-overview.html) which allows us to optimize mathematical equations using [Gradient Descent](https://medium.com/ai-society/hello-gradient-descent-ef74434bdfa5). The objective of this article is to give you a hands on experience with PyTorch & some basic mathematical lingo associated with Deep Learning. We also introduce the classic problem of [Handwritten Digit Recognition](http://yann.lecun.com/exdb/mnist/) a.k.a the hello world of Deep Learning.
 
 **Table of Contents**:
 
@@ -23,18 +21,11 @@ PyTorch is a Python based scientific computing package targeted at two sets of a
 - A replacement for NumPy to harness GPU compute capability.
 - A Deep Learning research platform that provides maximum flexibility and speed through Dynamic Compute graphs & Imperative Programming control flow.
 
-*This introduction assume that you have a basic familiarity with NumPy, if it's not the case follow this [QuickStarter](https://cs231n.github.io/python-numpy-tutorial/#numpy) by Justin Johnson and you're good to go.*
-
-Here's a list of modules we'll need in order to run this tutorial:
-
-1. [torch.autograd](http://pytorch.org/docs/master/autograd.html) Provides classes and functions implementing automatic differentiation of arbitrary scalar valued functions.
-2. [torch.nn](http://pytorch.org/docs/master/nn.html) Package provides an easy and modular way to build and train simple or complex neural networks.
-3. [torchvision](http://pytorch.org/docs/master/torchvision/index.html) consists of popular datasets, model architectures & common image transformations.
-4. [NumPy](http://www.numpy.org/) is the fundamental package for scientific computing with Python.
-
 ### Tensors
 
-A [PyTorch Tensor](http://pytorch.org/docs/master/tensors.html) is conceptually identical to a numpy `ndarray`, and PyTorch provides many functions for operating on these Tensors. Like standard `ndarrays`, PyTorch Tensors do not know anything about deep learning or computational graphs or gradients; they are a generic tool for scientific computing. We can use n-dimensional Tensors to our requirement, for instance - we can have multidimensional (2D) tensor storing an image, or a single variable storing text.
+In any deep learning pipeline, one obvious inevitable thing that we encounter, is mathematical data. Be it an images stored in the form of `[height x width]` matrices, a piece of text stored in the form a vector or some spooky operation taking place between those two. PyTorch provides us with objects known as Tensors that store all this data under one roof.
+
+*Formally*, a [PyTorch Tensor](http://pytorch.org/docs/master/tensors.html) is conceptually identical to a numpy `ndarray`, and PyTorch provides many functions for operating on these Tensors. Like standard `ndarrays`, PyTorch Tensors do not know anything about deep learning or computational graphs or gradients; they are a generic tool for scientific computing. We can use n-dimensional Tensors to our requirement, for instance - we can have multidimensional (2D) tensor storing an image, or a single variable storing text.
 
 The following snippets demonstrate Tensors & a few of their operations:
 
@@ -70,7 +61,40 @@ Unlike NumPy `ndarrays`, PyTorch Tensors can utilize GPUs to accelerate their nu
 
 >Credits: PyTorch Variable Docs
 
-Variables are **wrappers** over Tensors that can be differentiated & modified. [Automatic Differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation) or `autograd` is a tool within PyTorch that helps us do just that. Every variable instance has two attributes: `.data` that contains the initial tensor itself and `.grad` that contains gradients for the corresponding tensor. Here's a quick snippet on how we go about using Autograd & Variables:
+Variables are **wrappers** over Tensors that allow them to be differentiated & modified. Let me demonstrate how: Take the example in the following snippet, where we apply a string of operations over a 'Variable' `x`, to predict `y`.
+
+```python
+import numpy as np
+# x, w1, w2 is a PyTorch Variable
+h = x.dot(w1)
+h_relu = np.maximum(h,0)
+y_pred = h_relu.dot(w2)
+
+loss = np.mean(np.square(y_pred - y).sum())
+```
+And now, we wish to compute the derivative of this function with respect to the loss. Using the traditional symbolic differentiation, we would achieve that in a way like this,
+
+```python
+# Compute Gradient
+grad_y_pred = 2.0*(y_pred - y)
+grad_w2 = h_relu.T.dot(grad_y_pred)
+grad_h_relu = grad_y_pred.dot(w2.T)
+grad_h = grad_h_relu.copy()
+grad_h[h < 0] = 0
+grad_w1 = x.T.dot(grad_h)
+```
+>This process mentioned up is a part of Backpropagation in a simple single layer Neural Network, don't worry about it even if you don't understand much of it, we'll cover it in the next article.
+
+Now imagine, if there were tens of different types of mathematical operations before computing `loss` in the first snippet (because there will be in what's about to come!). How could you possibly code the gradient computation for something like that? Thankfully, `torch.autograd` exists. It works on the principle of Automatic Differentiation, which is inherently based on the **chain rule**. To perform the gradient computation in the above example using `autograd`, all we have to do is,
+
+```python
+#Make sure x, w1 & w2 are Variables
+y_pred = x.mm(w1).clamp(min=0).mm(w2)
+loss = np.square(y_pred - y).sum()
+loss.backward()
+```
+
+Every variable instance has two attributes: `.data` that contains the initial tensor itself and `.grad` that contains gradients for the corresponding tensor. Here are some more snippets on using Autograd & Variables:
 
 ```python
 # Create a Variable
@@ -94,52 +118,26 @@ Variable containing:
 
 When we wrap our Tensors with Variables, the arithmetic operations still remain the same, but Variables also remember their history of computation. Thus, `z` is not only a regular `2 x 2` Tensor but expression, involving `y` & `x`. This is what helps us define a **computational graph**. Nodes in this graph are Tensors & edges will be Functions operated on these nodes. **Backpropagating** through this graph then allows you to easily compute gradients.
 
-### Quick Trivia: Static vs Dynamic Compute Graphs
-
-You may skip this section & will still do fine, but it's interesting to know how exactly TensorFlow & PyTorch differ & how is PyTorch so popular among Python developers.
-
-<p align="center">
-  <img src="http://pytorch.org/static/img/dynamic_graph.gif"/>
-</p>
-
-PyTorch's `autograd` looks a lot like TensorFlow: we define a computational graph, and use automatic differentiation to compute gradients. The difference between the two is that TensorFlow's compute graphs are **static** and PyTorch uses **dynamic** computational graphs.
-
-In TensorFlow, we define the [computate graph](https://www.tensorflow.org/programmers_guide/graphs) once and then execute the same graph over and over again, like a loop. In PyTorch, each forward pass defines a new computational graph.
-
-<p align="center">
-  <img src="https://www.tensorflow.org/images/tensors_flowing.gif"/>
-</p>
-
->Credit: [TF Graph docs](https://www.tensorflow.org/programmers_guide/graphs)
-
->Static graphs are nice because you can optimize the graph up front; framework might decide to fuse some graph
-operations for efficiency, or to come up with a strategy for distributing the graph across many GPUs or many
-machines. If you are reusing the same graph over and over, then this potentially costly up-front optimization can be amortized as the same graph is rerun over and over. However, for some models we may wish to perform
-different computations differently for each data point; for example a recurrent network might be unrolled for different numbers of time steps for each data point; this unrolling can be implemented as a loop. With a static graph the loop construct needs to be a part of the graph; for this reason TensorFlow provides operators such as tf.scan for embedding loops into the graph. With dynamic graphs the situation is simpler: since we build graphs on-the-fly for each example, we can use normal imperative flow control to perform computation that differs for each input.
-
 ## Optimization
-
-A quick recap of what we've learned so far:
-
-  - What's a PyTorch Tensor & what does it represent.
-  - What's a Variable & how to Tensors correspond to Variables.
-  - How do we compute gradients & a brief intro into what exactly is a computational graph.
 
 <p align="center">
     <img src="https://alykhantejani.github.io/images/gradient_descent_line_graph.gif"/>
 </p>
 
+So until now, we've seen Tensors that hold the data, Variables wrap around Tensors to let them perform complex math operations & finally `autograd` to compute gradients. So why do these Variables need retain a history of computation?
+
 The reason we wish to retain a computational graph of variables is so we can differentiate & update the variables to optimize mathematical equations. This may not make much sense now, but hang on for a while. We'll get there. Say we have two Variables `y_` & `y`. `y_` is what our model predicts & `y` is what it **should** predict (remember supervised learning?).
 
-So how do we teach a machine that it's not doing a very good job of predicting `y` & needs to do better? You see, the basis of learning, be it biological beings like us or artificial machines, has always been repetition of a task i.e. a **learning algorithm**. To achieve this, we optimize!
+But how do we teach a machine that it's not doing a very good job of predicting `y` & needs to do better? You see, the basis of learning, be it biological beings like us or artificial machines, has always been 'repetition' of a  particular task i.e. a **learning algorithm**. To achieve this, we optimize!
 
 ```python
-y = Variable(torch.FloatTensor([3.0]), requires_grad=True)
+x = Variable(torch.FloatTensor([3.0]), requires_grad=False)
 y_ = Variable(torch.FloatTensor([5.0]), requires_grad=True)
+w = Variable(torch.randn(torch.FloatTensor(1)), requires_grad=True)
 
 optimizer = torch.optim.SGD([y, y_], lr=0.1)
 for i in range(100):
-    error = (y_-y).abs()   # Minimizes absolute difference
+    error = (y_ - y*w).abs()   # Minimizes absolute difference
     error.backward()      # Computes derivatives automatically
     optimizer.step()     # Decreases loss: Updates y_ to become 'more' close to y
     optimizer.zero_grad()
@@ -154,6 +152,37 @@ We'll even use advanced optimizers like Adagrad & Adam when we get to Neural Net
 <p align="center">
     <img src="https://2.bp.blogspot.com/-eW63YjSyuwY/V1QP3b9ZSmI/AAAAAAAAFeY/VcLfkmRvGaQbRjKhetlKjIl59kgkGV6hQCKgB/s1600/opt1.gif"/>
 </p>
+
+### Quick Trivia: Why are we doing this in PyTorch? Why not TensorFlow?
+
+You may skip this section & will still do fine, but it's interesting to know how exactly TensorFlow & PyTorch differ & how is PyTorch became so popular among Python developers.
+
+PyTorch & Tensorflow being the two most comprehensive & popular frameworks, it didn't take much time to boil down our options to these two. Even though TensorFlow is more popular, we chose to go ahead with PyTorch for two primary reasons.
+
+**Graph Creation**: Creating & running graphs is where the two frameworks differ the most. Graphs in PyTorch are created dynamically, i.e at runtime. Whereas TensorFlow compiles the graph first, then executes it repeatedly. As a simple example, consider this:
+
+```python
+for _ in range(T):
+    h = torch.matmul(W, h) + b
+```
+Since the above operation takes place under a standard Python loop, `T` can be changed with each iteration of this code. TensorFlow on the other hand uses its [control flow operations](https://www.tensorflow.org/api_guides/python/control_flow_ops#Control_Flow_Operations) making it a bit too tedious to compute a graph dynamically. Furthermore, this makes debugging much easier. You'll see some more virtues of dynamic compute graphs in the upcoming articles.
+
+In TensorFlow, we define the [computate graph](https://www.tensorflow.org/programmers_guide/graphs) once and then execute the same graph over and over again, like a loop. In PyTorch, each forward pass defines a new computational graph.
+
+<p align="center">
+  <img src="https://www.tensorflow.org/images/tensors_flowing.gif"/>
+</p>
+
+>Credit: [TF Graph docs](https://www.tensorflow.org/programmers_guide/graphs)
+
+>Static graphs are nice because you can optimize the graph up front; framework might decide to fuse some graph
+operations for efficiency, or to come up with a strategy for distributing the graph across many GPUs or many
+machines. If you are reusing the same graph over and over, then this potentially costly up-front optimization can be amortized as the same graph is rerun over and over. However, for some models we may wish to perform
+different computations differently for each data point; for example a recurrent network might be unrolled for different numbers of time steps for each data point; this unrolling can be implemented as a loop. With a static graph the loop construct needs to be a part of the graph; for this reason TensorFlow provides operators such as tf.scan for embedding loops into the graph. With dynamic graphs the situation is simpler: since we build graphs on-the-fly for each example, we can use normal imperative flow control to perform computation that differs for each input.
+
+**Data Loaders**: With its well designed APIs, sampler & data loader, parallelizing data-flow operations is incredibly simple. TensorFlow provides us with some of its data loading tools (readers, queues, etc) but PyTorch is clearly miles ahead. 
+
+*So why is TensorFlow so popular then?* While we may feel that learning about DL makes PyTorch a better candidate than TF, it may also be noted that there are certain fronts where TensorFlow does extremely well. Primarily in **Deployment**, **Device Management** & **Serialization**.
 
 ## Next Up: Handwritten Digit Classification
 
