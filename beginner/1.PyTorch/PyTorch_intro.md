@@ -21,6 +21,7 @@ PyTorch is a Python based scientific computing package targeted at two sets of a
 - A Deep Learning research platform that provides maximum flexibility and speed through Dynamic Compute graphs & Imperative Programming control flow.
 - A replacement for NumPy to harness GPU compute capability.
 
+
 ### Tensors
 
 In any deep learning pipeline, one obvious inevitable thing that we encounter, is mathematical data. Be it an images stored in the form of `[height x width]` matrices, a piece of text stored in the form a vector or some spooky operation taking place between those two. PyTorch provides us with objects known as Tensors that store all this data under one roof.
@@ -124,7 +125,7 @@ Variable containing:
     <img src="https://alykhantejani.github.io/images/gradient_descent_line_graph.gif"/>
 </p>
 
-So until now, we've seen Tensors that hold the data, Variables wrap around Tensors to let them perform complex math operations & finally `autograd` to compute gradients. So why do these Variables need retain a history of computation?
+So until now, we've seen Tensors that hold the data, Variables wrap around Tensors to let them perform complex math operations & finally `autograd` to compute gradients. So why do these Variables need to retain a history of computation?
 
 The reason we wish to retain a computational graph of variables is so we can differentiate & update the variables to optimize mathematical equations. This may not make much sense now, but hang on for a while. We'll get there. Say we have two Variables `y_` & `y`. `y_` is what our model predicts & `y` is what it **should** predict (remember supervised learning?).
 
@@ -188,13 +189,13 @@ different computations differently for each data point; for example a recurrent 
 
 ## Next Up: Handwritten Digit Classification
 
-So that's all for now. For the next article in this series, we are introducing a classical problem in Computer Vision: Handwritten Digit Recognition. Until now we've seen how to use Tensors (n-dimensional arrays) in PyTorch & compute their gradients with Autograd. The handwritten digit recognition is an example of a **classification** problem; given an image of a digit we can to classify it as either 0, 1, 2, 3...9. Each digit to be classified is known as a class.
+So that's all for now. For the next article in this series, we are introducing a classical problem in Computer Vision: Handwritten Digit Recognition. Until now we've seen how to use Tensors (n-dimensional arrays) in PyTorch & compute their gradients with Autograd. The handwritten digit recognition is an example of a **classification** problem; given an image of a digit we can to classify it as either 0, 1, 2, 3...9. Each digit to be classified is known as a class. We will (try) to build a classifier with only whatever you've learned until now & then finally introduce you to the Artificial Neural Networks.
 
 <p align="center">
   <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/mnist_logreg.jpeg?raw=true"/>
 </p>
 
-In simple terms: we'll be given a greyscale image (28 x 28) of some handwritten digit. We'll process this image to get a 28 x 28 matrix of real valued numbers, called **features** of this image. Our objective would be to **map a relationship between these features & the probability of a particular outcome**. Before moving on to the next article, if you are not familiar with this kind of a task, or wish to seek a quick intro to Logistic Regression, give [this article](https://medium.com/data-science-group-iitr/logistic-regression-simplified-9b4efe801389) a quick 5 minute read & you're good to go.
+Task: we'll be given a greyscale image (28 x 28) of some handwritten digit. We'll process this image to get a 28 x 28 matrix of real valued numbers, called **features** of this image. Our objective would be to **map a relationship between these features & the probability of a particular outcome**. Before moving on to the next article, if you are not familiar with this kind of a task, or wish to seek a quick intro to Logistic Regression, give [this article](https://medium.com/data-science-group-iitr/logistic-regression-simplified-9b4efe801389) a quick 5 minute read & you're good to go.
 
 ### Dataset
 
