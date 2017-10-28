@@ -127,7 +127,7 @@ Variable containing:
 
 So until now, we've seen Tensors that hold the data, Variables wrap around Tensors to let them perform complex math operations & finally `autograd` to compute gradients. So why do these Variables need to retain a history of computation?
 
-The reason we wish to retain a computational graph of variables is so we can differentiate & update the variables to optimize mathematical equations. This may not make much sense now, but hang on for a while. We'll get there. Say we have two Variables `y_` & `y`. `y_` is what our model predicts & `y` is what it **should** predict (remember supervised learning?).
+The reason we wish to retain a computational graph of these variables is so we can differentiate & update them to optimize mathematical equations. This may not make much sense now, but hang on for a while. We'll get there. Say we have two Variables `y_` & `y`. `y_` is what our model predicts & `y` is what it **should** predict (remember supervised learning?).
 
 But how do we teach a machine that it's not doing a very good job of predicting `y` & needs to do better? You see, the basis of learning, be it biological beings like us or artificial machines, has always been 'repetition' of a  particular task i.e. a **learning algorithm**. To achieve this, we optimize!
 
