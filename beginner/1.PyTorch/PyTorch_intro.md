@@ -4,7 +4,7 @@
 
 ## Introduction
 
-[PyTorch](http://pytorch.org/) is one among the numerous [deep learning frameworks](https://www.kdnuggets.com/2017/02/python-deep-learning-frameworks-overview.html) which allows us to optimize mathematical equations using [Gradient Descent](https://medium.com/ai-society/hello-gradient-descent-ef74434bdfa5). The objective of this article is to give you a hands on experience with PyTorch & some basic mathematical lingo associated with Deep Learning. We also introduce the classic problem of [Handwritten Digit Recognition](http://yann.lecun.com/exdb/mnist/) a.k.a the hello world of Deep Learning.
+[PyTorch](http://pytorch.org/) is one among the numerous [Deep Learning frameworks](https://www.kdnuggets.com/2017/02/python-deep-learning-frameworks-overview.html) which allows us to build powerful Deep Learning models by harnessing GPU compute. PyTorch is extensively used for rapid prototyping in research and small scale projects. The objective of this article is to give you a hands on experience with PyTorch & some basic mathematical lingo associated with Deep Learning. We also introduce the classic problem of [Handwritten Digit Recognition](http://yann.lecun.com/exdb/mnist/).
 
 **Table of Contents**:
 
@@ -18,14 +18,14 @@
 
 PyTorch is a Python based scientific computing package targeted at two sets of audiences:
 
-- A replacement for NumPy to harness GPU compute capability.
 - A Deep Learning research platform that provides maximum flexibility and speed through Dynamic Compute graphs & Imperative Programming control flow.
+- A replacement for NumPy to harness GPU compute capability.
 
 ### Tensors
 
 In any deep learning pipeline, one obvious inevitable thing that we encounter, is mathematical data. Be it an images stored in the form of `[height x width]` matrices, a piece of text stored in the form a vector or some spooky operation taking place between those two. PyTorch provides us with objects known as Tensors that store all this data under one roof.
 
-*Formally*, a [PyTorch Tensor](http://pytorch.org/docs/master/tensors.html) is conceptually identical to a numpy `ndarray`, and PyTorch provides many functions for operating on these Tensors. Like standard `ndarrays`, PyTorch Tensors do not know anything about deep learning or computational graphs or gradients; they are a generic tool for scientific computing. We can use n-dimensional Tensors to our requirement, for instance - we can have multidimensional (2D) tensor storing an image, or a single variable storing text.
+*Formally*, a [PyTorch Tensor](http://pytorch.org/docs/master/tensors.html) is conceptually identical to a NumPy's `ndarray`, and PyTorch provides many functions for operating on these Tensors. Like standard `ndarrays`, PyTorch Tensors do not know anything about deep learning or computational graphs or gradients; they are a generic tool for scientific computing. We can use n-dimensional Tensors to our requirement, for instance - we can have multidimensional (2D) tensor storing an image, or a single variable storing text.
 
 The following snippets demonstrate Tensors & a few of their operations:
 
