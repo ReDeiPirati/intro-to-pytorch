@@ -16,11 +16,15 @@ Before we move ahead with our first task of implementing `Logistic Regression` f
   2. A brief explanation about Autograd & Optimizers.
   3. Introduced the task of Handwritten Digit Recognition on the MNIST dataset.
 
-We hope you're following along with the `iPython`
+We hope you're following along with the `iPython Notebook`.
 
 ## Logistic Regression
 
 At the end of last lesson, we introduced the famous MNIST task. It is when we're given a `[28 x 28]` grayscale image of a handwritten digit and we wish to identify the digit `[0-9]`. The outputs here (digits) are referred to as `classes`, 10 of them in this case. This type of problem is particularly known as a **Multi-Class Classification**-- where a response `(y)` can have 3 or more values (10 in this case).
+
+<p align="center">
+<img src="https://cdn-images-1.medium.com/max/800/1*zY1qFB9aFfZz66YxxoI2aw.gif"/>
+</p>
 
 We'll start off by understanding the workflow of a classification problem. In the next few sections you'll see how an image dataset is processed as well as the instantiation of a Logistic model in PyTorch.
 
@@ -30,7 +34,9 @@ For the sake of notation, let's denote the input image matrix `[28 x 28]` by `X`
 
 We can convert the 2-dimensional image features in our example into a 1-dimensional one (as required in linear regression) by appending each row of pixels one after another to the end of the first row of pixels as shown below.
 
-![Feature transformation](https://cdn-images-1.medium.com/max/1280/1*Vo8PMHppg_lWxFAZHZzNGQ.png)
+<p align="center">
+<img src="https://cdn-images-1.medium.com/max/1000/1*UDgDe_-GMs4QQbT8UopoGA.png"/>
+</p>
 
 Also, in a classification task, we cannot leave `Y` as a scalar value since we do not want the predicted outcome to be a real valued number.
 
@@ -46,7 +52,7 @@ To derive this vector of scores, for a given image, each pixel on it will contri
 
 If you remember, in the last article, we had defined our error/loss as `error = (y_-y).abs()` i.e the absolute numerical difference between the predicted output & the actual output. However, in a classification task, things are a bit different. Such a cost function, for an image of digit ‘1’, will penalize a prediction of ‘7’ more heavily `(7–1=6)` than a prediction of ‘2’ `(2–1=1)`, although both are equally wrong.
 
-The most commonly used cost function in multi-class classification problem is the [cross entropy](https://en.wikipedia.org/wiki/Cross_entropy) loss. It works in 3 steps,
+The most commonly used cost function in multi-class classification problem is the [cross entropy](https://en.wikipedia.org/wiki/Cross_entropy) loss. It works in 3 simple steps,
 
   1. Convert actual image class vector `(y)` into a [one-hot vector](https://machinelearningmastery.com/why-one-hot-encode-data-in-machine-learning/), which is a probability distribution.
   2. Convert prediction class vector `(y')` into a probability distribution using [Softmax](https://www.quora.com/What-is-the-sigmoid-function-and-what-is-its-use-in-machine-learnings-neural-networks-How-about-the-sigmoid-derivative-function).
@@ -169,3 +175,30 @@ We encourage you to head over to the `ipython notebook` & try tinkering with the
 You can see here, how the decrease in the error/loss value leads to an increase in accuracy. This behaviour portrays the increasing confidence of the model as we feed in more & more data while iterating through the dataset. Upon evaluating, we can an accuracy of about 80-85%. So naturally, the next question is, **can we do better?**.
 
 ## Artificial Neural networks
+
+So until now, you've seen how a machine **learns** by reiterating over the input data over & over & minimizing a `loss` function. Neural Networks behave much in the same way but are **structurally** different from linear models like Logistic Regression. Neural Networks tend to introduce a **non-linearity** in the form a mathematical transformation as the input data is processed. What we want you to do here now is, compare the following snippet of code below to the one defined above for Logistic Regression,
+
+```python
+model = nn.Sequential(
+    nn.Linear(D_in, H), #Layer 1 : Input Layer
+    nn.ReLU(), # Activation Function
+    nn.Linear(H, D_out), # Layer 3 : Output Layer
+)
+```
+Do you see any difference? Instead of simply creating a linearized equation i.e `y = W.x + b`, our equation will be of the form, `y = W.(ReLU(W_.x + b_) + b)`. It is interesting to know that `H` here represents the **hidden weights** or intermediate values while `ReLU` or [Rectified Linear Unit](https://en.wikipedia.org/wiki/Ramp_function) is the introduced non-linearity. This brief introduction to Neural Nets will about their structural component & not the historical motivations behind them. However, if you do wish to explore more about vanilla neural network architecture, Keno Leon does a fantastic job of explaining them through his doodles in [this medium article](https://becominghuman.ai/making-a-simple-neural-network-2ea1de81ec20).
+
+For the time being, let's just say a **Neuron** is something that holds a real valued number. And for the task at hand, we have 784 `[28 x 28]` of these Neurons as input. Let's call the values held by these Neurons as thier **Activations** & represent how positive or negative is the relevant weighted sum of inputs to that Neuron is, as the data flows through the network. These 784 Neurons make up the first layer of our network.
+
+<p align="center"
+<img src="https://ml4a.github.io/images/figures/mnist_1layer.png"/>
+</p>
+
+Similar to Logistic Regression, the last layer in the network is simply a vector of 10 Neurons holding Activations that represent the **probability** of an image belonging to a particular class; in this case, a digit. Remember, activations in one layer determine activations in the next layer.
+
+**So what are hidden layers for?** Our best hope with a non-linear layered architecture is that specific Neurons in each layer of the network are able to detect certain patters in the input data & get activated accordingly. That is to say, certain Neurons in Hidden Layer 1 might be activated by straight lines, some other Neurons in Hidden Layer 2 might get activated by by contours. Imagine how detecting shapes & contours might be helpful for image recognition tasks. Even the task of parsing speech breaks down into layers of abstraction i.e distinct sounds to words to sentences to phrases to thoughts!
+
+<p align="center"
+<img src= "http://neuralnetworksanddeeplearning.com/images/tikz12.png"/>
+</p>
+
+Each Neuron in the hidden layer is connected to all 784 pixel Nuerons from the input layer. And each of those 784 connections have their own weights & some [biases](https://stackoverflow.com/questions/2480650/role-of-bias-in-neural-networks). So for 16-Neuron hidden layer, we have `784 x 16 + 16` weights and biases. And the learning process tends to find the right balance of weights & biases so that it solves the problem at hand. And that's just the first Hidden Layer! See why we need all that GPU compute we spoke about in the introduction? 
