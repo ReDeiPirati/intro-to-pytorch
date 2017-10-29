@@ -283,14 +283,16 @@ We train our model for five epochs by feeding in `image , label` pairs, doing a 
 
 As you can see, with a test accuracy of 97%, a simple Neural Network far outweighs the Logistic Regression! Imagine what we could possibly do if we had a dedicated Neural Network architecture for processing images (and we do!).
 
+
+## Summary
+
+That's all for now. Now it's your turn to experiment with this simple network architecture by adding more layers, optimizers or maybe experiment with [regualizers](https://en.wikipedia.org/wiki/Overfitting). It may not seem much at first, but if you've followed along thoroughly & implemented the aforementioned task yourself, you've learned a lot! In the next couple of articles we'll be covering slightly advanced concepts related to Deep Learning & you'll see some of the most powerful applications of it in action. Stay tuned!
+
+
 ## Next Up: Convolutional Neural Network
 
 <p align="center">
 <img src="https://www.mathworks.com/content/mathworks/www/en/discovery/convolutional-neural-network/_jcr_content/mainParsys/image.img.jpg/1508999490105.jpg"/>
 </p>
 
-CNNs represent the best of Deep Learning in Computer Vision. They have wide applications is image & video recognition, recommender systems & natural language processing. In the next article we'll cover the basics of CNN & see how they boost state-of-the-art results in image classification. Since CNNs are slightly more complex than generic multi-layer perceptrons we've built until now, if you feel curious, you can read about them on [Christopher Olah's blog](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/) before moving on & implementing one with us on your own. 
-
-## Summary
-
-That's all for now. Now it's your turn to experiment with this simple network architecture by adding more layers, optimizers or maybe experiment with [regualizers](https://en.wikipedia.org/wiki/Overfitting). It may not seem much at first, but if you've followed along thoroughly & implemented the aforementioned task yourself, you've learned a lot! In the next couple of articles we'll be covering slightly advanced concepts related to Deep Learning & you'll see some of the most powerful applications of it in action. Stay tuned!
+CNNs represent the best of Deep Learning in Computer Vision. They have wide applications is image & video recognition, recommender systems & natural language processing. In the next article we'll cover the basics of CNN & see how they boost state-of-the-art results in image classification. Since CNNs are slightly more complex than generic multi-layer perceptrons we've built until now, if you feel curious, you can read about them on [Christopher Olah's blog](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/) before moving on & implementing one with us on your own.
