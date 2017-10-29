@@ -189,7 +189,7 @@ Do you see any difference? Instead of simply creating a linearized equation i.e 
 
 For the time being, let's just say a **Neuron** is something that holds a real valued number. And for the task at hand, we have 784 `[28 x 28]` of these Neurons as input. Let's call the values held by these Neurons as thier **Activations** & represent how positive or negative is the relevant weighted sum of inputs to that Neuron is, as the data flows through the network. These 784 Neurons make up the first layer of our network.
 
-<p align="center"
+<p align="center">
 <img src="https://ml4a.github.io/images/figures/mnist_1layer.png"/>
 </p>
 
@@ -201,4 +201,4 @@ Similar to Logistic Regression, the last layer in the network is simply a vector
 <img src= "http://neuralnetworksanddeeplearning.com/images/tikz12.png"/>
 </p>
 
-Each Neuron in the hidden layer is connected to all 784 pixel Nuerons from the input layer. And each of those 784 connections have their own weights & some [biases](https://stackoverflow.com/questions/2480650/role-of-bias-in-neural-networks). So for 16-Neuron hidden layer, we have `784 x 16 + 16` weights and biases. And the learning process tends to find the right balance of weights & biases so that it solves the problem at hand. And that's just the first Hidden Layer! See why we need all that GPU compute we spoke about in the introduction? 
+Each Neuron in the hidden layer is connected to all 784 pixel Nuerons from the input layer. And each of those 784 connections have their own weights & some [biases](https://stackoverflow.com/questions/2480650/role-of-bias-in-neural-networks). So for 16-Neuron hidden layer, we have `784 x 16 + 16` weights and biases. And the learning process tends to find the right balance of weights & biases so that it solves the problem at hand. And that's just the first Hidden Layer! See why we need all that GPU compute we spoke about in the introduction?
