@@ -202,3 +202,95 @@ Similar to Logistic Regression, the last layer in the network is simply a vector
 </p>
 
 Each Neuron in the hidden layer is connected to all 784 pixel Nuerons from the input layer. And each of those 784 connections have their own weights & some [biases](https://stackoverflow.com/questions/2480650/role-of-bias-in-neural-networks). So for 16-Neuron hidden layer, we have `784 x 16 + 16` weights and biases. And the learning process tends to find the right balance of weights & biases so that it solves the problem at hand. And that's just the first Hidden Layer! See why we need all that GPU compute we spoke about in the introduction?
+
+### Let's Get Started!
+
+Now that we've defined in some detail how a neural network functions, let's code a simple one in PyTorch & see how well it does on the MNIST task.
+
+```python
+# Hyperparameters
+input_size = 784 # 28 * 28
+hidden_size = 16 #Something you can experiment with
+num_classes = 10 # Output classes
+learning_rate = 1e-3
+#### Model ####
+# One Hidden Layer Neural Network Model
+class Net(nn.Module):
+    def __init__(self, input_size, hidden_size, num_classes):
+        super(Net, self).__init__()
+        self.fc1 = nn.Linear(input_size, hidden_size)  # Feed in Matrix of Dim [784 x 16]
+        self.relu = nn.ReLU() # max(fc1(x),0)
+        self.fc2 = nn.Linear(hidden_size, num_classes)  # Output's Dim [16 x 10]
+    def forward(self, x):
+        out = self.fc1(x)
+        out = self.relu(out)
+        out = self.fc2(out)
+        return out
+
+model = Net(input_size, hidden_size, num_classes)
+# If you are running a GPU instance, load the model on GPU
+if cuda:
+    model.cuda()  
+#### Loss and Optimizer ####
+loss_fn = nn.CrossEntropyLoss()
+# If you are running a GPU instance, compute the loss on GPU
+if cuda:
+    loss_fn.cuda()
+
+# Feeding model params to the optimizer
+optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+```
+The snippet above defines a simple single layer neural network with a forward pass on the input with Cross Entropy Loss as the loss function. Training is very similar to what we did in the first section of the article,
+
+```python
+num_epochs = 5
+# Metrics
+train_loss = []
+train_accu = []
+# Model train mode
+model.train()
+# Training the Model
+for epoch in range(num_epochs):
+    for i, (images, labels) in enumerate(train_loader):
+        images = Variable(images.view(-1, 28*28))
+        labels = Variable(labels)
+        if cuda:
+            images, labels = images.cuda(), labels.cuda()
+        # Forward + Backward + Optimize
+        optimizer.zero_grad()
+        outputs = model(images)
+        loss = loss_fn(outputs, labels)
+        loss.backward()
+        optimizer.step()
+        if cuda:
+            loss.cpu()
+        # Loss Metric
+        train_loss.append(loss.data[0])
+        # Accuracy Metric
+        prediction = outputs.data.max(1)[1]   # first column has actual prob.
+        accuracy = prediction.eq(labels.data).sum()/batch_size*100
+        train_accu.append(accuracy)
+```
+
+We train our model for five epochs by feeding in `image , label` pairs, doing a forward pass over the image with initial weights of the Neurons & then backpropagating through gradient computation to update those weights with the help of an optimizer (Adam), to make the model more & more accurate after each iteration.
+
+### Results: Neural Network
+
+<p float="center">
+  <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/nn_loss.png?raw=true"/>
+  <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/nn_acc.png?raw=true"/>
+</p>
+
+As you can see, with a test accuracy of 97%, a simple Neural Network far outweighs the Logistic Regression! Imagine what we could possibly do if we had a dedicated Neural Network architecture for processing images (and we do!).
+
+## Next Up: Convolutional Neural Network
+
+<p align="center">
+<img src="https://www.mathworks.com/content/mathworks/www/en/discovery/convolutional-neural-network/_jcr_content/mainParsys/image.img.jpg/1508999490105.jpg"/>
+</p>
+
+CNNs represent the best of Deep Learning in Computer Vision. They have wide applications is image & video recognition, recommender systems & natural language processing. In the next article we'll cover the basics of CNN & see how they boost state-of-the-art results in image classification. Since CNNs are slightly more complex than generic multi-layer perceptrons we've built until now, if you feel curious, you can read about them on [Christopher Olah's blog](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/) before moving on & implementing one with us on your own. 
+
+## Summary
+
+That's all for now. Now it's your turn to experiment with this simple network architecture by adding more layers, optimizers or maybe experiment with [regualizers](https://en.wikipedia.org/wiki/Overfitting). It may not seem much at first, but if you've followed along thoroughly & implemented the aforementioned task yourself, you've learned a lot! In the next couple of articles we'll be covering slightly advanced concepts related to Deep Learning & you'll see some of the most powerful applications of it in action. Stay tuned!
