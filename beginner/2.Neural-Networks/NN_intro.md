@@ -197,7 +197,7 @@ Similar to Logistic Regression, the last layer in the network is simply a vector
 
 **So what are hidden layers for?** Our best hope with a non-linear layered architecture is that specific Neurons in each layer of the network are able to detect certain patters in the input data & get activated accordingly. That is to say, certain Neurons in Hidden Layer 1 might be activated by straight lines, some other Neurons in Hidden Layer 2 might get activated by by contours. Imagine how detecting shapes & contours might be helpful for image recognition tasks. Even the task of parsing speech breaks down into layers of abstraction i.e distinct sounds to words to sentences to phrases to thoughts!
 
-<p align="center"
+<p align="center">
 <img src= "http://neuralnetworksanddeeplearning.com/images/tikz12.png"/>
 </p>
 
