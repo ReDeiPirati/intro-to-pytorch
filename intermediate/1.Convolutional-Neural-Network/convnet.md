@@ -82,6 +82,10 @@ Now, let’s take a look at **padding**. Now imagine, what happens when you appl
 
 ### Hyperparameters
 
+<p align="center">
+<img src="https://media.mljar.com/blog/are-hyper-parameters-really-important-in-machine-learning/hyper-parameters.jpg"/>
+</p>
+
 Before moving on, let's take a minute to digest what we've learned so far and recapitulate. One particular aspect we'd like you think about here is about **Hyperparameters** -- things we encourage you to play with while trying out the `ipython notebook`.
 
   1. **ConvNet Layers:** How many? Filter Sizes? Stride/Padding? These may seem ordinary but they're not trivial matters. People often put in a lot of research into these factors since they determine the behaviour of convolutional operations.
@@ -92,5 +96,3 @@ Before moving on, let's take a minute to digest what we've learned so far and re
 There's sure more of these like Dropout, but more on that later.
 
 ## Building a ConvNet in PyTorch
-
- 
