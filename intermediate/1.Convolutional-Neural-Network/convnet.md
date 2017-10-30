@@ -43,6 +43,7 @@ In layman terms, ConvNets look for symmetrical features in the input data. Each 
 <p align="center">
 <img src="http://machinelearninguru.com/_images/topics/computer_vision/basics/convolutional_layer_1/rgb.gif"/>
 </p>
+
 >Image: MLGuru
 
 The illustration above portrays the operation of a convolutional layer. Imagine you have an RGB image, represented by `[number_of_channels (colors) x height x weight]`, in this case, `[3 x 5 x 5]` and we create `3` **filters** of `[3 x 3]` each. That is to say, `[3 x 3 x 3]` filters slide over the entire image and along the way take the dot products between filter values & chunks of the input image to get a `[1 x 4 x 4]` **feature map**. Since each convolutional layer consists of its own **filter**, if we stack `n` number of these with each independently convolved with the image, we end up with `n` feature maps! But **what's the point?** Because these filters are initialized randomly and thus, become our parameters which will be learned by the network subsequently.
@@ -78,3 +79,18 @@ Now, let’s take a look at **padding**. Now imagine, what happens when you appl
 </p>
 
 >The formula for calculating the output size for any given convolutional layer is `(W - K + 2P)/S + 1` where O is the output ratio of height/length, W is the input ratio of height/length, K is the filter size, P is the padding, and S is the stride.
+
+### Hyperparameters
+
+Before moving on, let's take a minute to digest what we've learned so far and recapitulate. One particular aspect we'd like you think about here is about **Hyperparameters** -- things we encourage you to play with while trying out the `ipython notebook`.
+
+  1. **ConvNet Layers:** How many? Filter Sizes? Stride/Padding? These may seem ordinary but they're not trivial matters. People often put in a lot of research into these factors since they determine the behaviour of convolutional operations.
+  2. **ReLU Layers:** To introduce non-linearity (activation), it has been a convention to introduce one of these after every conv layer.  
+  3. **Pooling Layers:** Max Pooling is surely the most popular choice here, but why? We leave this to you. Explore some other options & find out why!
+  4. **1 x 1 convolution:** Often known as the `network-in-network` size filter. Performs N- Dimensional element-wise multiplications where N is the depth (color-channels) of the input volume into the layer.
+
+There's sure more of these like Dropout, but more on that later.
+
+## Building a ConvNet in PyTorch
+
+ 
