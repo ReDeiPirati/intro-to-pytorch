@@ -96,3 +96,43 @@ Before moving on, let's take a minute to digest what we've learned so far and re
 There's sure more of these like Dropout, but more on that later.
 
 ## Building a ConvNet in PyTorch
+
+So let's get back to building a ConvNet in PyTorch on our initial task of classifying handwritten digits on the MNIST dataset. Since most of the data pre-processing parameters remain the same, all you have to do is stack up a few pre-programmed layers of convolutional instead of linear ones.
+
+Before you get to that snippet, a few pointers for you to relate -
+
+  1. Since the MNIST provides grayscale images, the number of channels = 1 (e.g for RGB, it is 3)
+  2. `kernel_size` specifies the size of convolving filter for each convolutional layer.
+  3. By default, there is no padding applied and the stride is set to 1.
+  4. Network architecture that we wish to build is of the form -- `ConvNet -> Max_Pool -> RELU -> ConvNet -> Max_Pool -> RELU -> FC -> RELU -> FC -> Softmax`
+  5. You'll see we've added a dropout layer here as well which, for the time being let's just say, is a form of regualizer. We'll get into the details of its working later.
+
+```python
+class CNN(nn.Module):
+    def __init__(self, num_classes):
+        super(CNN, self).__init__()
+        self.conv1 = nn.Conv2d(1, 10, kernel_size=5)
+        self.conv2 = nn.Conv2d(10, 20, kernel_size=5)
+        self.conv2_drop = nn.Dropout2d()
+        self.fc1 = nn.Linear(320, 50)
+        self.fc2 = nn.Linear(50, num_classes)
+
+    def forward(self, x):
+        x = F.relu(F.max_pool2d(self.conv1(x), 2))
+        x = F.relu(F.max_pool2d(self.conv2_drop(self.conv2(x)), 2))
+        x = x.view(-1, 320)
+        x = F.relu(self.fc1(x))
+        x = F.dropout(x, training=self.training)
+        x = self.fc2(x)
+        return F.log_softmax(x)   
+model = CNN(num_classes)
+# If you are running a GPU instance, load the model on GPU
+if cuda:
+    model.cuda()
+loss_fn = nn.CrossEntropyLoss()
+# If you are running a GPU instance, compute the loss on GPU
+if cuda:
+    loss_fn.cuda()
+
+# Set parameters to be updated.  
+optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
