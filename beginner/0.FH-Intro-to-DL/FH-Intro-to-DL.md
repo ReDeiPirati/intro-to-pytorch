@@ -57,11 +57,15 @@ To get a brief intro to Machine Learning & some basic concepts, you can refer to
 
 ## Machine Learning to Deep Learning
 
-![DL_ML](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/ML_DL.png?raw=true)
+<p align="center">
+<img src= "https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/ML_DL.png?raw=true"/>
+</p>
 
 Deep learning is a sub domain of Machine Learning that involves algorithms 'inspired' by the human brain, to tackle machine learning problems. So what is a Neural Network really? Imagine if you were trying to solve a math equation to find the value of an unknown variable. Naturally, we simply cannot look at an equation & guess the answer! So what do we do? We try to solve parts of it, step by step. In each step, we try to simplify a part of this equation to work our way up to the solution. A neural network works in the same manner, where each step corresponds to a 'layer' in the network.
 
-![ml_to_dl](https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/ml_to_dl.png)
+<p align="center">
+<img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/ml_to_dl.png"/>
+</p>
 
 Every layer is meant to solve a part of the problem. And much like math, if our answer doesn't match in the end, we trace back on those very steps to see what needs to be fixed! A deep neural network works in a similar manner, processing the input one step at a time. We'll dive into the details of 'training' a DNN in the upcoming articles.
 
