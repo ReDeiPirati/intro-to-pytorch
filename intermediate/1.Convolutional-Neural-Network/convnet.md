@@ -61,7 +61,7 @@ How does pooling help? It allows the later convolutional layers to work on a lar
 Striding & Padding are the two hyperparamters that can be used to alter the behaviour of each convolutional layer. **Stride** controls how the filter convolves of the image. The amount by which the filter shifts is the stride. In above illustration, the stride was implicitly set at 1. Stride is normally set in a way so that the output volume is an integer and not a fraction. Let’s look at an example.
 
 <p align="center">
-<img="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/Stride1.png?raw=true"/>
+<img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/Stride1.png?raw=true"/>
 </p>
 
 A `[7 x 7]` input volume, with `[3 x 3]` filter with stride set to 1 gives a `[5 x 5]` feature map. Now let's try increasing the stride value to `2`,
