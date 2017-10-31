@@ -41,7 +41,9 @@ Put simply, when a machine, by virtue of an algorithm, harnesses the ability to 
 
 ### Trinity of Machine Learning
 
-<img style="float: center;" src="https://image.slidesharecdn.com/nextgentalk022015-150211154330-conversion-gate02/95/an-introduction-to-supervised-machine-learning-and-pattern-classification-the-big-picture-8-638.jpg?cb=1423785060">
+<p align="center">
+<img src="https://image.slidesharecdn.com/nextgentalk022015-150211154330-conversion-gate02/95/an-introduction-to-supervised-machine-learning-and-pattern-classification-the-big-picture-8-638.jpg?cb=1423785060"/>
+</p>
 
 *Supervised Learning:* Say you get a bunch of photos with information on **what's on them** & you train a model to recognize new photos. Wanna see supervised learning in action? Head over to this example of [Teachable Machine](https://teachablemachine.withgoogle.com/) by Google.
 

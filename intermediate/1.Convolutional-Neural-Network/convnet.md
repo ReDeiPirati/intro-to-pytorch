@@ -124,15 +124,11 @@ class CNN(nn.Module):
         x = F.relu(self.fc1(x))
         x = F.dropout(x, training=self.training)
         x = self.fc2(x)
-        return F.log_softmax(x)   
+        return x
 model = CNN(num_classes)
-# If you are running a GPU instance, load the model on GPU
 if cuda:
     model.cuda()
 loss_fn = nn.CrossEntropyLoss()
-# If you are running a GPU instance, compute the loss on GPU
 if cuda:
     loss_fn.cuda()
-
-# Set parameters to be updated.  
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
