@@ -61,13 +61,13 @@ How does pooling help? It allows the later convolutional layers to work on a lar
 Striding & Padding are the two hyperparamters that can be used to alter the behaviour of each convolutional layer. **Stride** controls how the filter convolves of the image. The amount by which the filter shifts is the stride. In above illustration, the stride was implicitly set at 1. Stride is normally set in a way so that the output volume is an integer and not a fraction. Let’s look at an example.
 
 <p align="center">
-<img="https://adeshpande3.github.io/assets/Stride1.png"/>
+<img="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/Stride1.png?raw=true"/>
 </p>
 
 A `[7 x 7]` input volume, with `[3 x 3]` filter with stride set to 1 gives a `[5 x 5]` feature map. Now let's try increasing the stride value to `2`,
 
 <p align="center">
-<img="https://adeshpande3.github.io/assets/Stride2.png"/>
+<img="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/Stride2.png?raw=true"/>
 </p>
 
 The output volume shrinks! As you can see, we would normally increase the stride if we want less overlap & smaller spatial dimensions.
@@ -75,10 +75,12 @@ The output volume shrinks! As you can see, we would normally increase the stride
 Now, let’s take a look at **padding**. Now imagine, what happens when you apply three 5 x 5 filters to a 32 x 32 x 3 input volume? The output volume would be a 28 x 28 x 3 feature map. Notice that the spatial dimensions decrease. As we make the network deeper, the size of the volume will decrease faster than we would like. In the early layers of our network, we want to preserve as much information about the original input volume so that we can extract those low level features. Let’s say we want to apply the same convolutional layer but we want the output volume to remain 32 x 32 x 3. To achieve this, we could apply a zero padding of size 2 to that layer. Zero padding pads the input volume with zeros around the border. If we think about a zero padding of two, then this would result in a 36 x 36 x 3 input volume. If you have a stride of 1 and if you set the size of zero padding to `(K - 1)/2` where K is the filter size, then the input and output volume will always have the same spatial dimensions.
 
 <p align="center">
-<img="https://adeshpande3.github.io/assets/Pad.png"/>
+<img="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/Pad.png?raw=true"/>
 </p>
 
 >The formula for calculating the output size for any given convolutional layer is `(W - K + 2P)/S + 1` where O is the output ratio of height/length, W is the input ratio of height/length, K is the filter size, P is the padding, and S is the stride.
+
+>Images: adeshpande3.github.io
 
 ### Hyperparameters
 
