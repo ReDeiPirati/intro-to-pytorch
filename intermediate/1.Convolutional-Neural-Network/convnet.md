@@ -193,4 +193,8 @@ Soon after AlexNet, Oxford's Visual Geometry Group followed along with their own
 <img src="https://adeshpande3.github.io/assets/GoogLeNet3.png"/>
 </p>
 
-Now you may ask, and rightly so, Google built a super complicated ConvNet on a specific kind of dataset. What do I do with that? And that brings us to our next article in this series where we take up **[Transfer Learning](http://ruder.io/transfer-learning/)**. Put simply, the transfer of knowledge from ILSVRC's winning ConvNet to your tiny ConvNet for classifying the images of Dogs & Cats. 
+Now you may ask, and rightly so, Google built a super complicated ConvNet on a specific kind of dataset. What do I do with that? And that brings us to our next article in this series where we take up **[Transfer Learning](http://ruder.io/transfer-learning/)**. Put simply, the transfer of knowledge from ILSVRC's winning ConvNet to your tiny ConvNet for classifying the images of Dogs & Cats.
+
+## Summary
+
+That's all for this one. Again, now it's your turn to experiment. We know it's a lot to grasp & they key here is to not lose touch with the practical implementation of these concepts. So practice as much as you can, there's more coming. In the next article, we'll show you how to build a state-of-the-art classifier using Transfer Learning using one of ILSVRC's winning ConvNet.
