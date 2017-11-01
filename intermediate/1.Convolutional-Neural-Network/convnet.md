@@ -113,7 +113,7 @@ Before you get to that snippet, a few pointers for you to relate -
 class CNN(nn.Module):
     def __init__(self, num_classes):
         super(CNN, self).__init__()
-        self.conv1 = nn.Conv2d(1, 10, kernel_size=5)
+        self.conv1 = nn.Conv2d(1, 10, kernel_size=5) # [input_channels=1 (grayscale), out_channels=10, stride=1, padding=0]
         self.conv2 = nn.Conv2d(10, 20, kernel_size=5)
         self.conv2_drop = nn.Dropout2d()
         self.fc1 = nn.Linear(320, 50)
@@ -134,3 +134,63 @@ loss_fn = nn.CrossEntropyLoss()
 if cuda:
     loss_fn.cuda()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+```
+And to train,
+
+```python
+model.train()
+for epoch in range(num_epochs):
+    for i, (images, labels) in enumerate(train_loader):
+        images = Variable(images)
+        labels = Variable(labels)
+        if cuda: #For GPU
+            images, labels = images.cuda(), labels.cuda()
+        optimizer.zero_grad()
+        outputs = model(images)
+        loss = loss_fn(outputs, labels)
+        if cuda:
+            loss.cpu()
+        loss.backward()
+        optimizer.step()
+        train_loss.append(loss.data[0])
+        prediction = outputs.data.max(1)[1]
+        accuracy = prediction.eq(labels.data).sum()/batch_size*100
+        train_accu.append(accuracy)
+```
+
+As you can see, the training procedure hasn't changed much. So what'd we gain?
+
+### Results: ConvNet
+
+<p float="center">
+  <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/loss_cnn.png?raw=true"/>
+  <img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/acc_cnn.png?raw=true"/>
+</p>
+
+Our simple ConvNet makes the classifier so powerful that now there's a less than 2% chance of misclassification! Now you can headover to the `iPython Notebook` to try out this task & as always, we encourage you to do all sorts of Hyper-parameter tuning & let us know if you see something interesting.
+
+If you're into something more challenging that MNIST, you can refer to the article about [Building ConvNets](https://blog.floydhub.com/building-your-first-convnet/) from our blog & implement a ConvNet in PyTorch on a whole new dataset, DogsVsCats. This'll be fun since the images are in RGB format (3 channel input) & you'll really begin to see that GPU compute shine & slice through this task in minutes.
+
+## Is that it?
+
+So you take a dataset, build a ConvNet, make it deeper to learn more complex features & that's it? Well, there's more to this world of Computer Vision & ConvNet and since we're in the flow, it's only appropriate to mention [ImageNet Large Scale Visual Recognition Challenge](http://www.image-net.org/challenges/LSVRC/) or ILSVRC, as it is popularly known. ILSVRC is an annual competition where research teams evaluate their algorithms on the given data set, and compete to achieve higher accuracy on several visual recognition tasks, one most prominent being, a classification task with nearly 1000 classes. Think of it as the annual Olympics in Computer Vision. Until around 2011, a good ILSVRC classification error rate was 25%. In 2012, a deep convolutional neural net achieved 16%; in the next couple of years, error rates fell to a few percent. By 2015, researchers reported that software exceeded human ability at the narrow ILSVRC tasks. How'd they do that?
+
+<p align="center">
+<img src="https://github.com/sominwadhwa/sominwadhwa.github.io/blob/master/assets/intro_to_pytorch_series/img_net.jpg?raw=true"/>
+</p>
+
+Geoffrey Hinton, often known as the father of deep learning, along with Alex Krizhevsky and their SuperVision Group designed the one of the first deep convolutional neural network for this task, known as the AlexNet. The network achieved a top-5 error of 15.3%, more than 10.8 percentage points ahead of the runner up.
+
+<p align="center">
+<img src="https://world4jason.gitbooks.io/research-log/content/deepLearning/CNN/Model%20&%20ImgNet/alexnet/img/alexnet2.png"/>
+</p>
+
+In fact, AlexNet has been so influential that its paper, titled “ImageNet Classification with Deep Convolutional Networks”, has been cited a total of 6,184 times and is widely regarded as one of the most influential publications in the field.
+
+Soon after AlexNet, Oxford's Visual Geometry Group followed along with their own version of a successful Deep ConvNet, the [VGG-Net](https://arxiv.org/pdf/1409.1556v6.pdf) in 2014. VGG-Net was particularly interesting because it was one of the last "simple" deep convnet architecture to successfully crack the ILSVRC. After VGG-Net, Google came along with its [LeNet](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Szegedy_Going_Deeper_With_2015_CVPR_paper.pdf) & Inception modules and threw the idea of simplicity out the window! But more on that, later!
+
+<p align="center">
+<img src="https://adeshpande3.github.io/assets/GoogLeNet3.png"/>
+</p>
+
+Now you may ask, and rightly so, Google built a super complicated ConvNet on a specific kind of dataset. What do I do with that? And that brings us to our next article in this series where we take up **[Transfer Learning](http://ruder.io/transfer-learning/)**. Put simply, the transfer of knowledge from ILSVRC's winning ConvNet to your tiny ConvNet for classifying the images of Dogs & Cats. 
