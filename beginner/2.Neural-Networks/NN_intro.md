@@ -296,3 +296,10 @@ That's all for now. Now it's your turn to experiment with this simple network ar
 </p>
 
 CNNs represent the best of Deep Learning in Computer Vision. They have wide applications is image & video recognition, recommender systems & natural language processing. In the next article we'll cover the basics of CNN & see how they boost state-of-the-art results in image classification. Since CNNs are slightly more complex than generic multi-layer perceptrons we've built until now, if you feel curious, you can read about them on [Christopher Olah's blog](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/) before moving on & implementing one with us on your own.
+
+## Resources & Further Reading
+
+- [Official documentation](http://pytorch.org/docs/master/nn.html) - `torch.nn` module.
+- [Official documentation](http://pytorch.org/docs/master/optim.html) on *optimizers* available in PyTorch.
+- Christopher Olah - [Visualizing MNIST](http://colah.github.io/posts/2014-10-Visualizing-MNIST/)
+- Christopher Olah - [Neural Networks, Manifolds, and Topology](http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/)

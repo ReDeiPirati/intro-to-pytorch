@@ -198,3 +198,10 @@ Now you may ask, and rightly so, Google built a super complicated ConvNet on a s
 ## Summary
 
 That's all for this one. Again, now it's your turn to experiment. We know it's a lot to grasp & they key here is to not lose touch with the practical implementation of these concepts. So practice as much as you can, there's more coming. In the next article, we'll show you how to build a state-of-the-art classifier using Transfer Learning using one of ILSVRC's winning ConvNet.
+
+## Resources & Further Reading
+
+- PyTorch's official documentation on [Convolutional Layers](http://pytorch.org/docs/master/nn.html#convolution-layers).
+- Christopher Olah - [Conv Nets: A Modular Perspective](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/)
+- Christopher Olah - [Understanding Convolutions](http://colah.github.io/posts/2014-07-Understanding-Convolutions/)
+- Andrej Karpathy - [What I learned from competing against a ConvNet on ImageNet](http://karpathy.github.io/2014/09/02/what-i-learned-from-competing-against-a-convnet-on-imagenet/)
